@@ -237,6 +237,7 @@ namespace MainForm
                     else
                     {
                         MessageBox.Show("Dữ liệu này không thể xóa, vì dữ liệu liên quan đến các đối tượng khác");
+                        clearDataKhoa();
                     }
                 }
             } else
@@ -367,6 +368,11 @@ namespace MainForm
                     }
                 }
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
