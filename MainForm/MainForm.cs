@@ -43,6 +43,7 @@ namespace MainForm
             //CHƯƠNG TRÌNH
             turnOffEditModeChuongTrinh();
             LoadDataChuongTrinhCombobox();
+            LoadDataGiangVien_ChuongTrinhCombobox(cbKhoa_ChuongTrinh.SelectedValue.ToString());
             LoadDataChuongTrinhGridview();
 
         }
@@ -602,12 +603,12 @@ namespace MainForm
                     {
                         MessageBox.Show("Xóa thông tin khoa thành công !");
                         LoadDataGiaoVienGridview();
-                        clearDataKhoa();
+                        clearDataGiaoVien();
                     }
                     else
                     {
                         MessageBox.Show("Dữ liệu này không thể xóa, vì dữ liệu liên quan đến các đối tượng khác");
-                        clearDataKhoa();
+                        clearDataGiaoVien();
                     }
                 }
             }
@@ -764,6 +765,21 @@ namespace MainForm
             ListChuongTrinh.DataSource = query.ToList();
         }
 
+        public void LoadDataGiangVien_ChuongTrinhCombobox(string makhoa)
+        {
+            var query = from kh in khoaBLL.getListKhoa()
+                        join gv in giaovienBLL.getListGiaoVien() on kh.MaKhoa equals gv.Khoa.MaKhoa
+                        where gv.Khoa.MaKhoa == makhoa
+                        select new
+                        {
+                            gv.MaGiaoVien,
+                            gv.HoTen
+                        };
+            cbGiaoVien_ChuongTrinh.DataSource = query.ToList();
+            cbGiaoVien_ChuongTrinh.DisplayMember = "HoTen";
+            cbGiaoVien_ChuongTrinh.ValueMember = "MaGiaoVien";
+        }
+
         private void btnAdd_ChuongTrinh_Click(object sender, EventArgs e)
         {
 
@@ -780,14 +796,21 @@ namespace MainForm
         }
 
 
-        private void cbMaKhoa_ChuongTrinh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ListChuongTrinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int index = e.RowIndex;
+            clearDataChuongTrinh();
+            if (btnEditMode_ChuongTrinh.Text == "ON")
+            {
+                if (index >= 0 && index < ListChuongTrinh.Rows.Count)
+                {
+                    txtID_ChuongTrinh.Text = ListChuongTrinh.Rows[index].Cells["MaChuongTrinh_CT"].Value.ToString();
+                    txtTenChuongTrinh_ChuongTrinh.Text = ListChuongTrinh.Rows[index].Cells["TenChuongTrinh_CT"].Value.ToString();
+                    txtBacHoc_ChuongTrinh.Text = ListChuongTrinh.Rows[index].Cells["MaBacHoc_CT"].Value.ToString();
+                    cbKhoa_ChuongTrinh.Text = ListChuongTrinh.Rows[index].Cells["TenKhoa_CT"].Value.ToString();
+                    cbGiaoVien_ChuongTrinh.Text = ListChuongTrinh.Rows[index].Cells["GiamDoc_CT"].Value.ToString();
+                }
+            }
         }
 
         private void searchBoxChuongTrinh_Click(object sender, EventArgs e)
@@ -795,6 +818,15 @@ namespace MainForm
 
         }
 
+        private void cbKhoa_ChuongTrinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataGiangVien_ChuongTrinhCombobox(cbKhoa_ChuongTrinh.SelectedValue.ToString());
+        }
+
+        private void cbMaKhoa_ChuongTrinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataChuongTrinhGridview();
+        }
     }
 
     
