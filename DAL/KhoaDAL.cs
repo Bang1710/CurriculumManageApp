@@ -36,6 +36,7 @@ namespace DAL
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return false;
             }
             return true;
@@ -66,6 +67,10 @@ namespace DAL
             }
             catch (DbUpdateException ex)
             {
+                Exception baseEx = ex.GetBaseException();
+
+                // Log or display the base exception message
+                MessageBox.Show("Không cho phép xóa dữ liệu" + baseEx.Message);
                 return false;
             }
             return true;
