@@ -10,6 +10,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MainForm
@@ -19,7 +20,7 @@ namespace MainForm
         KhoaBLL khoaBLL = new KhoaBLL();
         GiaoVienBLL giaovienBLL = new GiaoVienBLL();
         ChuongTrinhBLL chuongtrinhBLL = new ChuongTrinhBLL();
-
+        MonHocBLL monhocBLL = new MonHocBLL();
 
         public MainForm()
         {
@@ -45,6 +46,11 @@ namespace MainForm
             LoadDataChuongTrinhCombobox();
             LoadDataGiangVien_ChuongTrinhCombobox(cbKhoa_ChuongTrinh.SelectedValue.ToString());
             LoadDataChuongTrinhGridview();
+
+            // MÔN HỌC
+            turnOffEditModeMonHoc();
+            LoadDataKhoa_MonHocComboBox();
+            LoadDataMonHocGridview();
 
         }
 
@@ -170,7 +176,7 @@ namespace MainForm
         public bool checkDataAddKhoa(string makhoa, string tenkhoa)
         {
             var listKhoa = khoaBLL.getListKhoa();
-            var khoaID = listKhoa.Where(k => k.MaKhoa == makhoa).FirstOrDefault();
+            var khoaID = listKhoa.Where(k => k.MaKhoa.Equals(makhoa, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
             if (khoaID != null)
             {
@@ -360,12 +366,18 @@ namespace MainForm
             cbMaKhoa_ChuongTrinh.DisplayMember = "TenKhoa";
             cbMaKhoa_ChuongTrinh.ValueMember = "MaKhoa";
             cbMaKhoa_ChuongTrinh.SelectedIndex = -1;
+
+            //tab môn học
+            cbMaKhoa_MonHoc.DataSource = khoas;
+            cbMaKhoa_MonHoc.DisplayMember = "TenKhoa";
+            cbMaKhoa_MonHoc.ValueMember = "MaKhoa";
+            cbMaKhoa_MonHoc.SelectedIndex = -1;
         }
 
         private void ListKhoa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            resetDataKhoa();
+            turnONEditModeKhoa();
             if (btnEditMode_Khoa.Text == "ON")
             {
                 if (index >= 0 && index < ListKhoa.Rows.Count)
@@ -511,7 +523,7 @@ namespace MainForm
         public bool checkDataAddGiaoVien(string mgv, string hoten)
         {
             var listGiaoVien = giaovienBLL.getListGiaoVien();
-            var gvID = listGiaoVien.Where(gv => gv.MaGiaoVien == mgv).FirstOrDefault();
+            var gvID = listGiaoVien.Where(gv => gv.MaGiaoVien.Equals(mgv, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
             if (gvID != null)
             {
@@ -541,6 +553,11 @@ namespace MainForm
             {
                 MessageBox.Show("Chiều dài tên khoa không được quá 50 ký tự, hãy nhập lại giá trị khoa");
                 return false;
+            }
+
+            if (cbKhoa_GiaoVien.SelectedIndex == 0)
+            {
+                MessageBox.Show("Giá trị khoa trực thuộc đang ở giá trị mặc định, hãy cân nhắc");
             }
             return true;
         }
@@ -620,7 +637,7 @@ namespace MainForm
                     {
                         if (giaovienBLL.DeleteGiaoVien(magv))
                         {
-                            MessageBox.Show("Xóa thông tin khoa thành công !");
+                            MessageBox.Show("Xóa thông tin giáo viên thành công !");
                             LoadDataGiaoVienGridview();
                             LoadDataChuongTrinhCombobox();
                             resetDataGiaoVien();
@@ -698,7 +715,7 @@ namespace MainForm
         private void ListGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            resetDataGiaoVien();
+            turnONEditModeGiaoVien();
             if (btnEditMode_GiaoVien.Text == "ON")
             {
                 if (index >= 0 && index < ListGiaoVien.Rows.Count)
@@ -784,8 +801,6 @@ namespace MainForm
             ListChuongTrinh.DataSource = query.ToList();
         }
 
-
-
         public void LoadDataChuongTrinhGridviewSearch(string makhoa)
         {
             var query = from ct in chuongtrinhBLL.getListChuongTrinh()
@@ -822,11 +837,10 @@ namespace MainForm
             cbGiaoVien_ChuongTrinh.ValueMember = "MaGiaoVien";
         }
 
-
         public bool CheckDataAddChuongTrinh(string mact, string tenct, string mabh)
         {
             var listCTDT = chuongtrinhBLL.getListChuongTrinh();
-            var ID_CT = listCTDT.Where(ct => ct.MaChuongTrinh == mact).FirstOrDefault();
+            var ID_CT = listCTDT.Where(ct => ct.MaChuongTrinh.Equals(mact, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
             if (ID_CT != null)
             {
@@ -869,10 +883,13 @@ namespace MainForm
                 MessageBox.Show("Chiều dài mã bậc học không được quá 2 ký tự, ví dụ mã bậc học là CD ( đại diện cho hệ cao đẳng ), hãy nhập lại giá trị mã bậc học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+
+            if (cbKhoa_ChuongTrinh.SelectedIndex == 0 || cbGiaoVien_ChuongTrinh.SelectedIndex == 0)
+            {
+                MessageBox.Show("Khoa phụ trách hoặc giám đốc của chương trình đào tạo này đang ở giá trị mặc định, hãy cân nhắc !");
+            }
             return true;
         }
-
-
 
         private void btnAdd_ChuongTrinh_Click(object sender, EventArgs e)
         {
@@ -969,7 +986,7 @@ namespace MainForm
                     {
                         if (chuongtrinhBLL.DeleteChuongTrinh(mact))
                         {
-                            MessageBox.Show("Xóa thông tin khoa thành công !");
+                            MessageBox.Show("Xóa thông tin chương trình đào tạo thành công !");
                             LoadDataChuongTrinhGridview();
                             resetDataChuongTrinh();
                         }
@@ -1016,11 +1033,10 @@ namespace MainForm
             }
         }
 
-
         private void ListChuongTrinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            resetDataChuongTrinh();
+            turnONEditModeChuongTrinh();
             if (btnEditMode_ChuongTrinh.Text == "ON")
             {
                 if (index >= 0 && index < ListChuongTrinh.Rows.Count)
@@ -1060,6 +1076,315 @@ namespace MainForm
         private void cbMaKhoa_ChuongTrinh_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDataChuongTrinhGridview();
+        }
+
+
+        //-----------------------------------------CHỨC NĂNG TAB QUẢN LÝ MÔN HỌC ------------------------------------------------------
+
+        public void turnOffEditModeMonHoc()
+        {
+            btnEditMode_MonHoc.Text = "OFF";
+            btnAdd_MonHoc.Visible = true;
+            btnDelete_MonHoc.Visible = false;
+            btnSave_MonHoc.Visible = false;
+
+            txtID_MonHoc.Enabled = true;
+            txtID_MonHoc.BackColor = Color.White;
+            btnEditMode_MonHoc.ForeColor = Color.Black;
+            //cbKhoa_MonHoc.SelectedIndex = 0;
+
+            resetDataMonHoc();
+        }
+
+        public void turnONEditModeMonHoc()
+        {
+            btnEditMode_MonHoc.Text = "ON";
+            btnAdd_MonHoc.Visible = false;
+            btnDelete_MonHoc.Visible = true;
+            btnSave_MonHoc.Visible = true;
+
+            txtID_MonHoc.Enabled = false;
+            txtID_MonHoc.BackColor = Color.LightGray;
+            btnEditMode_MonHoc.ForeColor = Color.White;
+
+            //cbKhoa_MonHoc.SelectedIndex = -1;
+            numSoTinChi_MonHoc.TabStop = false;
+
+            resetDataMonHoc();
+        }
+
+        public void resetDataMonHoc()
+        {
+            txtID_MonHoc.Text = "";
+            txtTenMonHoc_MonHoc.Text = "";
+            numSoTinChi_MonHoc.Value = 1;
+        }
+
+        private void btnEditMode_MonHoc_Click_1(object sender, EventArgs e)
+        {
+            if (btnEditMode_MonHoc.Text == "ON")
+            {
+                turnOffEditModeMonHoc();
+            }
+            else if (btnEditMode_MonHoc.Text == "OFF")
+            {
+                turnONEditModeMonHoc();
+                //cbKhoa_MonHoc.SelectedIndex = -1;
+            }
+        }
+
+        public void LoadDataKhoa_MonHocComboBox()
+        {
+            var khoas = khoaBLL.getListKhoa().Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
+            cbKhoa_MonHoc.DataSource = khoas;
+            cbKhoa_MonHoc.DisplayMember = "TenKhoa";
+            cbKhoa_MonHoc.ValueMember = "MaKhoa";
+        }
+
+        public void LoadDataMonHocGridview()
+        {
+            var query = from mh in monhocBLL.getListMonHoc()
+                        join khoa in khoaBLL.getListKhoa() on mh.MaKhoa equals khoa.MaKhoa
+                        select new
+                        {
+                            mh.MaMonHoc,
+                            mh.TenMonHoc,
+                            mh.SoTinChi,
+                            khoa.TenKhoa,
+                        };
+            ListMonHoc.DataSource = query.ToList();
+        }
+
+        public bool checkDataAddMonHoc(string mamh, string tenmh, int stc)
+        {
+            var listMH = monhocBLL.getListMonHoc();
+            var ID_MH = listMH.Where(mh => mh.MaMonHoc.Equals(mamh, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+
+            if (ID_MH != null)
+            {
+                MessageBox.Show("ID đã tồn tại, hãy nhập lại giá trị ID khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(mamh))
+            {
+                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID");
+                return false;
+            }
+
+            if (mamh.Length - 1 >= 5)
+            {
+                MessageBox.Show("Chiều dài ID không được quá 5 ký tự, hãy nhập lại giá trị ID");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(tenmh))
+            {
+                MessageBox.Show("Tên môn học không được bỏ trống, hãy nhập giá trị tên môn học");
+                return false;
+            }
+
+            if (tenmh.Length - 1 >= 50)
+            {
+                MessageBox.Show("Chiều dài tên môn học không được quá 50 ký tự, hãy nhập lại giá trị tên môn học");
+                return false;
+            }
+
+            if (stc == 1 || cbKhoa_MonHoc.SelectedIndex == 0)
+            {
+                MessageBox.Show("Số tín chỉ hoặc Khoa phụ trách đang ở chế độ mặc định, hãy cân nhắc việc chọn số tín chỉ hoặc khoa phụ trách cho cho môn học này");
+            }
+            return true;
+        }
+
+        private void btnAdd_MonHoc_Click(object sender, EventArgs e)
+        {
+            var mamh = txtID_MonHoc.Text.ToString().Trim();
+            var tenmh = txtTenMonHoc_MonHoc.Text.ToString().Trim();
+            int stc = (int)numSoTinChi_MonHoc.Value;
+            var makhoa = cbKhoa_MonHoc.SelectedValue.ToString().Trim();
+
+            if (checkDataAddMonHoc(mamh, tenmh, stc))
+            {
+                var mh = new MonHoc()
+                {
+                    MaMonHoc = mamh,
+                    TenMonHoc = tenmh,
+                    MaKhoa = makhoa,
+                    SoTinChi = stc,
+                };
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thêm môn học này không", "Thông báo", MessageBoxButtons.YesNo))
+                {
+                    if (monhocBLL.AddMonHoc(mh))
+                    {
+                        MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK);
+                        LoadDataMonHocGridview();
+                        resetDataMonHoc();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm không thành công ! Hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+
+        }
+
+        private void btnDelete_MonHoc_Click(object sender, EventArgs e)
+        {
+            var mamh = txtID_MonHoc.Text.ToString().Trim();
+            var tenmh = txtTenMonHoc_MonHoc.Text.ToString().Trim();
+            int stc = (int)numSoTinChi_MonHoc.Value;
+            var makhoa = cbKhoa_MonHoc.SelectedValue.ToString().Trim();
+
+            var listmonhoc = monhocBLL.getListMonHoc();
+            var mhExist = listmonhoc.Where(m => m.MaMonHoc == mamh && m.TenMonHoc == tenmh && m.SoTinChi == stc && m.MaKhoa == makhoa).FirstOrDefault();
+
+            if (string.IsNullOrEmpty(mamh))
+            {
+                MessageBox.Show("Hãy chọn thông tin môn học mà bạn muốn xóa !", "Thông báo");
+            }
+            else if (mhExist != null)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin môn học này không ?", "Thông báo", MessageBoxButtons.YesNo))
+                {
+                    var mh = listmonhoc.Where(m => m.MaMonHoc == mamh).FirstOrDefault();
+                    if (mh.ChuongTrinhMonHocs.Any())
+                    {
+                        MessageBox.Show("Không thể xóa môn học này");
+                        resetDataMonHoc();
+                    }
+                    else
+                    {
+                        if (monhocBLL.DeleteMonHoc(mamh))
+                        {
+                            MessageBox.Show("Xóa thông tin môn học thành công !");
+                            LoadDataMonHocGridview();
+                            resetDataMonHoc();
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+            }
+        }
+
+        public bool checkDataEditMonHoc(string mamh, string ten)
+        {
+            if (string.IsNullOrEmpty(mamh))
+            {
+                MessageBox.Show("Hãy chọn môn học mà bạn muốn chỉnh sửa !");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(ten))
+            {
+                MessageBox.Show("Tên môn học không được bỏ trống, hãy nhập giá trị tên môn học");
+                return false;
+            }
+
+            if (ten.Length - 1 >= 50)
+            {
+                MessageBox.Show("Chiều dài tên môn học không được quá 50 ký tự, hãy nhập lại giá trị tên môn học");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void btnSave_MonHoc_Click(object sender, EventArgs e)
+        {
+            var mamh = txtID_MonHoc.Text.ToString().Trim();
+            var tenmh = txtTenMonHoc_MonHoc.Text.ToString().Trim();
+            int stc = (int)numSoTinChi_MonHoc.Value;
+            var makhoa = cbKhoa_MonHoc.SelectedValue.ToString().Trim();
+
+            var listmonhoc = monhocBLL.getListMonHoc();
+            var mhExist = listmonhoc.Where(m => m.MaMonHoc == mamh &&  m.TenMonHoc == tenmh && m.SoTinChi == stc && m.MaKhoa == makhoa).FirstOrDefault();
+
+            if (checkDataEditMonHoc(mamh, tenmh))
+            {
+                if (mhExist != null)
+                {
+                    MessageBox.Show("Thông tin chưa chỉnh sữa, hãy thực hiện chỉnh sửa trước khi lưu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (DialogResult.Yes == MessageBox.Show("Bạn có muốn lưu thông tin chỉnh sửa môn học này không ?", "Thông báo", MessageBoxButtons.YesNo))
+                {
+                    if (monhocBLL.EditMonHoc(mamh, tenmh, stc, makhoa))
+                    {
+                        MessageBox.Show("Lưu thay đổi thành công !");
+                        LoadDataMonHocGridview();
+                        resetDataMonHoc();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                    }
+                }
+
+            }
+        }
+
+        public void LoadDataMonHocGridviewSearch(string makhoa)
+        {
+            var query = from mh in monhocBLL.getListMonHoc()
+                        join khoa in khoaBLL.getListKhoa() on mh.MaKhoa equals khoa.MaKhoa
+                        where mh.MaKhoa == makhoa
+                        select new
+                        {
+                            mh.MaMonHoc,
+                            mh.TenMonHoc,
+                            mh.SoTinChi,
+                            khoa.TenKhoa,
+                        };
+            ListMonHoc.DataSource = query.ToList();
+
+            if (query.ToList().Count < 1)
+            {
+                MessageBox.Show("Không có chương trình đào tạo nào thuộc khoa này");
+            }
+        }
+
+        private void searchBoxMonHoc_Click(object sender, EventArgs e)
+        {
+            if (cbMaKhoa_MonHoc.Text == "")
+            {
+                MessageBox.Show("Hãy chọn khoa cần tìm !");
+                cbMaKhoa_MonHoc.SelectedIndex = -1;
+                LoadDataMonHocGridview();
+            }
+            else if (cbMaKhoa_MonHoc.Text != "")
+            {
+                string value = cbMaKhoa_MonHoc.SelectedValue.ToString().Trim();
+                //cbMaKhoa_GiaoVien.SelectedIndex = -1;
+                LoadDataMonHocGridviewSearch(value);
+                MessageBox.Show("Đã tìm kiếm thành công !");
+                resetDataMonHoc();
+            }
+        }
+
+        private void ListMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            turnONEditModeMonHoc();
+            if (btnEditMode_MonHoc.Text == "ON")
+            {
+                if (index >= 0 && index < ListMonHoc.Rows.Count)
+                {
+                    txtID_MonHoc.Text = ListMonHoc.Rows[index].Cells["MaMonHoc_MH"].Value.ToString();
+                    txtTenMonHoc_MonHoc.Text = ListMonHoc.Rows[index].Cells["TenMonHoc_MH"].Value.ToString();
+                    numSoTinChi_MonHoc.Value = (int)ListMonHoc.Rows[index].Cells["SoTinChi_MH"].Value;
+                    cbKhoa_MonHoc.Text = ListMonHoc.Rows[index].Cells["TenKhoa_MH"].Value.ToString();
+                }
+            }
+        }
+
+        private void cbMaKhoa_MonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataMonHocGridview();
         }
     }
 

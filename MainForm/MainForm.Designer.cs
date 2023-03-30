@@ -160,35 +160,35 @@
             this.label25 = new System.Windows.Forms.Label();
             this.tabMH = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.ListMonHoc = new System.Windows.Forms.DataGridView();
             this.MaMonHoc_MH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMonHoc_MH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoTinChi_MH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKhoa_MH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button14 = new System.Windows.Forms.Button();
+            this.btnDelete_MonHoc = new System.Windows.Forms.Button();
+            this.cbMaKhoa_MonHoc = new System.Windows.Forms.ComboBox();
+            this.btnSave_MonHoc = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.searchBoxMonHoc = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.label29 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numSoTinChi_MonHoc = new System.Windows.Forms.NumericUpDown();
             this.label68 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cbKhoa_MonHoc = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.btnAdd_MonHoc = new System.Windows.Forms.Button();
+            this.txtTenMonHoc_MonHoc = new System.Windows.Forms.TextBox();
+            this.txtID_MonHoc = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
-            this.button16 = new System.Windows.Forms.Button();
+            this.btnEditMode_MonHoc = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.tabCTMH = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
@@ -217,7 +217,7 @@
             this.label40 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
-            this.button20 = new System.Windows.Forms.Button();
+            this.btnEditMode_ChuongTrinhMonHoc = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
             this.tabPTMH = new System.Windows.Forms.TabPage();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
@@ -248,7 +248,7 @@
             this.button23 = new System.Windows.Forms.Button();
             this.panel23 = new System.Windows.Forms.Panel();
             this.label42 = new System.Windows.Forms.Label();
-            this.button24 = new System.Windows.Forms.Button();
+            this.btnEditMode_PhuTrachMonHoc = new System.Windows.Forms.Button();
             this.label49 = new System.Windows.Forms.Label();
             this.tabKH = new System.Windows.Forms.TabPage();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
@@ -283,7 +283,7 @@
             this.label55 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.label56 = new System.Windows.Forms.Label();
-            this.button28 = new System.Windows.Forms.Button();
+            this.btnEditMode_KhoaHoc = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
             this.tabCTKH = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
@@ -318,7 +318,7 @@
             this.button31 = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
             this.label64 = new System.Windows.Forms.Label();
-            this.button32 = new System.Windows.Forms.Button();
+            this.btnEditMode_ChiTietKhoaHoc = new System.Windows.Forms.Button();
             this.label65 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -369,14 +369,14 @@
             this.panel14.SuspendLayout();
             this.tabMH.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListMonHoc)).BeginInit();
             this.groupBox11.SuspendLayout();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBoxMonHoc)).BeginInit();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.groupBox12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoTinChi_MonHoc)).BeginInit();
             this.panel17.SuspendLayout();
             this.tabCTMH.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -1693,7 +1693,7 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.dataGridView4);
+            this.groupBox10.Controls.Add(this.ListMonHoc);
             this.groupBox10.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(0, 450);
             this.groupBox10.Name = "groupBox10";
@@ -1702,12 +1702,12 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Danh sách môn học";
             // 
-            // dataGridView4
+            // ListMonHoc
             // 
-            this.dataGridView4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dataGridView4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.dataGridView4.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.ListMonHoc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.ListMonHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.ListMonHoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.ListMonHoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
             dataGridViewCellStyle65.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1715,32 +1715,33 @@
             dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
             dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle65;
-            this.dataGridView4.ColumnHeadersHeight = 50;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle65;
+            this.ListMonHoc.ColumnHeadersHeight = 50;
+            this.ListMonHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaMonHoc_MH,
             this.TenMonHoc_MH,
             this.SoTinChi_MH,
             this.TenKhoa_MH});
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 32);
-            this.dataGridView4.MultiSelect = false;
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.RowHeadersWidth = 51;
+            this.ListMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListMonHoc.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ListMonHoc.Location = new System.Drawing.Point(3, 32);
+            this.ListMonHoc.MultiSelect = false;
+            this.ListMonHoc.Name = "ListMonHoc";
+            this.ListMonHoc.RowHeadersVisible = false;
+            this.ListMonHoc.RowHeadersWidth = 51;
             dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle66.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
             dataGridViewCellStyle66.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle66.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
             dataGridViewCellStyle66.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle66;
-            this.dataGridView4.RowTemplate.Height = 50;
-            this.dataGridView4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(1054, 327);
-            this.dataGridView4.TabIndex = 0;
+            this.ListMonHoc.RowsDefaultCellStyle = dataGridViewCellStyle66;
+            this.ListMonHoc.RowTemplate.Height = 50;
+            this.ListMonHoc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ListMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListMonHoc.Size = new System.Drawing.Size(1054, 327);
+            this.ListMonHoc.TabIndex = 0;
+            this.ListMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListMonHoc_CellClick);
             // 
             // MaMonHoc_MH
             // 
@@ -1777,9 +1778,8 @@
             // groupBox11
             // 
             this.groupBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.groupBox11.Controls.Add(this.button13);
-            this.groupBox11.Controls.Add(this.comboBox6);
-            this.groupBox11.Controls.Add(this.button14);
+            this.groupBox11.Controls.Add(this.searchBoxMonHoc);
+            this.groupBox11.Controls.Add(this.cbMaKhoa_MonHoc);
             this.groupBox11.Controls.Add(this.label27);
             this.groupBox11.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox11.Location = new System.Drawing.Point(1, 361);
@@ -1788,40 +1788,44 @@
             this.groupBox11.TabIndex = 19;
             this.groupBox11.TabStop = false;
             // 
-            // button13
+            // btnDelete_MonHoc
             // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button13.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button13.Location = new System.Drawing.Point(842, 21);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(82, 36);
-            this.button13.TabIndex = 8;
-            this.button13.Text = "Xóa";
-            this.button13.UseVisualStyleBackColor = false;
+            this.btnDelete_MonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.btnDelete_MonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete_MonHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete_MonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnDelete_MonHoc.Location = new System.Drawing.Point(841, 153);
+            this.btnDelete_MonHoc.Name = "btnDelete_MonHoc";
+            this.btnDelete_MonHoc.Size = new System.Drawing.Size(82, 36);
+            this.btnDelete_MonHoc.TabIndex = 8;
+            this.btnDelete_MonHoc.Text = "Xóa";
+            this.btnDelete_MonHoc.UseVisualStyleBackColor = false;
+            this.btnDelete_MonHoc.Click += new System.EventHandler(this.btnDelete_MonHoc_Click);
             // 
-            // comboBox6
+            // cbMaKhoa_MonHoc
             // 
-            this.comboBox6.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(191, 22);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(282, 36);
-            this.comboBox6.TabIndex = 7;
+            this.cbMaKhoa_MonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMaKhoa_MonHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaKhoa_MonHoc.FormattingEnabled = true;
+            this.cbMaKhoa_MonHoc.Location = new System.Drawing.Point(191, 22);
+            this.cbMaKhoa_MonHoc.Name = "cbMaKhoa_MonHoc";
+            this.cbMaKhoa_MonHoc.Size = new System.Drawing.Size(352, 36);
+            this.cbMaKhoa_MonHoc.TabIndex = 7;
+            this.cbMaKhoa_MonHoc.SelectedIndexChanged += new System.EventHandler(this.cbMaKhoa_MonHoc_SelectedIndexChanged);
             // 
-            // button14
+            // btnSave_MonHoc
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button14.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button14.Location = new System.Drawing.Point(962, 21);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(79, 36);
-            this.button14.TabIndex = 6;
-            this.button14.Text = "Lưu";
-            this.button14.UseVisualStyleBackColor = false;
+            this.btnSave_MonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnSave_MonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave_MonHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave_MonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnSave_MonHoc.Location = new System.Drawing.Point(961, 153);
+            this.btnSave_MonHoc.Name = "btnSave_MonHoc";
+            this.btnSave_MonHoc.Size = new System.Drawing.Size(79, 36);
+            this.btnSave_MonHoc.TabIndex = 6;
+            this.btnSave_MonHoc.Text = "Lưu";
+            this.btnSave_MonHoc.UseVisualStyleBackColor = false;
+            this.btnSave_MonHoc.Click += new System.EventHandler(this.btnSave_MonHoc_Click);
             // 
             // label27
             // 
@@ -1830,14 +1834,13 @@
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
             this.label27.Location = new System.Drawing.Point(29, 25);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(102, 29);
+            this.label27.Size = new System.Drawing.Size(164, 29);
             this.label27.TabIndex = 3;
-            this.label27.Text = "Mã Khoa";
+            this.label27.Text = "Khoa phụ trách";
             // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            this.panel15.Controls.Add(this.pictureBox10);
             this.panel15.Controls.Add(this.label28);
             this.panel15.ForeColor = System.Drawing.Color.White;
             this.panel15.Location = new System.Drawing.Point(-1, 318);
@@ -1845,16 +1848,17 @@
             this.panel15.Size = new System.Drawing.Size(1064, 47);
             this.panel15.TabIndex = 17;
             // 
-            // pictureBox10
+            // searchBoxMonHoc
             // 
-            this.pictureBox10.BackColor = System.Drawing.Color.White;
-            this.pictureBox10.Image = global::MainForm.Properties.Resources.Search_PNG_Images;
-            this.pictureBox10.Location = new System.Drawing.Point(125, 7);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(29, 30);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 11;
-            this.pictureBox10.TabStop = false;
+            this.searchBoxMonHoc.BackColor = System.Drawing.Color.White;
+            this.searchBoxMonHoc.Image = global::MainForm.Properties.Resources.Search_PNG_Images;
+            this.searchBoxMonHoc.Location = new System.Drawing.Point(565, 22);
+            this.searchBoxMonHoc.Name = "searchBoxMonHoc";
+            this.searchBoxMonHoc.Size = new System.Drawing.Size(37, 38);
+            this.searchBoxMonHoc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.searchBoxMonHoc.TabIndex = 11;
+            this.searchBoxMonHoc.TabStop = false;
+            this.searchBoxMonHoc.Click += new System.EventHandler(this.searchBoxMonHoc_Click);
             // 
             // label28
             // 
@@ -1902,13 +1906,15 @@
             // groupBox12
             // 
             this.groupBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.groupBox12.Controls.Add(this.numericUpDown4);
+            this.groupBox12.Controls.Add(this.numSoTinChi_MonHoc);
+            this.groupBox12.Controls.Add(this.btnDelete_MonHoc);
             this.groupBox12.Controls.Add(this.label68);
-            this.groupBox12.Controls.Add(this.comboBox7);
+            this.groupBox12.Controls.Add(this.cbKhoa_MonHoc);
+            this.groupBox12.Controls.Add(this.btnSave_MonHoc);
             this.groupBox12.Controls.Add(this.label30);
-            this.groupBox12.Controls.Add(this.button15);
-            this.groupBox12.Controls.Add(this.textBox7);
-            this.groupBox12.Controls.Add(this.textBox8);
+            this.groupBox12.Controls.Add(this.btnAdd_MonHoc);
+            this.groupBox12.Controls.Add(this.txtTenMonHoc_MonHoc);
+            this.groupBox12.Controls.Add(this.txtID_MonHoc);
             this.groupBox12.Controls.Add(this.label31);
             this.groupBox12.Controls.Add(this.label32);
             this.groupBox12.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1918,24 +1924,25 @@
             this.groupBox12.TabIndex = 18;
             this.groupBox12.TabStop = false;
             // 
-            // numericUpDown4
+            // numSoTinChi_MonHoc
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(768, 86);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.numSoTinChi_MonHoc.Location = new System.Drawing.Point(680, 91);
+            this.numSoTinChi_MonHoc.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
+            this.numSoTinChi_MonHoc.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(107, 36);
-            this.numericUpDown4.TabIndex = 12;
-            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown4.Value = new decimal(new int[] {
+            this.numSoTinChi_MonHoc.Name = "numSoTinChi_MonHoc";
+            this.numSoTinChi_MonHoc.Size = new System.Drawing.Size(107, 36);
+            this.numSoTinChi_MonHoc.TabIndex = 12;
+            this.numSoTinChi_MonHoc.TabStop = false;
+            this.numSoTinChi_MonHoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numSoTinChi_MonHoc.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -1946,59 +1953,61 @@
             this.label68.AutoSize = true;
             this.label68.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
-            this.label68.Location = new System.Drawing.Point(574, 87);
+            this.label68.Location = new System.Drawing.Point(512, 87);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(103, 29);
             this.label68.TabIndex = 10;
             this.label68.Text = "Số tín chỉ";
             // 
-            // comboBox7
+            // cbKhoa_MonHoc
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(768, 29);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(272, 36);
-            this.comboBox7.TabIndex = 9;
+            this.cbKhoa_MonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKhoa_MonHoc.FormattingEnabled = true;
+            this.cbKhoa_MonHoc.Location = new System.Drawing.Point(680, 29);
+            this.cbKhoa_MonHoc.Name = "cbKhoa_MonHoc";
+            this.cbKhoa_MonHoc.Size = new System.Drawing.Size(360, 36);
+            this.cbKhoa_MonHoc.TabIndex = 9;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
-            this.label30.Location = new System.Drawing.Point(572, 32);
+            this.label30.Location = new System.Drawing.Point(510, 32);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(164, 29);
             this.label30.TabIndex = 7;
             this.label30.Text = "Khoa phụ trách";
             // 
-            // button15
+            // btnAdd_MonHoc
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button15.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button15.Location = new System.Drawing.Point(841, 153);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(199, 36);
-            this.button15.TabIndex = 6;
-            this.button15.Text = "Thêm môn học";
-            this.button15.UseVisualStyleBackColor = false;
+            this.btnAdd_MonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnAdd_MonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd_MonHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd_MonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnAdd_MonHoc.Location = new System.Drawing.Point(841, 153);
+            this.btnAdd_MonHoc.Name = "btnAdd_MonHoc";
+            this.btnAdd_MonHoc.Size = new System.Drawing.Size(199, 36);
+            this.btnAdd_MonHoc.TabIndex = 6;
+            this.btnAdd_MonHoc.Text = "Thêm môn học";
+            this.btnAdd_MonHoc.UseVisualStyleBackColor = false;
+            this.btnAdd_MonHoc.Click += new System.EventHandler(this.btnAdd_MonHoc_Click);
             // 
-            // textBox7
+            // txtTenMonHoc_MonHoc
             // 
-            this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
-            this.textBox7.Location = new System.Drawing.Point(190, 88);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(282, 36);
-            this.textBox7.TabIndex = 6;
+            this.txtTenMonHoc_MonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
+            this.txtTenMonHoc_MonHoc.Location = new System.Drawing.Point(190, 88);
+            this.txtTenMonHoc_MonHoc.Name = "txtTenMonHoc_MonHoc";
+            this.txtTenMonHoc_MonHoc.Size = new System.Drawing.Size(282, 36);
+            this.txtTenMonHoc_MonHoc.TabIndex = 6;
             // 
-            // textBox8
+            // txtID_MonHoc
             // 
-            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
-            this.textBox8.Location = new System.Drawing.Point(190, 28);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(282, 36);
-            this.textBox8.TabIndex = 5;
+            this.txtID_MonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
+            this.txtID_MonHoc.Location = new System.Drawing.Point(190, 28);
+            this.txtID_MonHoc.Name = "txtID_MonHoc";
+            this.txtID_MonHoc.Size = new System.Drawing.Size(282, 36);
+            this.txtID_MonHoc.TabIndex = 5;
             // 
             // label31
             // 
@@ -2025,7 +2034,7 @@
             // panel17
             // 
             this.panel17.Controls.Add(this.label26);
-            this.panel17.Controls.Add(this.button16);
+            this.panel17.Controls.Add(this.btnEditMode_MonHoc);
             this.panel17.Controls.Add(this.label33);
             this.panel17.Location = new System.Drawing.Point(4, 4);
             this.panel17.Name = "panel17";
@@ -2042,18 +2051,19 @@
             this.label26.TabIndex = 4;
             this.label26.Text = "MÔN HỌC";
             // 
-            // button16
+            // btnEditMode_MonHoc
             // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button16.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button16.Location = new System.Drawing.Point(981, 3);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(70, 36);
-            this.button16.TabIndex = 5;
-            this.button16.Text = "OFF";
-            this.button16.UseVisualStyleBackColor = false;
+            this.btnEditMode_MonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnEditMode_MonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditMode_MonHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMode_MonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnEditMode_MonHoc.Location = new System.Drawing.Point(981, 3);
+            this.btnEditMode_MonHoc.Name = "btnEditMode_MonHoc";
+            this.btnEditMode_MonHoc.Size = new System.Drawing.Size(70, 36);
+            this.btnEditMode_MonHoc.TabIndex = 5;
+            this.btnEditMode_MonHoc.Text = "OFF";
+            this.btnEditMode_MonHoc.UseVisualStyleBackColor = false;
+            this.btnEditMode_MonHoc.Click += new System.EventHandler(this.btnEditMode_MonHoc_Click_1);
             // 
             // label33
             // 
@@ -2385,7 +2395,7 @@
             // panel20
             // 
             this.panel20.Controls.Add(this.label34);
-            this.panel20.Controls.Add(this.button20);
+            this.panel20.Controls.Add(this.btnEditMode_ChuongTrinhMonHoc);
             this.panel20.Controls.Add(this.label41);
             this.panel20.Location = new System.Drawing.Point(4, 4);
             this.panel20.Name = "panel20";
@@ -2402,18 +2412,18 @@
             this.label34.TabIndex = 4;
             this.label34.Text = "CHƯƠNG TRÌNH MÔN HỌC";
             // 
-            // button20
+            // btnEditMode_ChuongTrinhMonHoc
             // 
-            this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button20.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button20.Location = new System.Drawing.Point(981, 3);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(70, 36);
-            this.button20.TabIndex = 5;
-            this.button20.Text = "OFF";
-            this.button20.UseVisualStyleBackColor = false;
+            this.btnEditMode_ChuongTrinhMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnEditMode_ChuongTrinhMonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditMode_ChuongTrinhMonHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMode_ChuongTrinhMonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnEditMode_ChuongTrinhMonHoc.Location = new System.Drawing.Point(981, 3);
+            this.btnEditMode_ChuongTrinhMonHoc.Name = "btnEditMode_ChuongTrinhMonHoc";
+            this.btnEditMode_ChuongTrinhMonHoc.Size = new System.Drawing.Size(70, 36);
+            this.btnEditMode_ChuongTrinhMonHoc.TabIndex = 5;
+            this.btnEditMode_ChuongTrinhMonHoc.Text = "OFF";
+            this.btnEditMode_ChuongTrinhMonHoc.UseVisualStyleBackColor = false;
             // 
             // label41
             // 
@@ -2752,7 +2762,7 @@
             // panel23
             // 
             this.panel23.Controls.Add(this.label42);
-            this.panel23.Controls.Add(this.button24);
+            this.panel23.Controls.Add(this.btnEditMode_PhuTrachMonHoc);
             this.panel23.Controls.Add(this.label49);
             this.panel23.Location = new System.Drawing.Point(4, 4);
             this.panel23.Name = "panel23";
@@ -2769,18 +2779,18 @@
             this.label42.TabIndex = 4;
             this.label42.Text = "PHỤ TRÁCH MÔN HỌC";
             // 
-            // button24
+            // btnEditMode_PhuTrachMonHoc
             // 
-            this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button24.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button24.Location = new System.Drawing.Point(981, 3);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(70, 36);
-            this.button24.TabIndex = 5;
-            this.button24.Text = "OFF";
-            this.button24.UseVisualStyleBackColor = false;
+            this.btnEditMode_PhuTrachMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnEditMode_PhuTrachMonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditMode_PhuTrachMonHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMode_PhuTrachMonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnEditMode_PhuTrachMonHoc.Location = new System.Drawing.Point(981, 3);
+            this.btnEditMode_PhuTrachMonHoc.Name = "btnEditMode_PhuTrachMonHoc";
+            this.btnEditMode_PhuTrachMonHoc.Size = new System.Drawing.Size(70, 36);
+            this.btnEditMode_PhuTrachMonHoc.TabIndex = 5;
+            this.btnEditMode_PhuTrachMonHoc.Text = "OFF";
+            this.btnEditMode_PhuTrachMonHoc.UseVisualStyleBackColor = false;
             // 
             // label49
             // 
@@ -3187,7 +3197,7 @@
             // panel26
             // 
             this.panel26.Controls.Add(this.label56);
-            this.panel26.Controls.Add(this.button28);
+            this.panel26.Controls.Add(this.btnEditMode_KhoaHoc);
             this.panel26.Controls.Add(this.label57);
             this.panel26.Location = new System.Drawing.Point(4, 2);
             this.panel26.Name = "panel26";
@@ -3204,18 +3214,18 @@
             this.label56.TabIndex = 4;
             this.label56.Text = "KHÓA HỌC";
             // 
-            // button28
+            // btnEditMode_KhoaHoc
             // 
-            this.button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button28.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button28.Location = new System.Drawing.Point(981, 3);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(70, 36);
-            this.button28.TabIndex = 5;
-            this.button28.Text = "OFF";
-            this.button28.UseVisualStyleBackColor = false;
+            this.btnEditMode_KhoaHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnEditMode_KhoaHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditMode_KhoaHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMode_KhoaHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnEditMode_KhoaHoc.Location = new System.Drawing.Point(981, 3);
+            this.btnEditMode_KhoaHoc.Name = "btnEditMode_KhoaHoc";
+            this.btnEditMode_KhoaHoc.Size = new System.Drawing.Size(70, 36);
+            this.btnEditMode_KhoaHoc.TabIndex = 5;
+            this.btnEditMode_KhoaHoc.Text = "OFF";
+            this.btnEditMode_KhoaHoc.UseVisualStyleBackColor = false;
             // 
             // label57
             // 
@@ -3592,7 +3602,7 @@
             // panel29
             // 
             this.panel29.Controls.Add(this.label64);
-            this.panel29.Controls.Add(this.button32);
+            this.panel29.Controls.Add(this.btnEditMode_ChiTietKhoaHoc);
             this.panel29.Controls.Add(this.label65);
             this.panel29.Location = new System.Drawing.Point(3, 2);
             this.panel29.Name = "panel29";
@@ -3609,18 +3619,18 @@
             this.label64.TabIndex = 4;
             this.label64.Text = "CHI TIẾT KHÓA HỌC";
             // 
-            // button32
+            // btnEditMode_ChiTietKhoaHoc
             // 
-            this.button32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button32.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button32.Location = new System.Drawing.Point(981, 3);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(70, 36);
-            this.button32.TabIndex = 5;
-            this.button32.Text = "OFF";
-            this.button32.UseVisualStyleBackColor = false;
+            this.btnEditMode_ChiTietKhoaHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnEditMode_ChiTietKhoaHoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditMode_ChiTietKhoaHoc.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMode_ChiTietKhoaHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnEditMode_ChiTietKhoaHoc.Location = new System.Drawing.Point(981, 3);
+            this.btnEditMode_ChiTietKhoaHoc.Name = "btnEditMode_ChiTietKhoaHoc";
+            this.btnEditMode_ChiTietKhoaHoc.Size = new System.Drawing.Size(70, 36);
+            this.btnEditMode_ChiTietKhoaHoc.TabIndex = 5;
+            this.btnEditMode_ChiTietKhoaHoc.Text = "OFF";
+            this.btnEditMode_ChiTietKhoaHoc.UseVisualStyleBackColor = false;
             // 
             // label65
             // 
@@ -3835,18 +3845,18 @@
             this.panel14.PerformLayout();
             this.tabMH.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListMonHoc)).EndInit();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBoxMonHoc)).EndInit();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoTinChi_MonHoc)).EndInit();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             this.tabCTMH.ResumeLayout(false);
@@ -4024,27 +4034,27 @@
         private System.Windows.Forms.Button btnEditMode_ChuongTrinh;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btnDelete_MonHoc;
+        private System.Windows.Forms.ComboBox cbMaKhoa_MonHoc;
+        private System.Windows.Forms.Button btnSave_MonHoc;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox searchBoxMonHoc;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cbKhoa_MonHoc;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button btnAdd_MonHoc;
+        private System.Windows.Forms.TextBox txtTenMonHoc_MonHoc;
+        private System.Windows.Forms.TextBox txtID_MonHoc;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button btnEditMode_MonHoc;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.DataGridView dataGridView5;
@@ -4067,7 +4077,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button btnEditMode_ChuongTrinhMonHoc;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.GroupBox groupBox16;
         private System.Windows.Forms.DataGridView dataGridView6;
@@ -4085,7 +4095,7 @@
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button btnEditMode_PhuTrachMonHoc;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.PictureBox pictureBox17;
@@ -4100,7 +4110,7 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Button btnEditMode_KhoaHoc;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.PictureBox pictureBox18;
@@ -4112,14 +4122,14 @@
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Button button32;
+        private System.Windows.Forms.Button btnEditMode_ChiTietKhoaHoc;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.ComboBox cbGiaoVien_ChuongTrinh;
         private System.Windows.Forms.ComboBox cbKhoa_ChuongTrinh;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView ListMonHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaMonHoc_MH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMonHoc_MH;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoTinChi_MH;
@@ -4146,7 +4156,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numSoTinChi_MonHoc;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.DataGridView dataGridView9;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhoaHoc_KH;
