@@ -47,6 +47,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -59,7 +60,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.backPage = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -127,6 +127,11 @@
             this.tabCTĐT = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.ListChuongTrinh = new System.Windows.Forms.DataGridView();
+            this.MaChuongTrinh_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChuongTrinh_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaBacHoc_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKhoa_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiamDoc_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.searchBoxChuongTrinh = new System.Windows.Forms.PictureBox();
             this.cbMaKhoa_ChuongTrinh = new System.Windows.Forms.ComboBox();
@@ -194,9 +199,7 @@
             this.HocKy_CTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.seachBoxCTMH = new System.Windows.Forms.PictureBox();
-            this.btnDelete_CTMH = new System.Windows.Forms.Button();
             this.CbSearchCTDT_CTMH = new System.Windows.Forms.ComboBox();
-            this.btnSave_CTMH = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
@@ -205,8 +208,10 @@
             this.label37 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.numHocKy_CTMH = new System.Windows.Forms.NumericUpDown();
+            this.btnDelete_CTMH = new System.Windows.Forms.Button();
             this.cbMH_CTMH = new System.Windows.Forms.ComboBox();
             this.cbCTDT_CTMH = new System.Windows.Forms.ComboBox();
+            this.btnSave_CTMH = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
             this.btnAdd_CTMH = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
@@ -327,11 +332,6 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nguoigui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ngaygui = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaChuongTrinh_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenChuongTrinh_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaBacHoc_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKhoa_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiamDoc_CT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backPage)).BeginInit();
             this.panel2.SuspendLayout();
@@ -1333,6 +1333,48 @@
             this.ListChuongTrinh.TabIndex = 0;
             this.ListChuongTrinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListChuongTrinh_CellClick);
             // 
+            // MaChuongTrinh_CT
+            // 
+            this.MaChuongTrinh_CT.DataPropertyName = "MaChuongTrinh";
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaChuongTrinh_CT.DefaultCellStyle = dataGridViewCellStyle7;
+            this.MaChuongTrinh_CT.HeaderText = "ID";
+            this.MaChuongTrinh_CT.MinimumWidth = 6;
+            this.MaChuongTrinh_CT.Name = "MaChuongTrinh_CT";
+            this.MaChuongTrinh_CT.Width = 85;
+            // 
+            // TenChuongTrinh_CT
+            // 
+            this.TenChuongTrinh_CT.DataPropertyName = "TenChuongTrinh";
+            this.TenChuongTrinh_CT.HeaderText = "Tên chương trình";
+            this.TenChuongTrinh_CT.MinimumWidth = 6;
+            this.TenChuongTrinh_CT.Name = "TenChuongTrinh_CT";
+            this.TenChuongTrinh_CT.Width = 280;
+            // 
+            // MaBacHoc_CT
+            // 
+            this.MaBacHoc_CT.DataPropertyName = "MaBacHoc";
+            this.MaBacHoc_CT.HeaderText = "Bậc học";
+            this.MaBacHoc_CT.MinimumWidth = 6;
+            this.MaBacHoc_CT.Name = "MaBacHoc_CT";
+            this.MaBacHoc_CT.Width = 125;
+            // 
+            // TenKhoa_CT
+            // 
+            this.TenKhoa_CT.DataPropertyName = "TenKhoa";
+            this.TenKhoa_CT.HeaderText = "Khoa phụ trách";
+            this.TenKhoa_CT.MinimumWidth = 6;
+            this.TenKhoa_CT.Name = "TenKhoa_CT";
+            this.TenKhoa_CT.Width = 330;
+            // 
+            // GiamDoc_CT
+            // 
+            this.GiamDoc_CT.DataPropertyName = "HoTen";
+            this.GiamDoc_CT.HeaderText = "Giám đốc CT";
+            this.GiamDoc_CT.MinimumWidth = 6;
+            this.GiamDoc_CT.Name = "GiamDoc_CT";
+            this.GiamDoc_CT.Width = 300;
+            // 
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
@@ -2169,20 +2211,6 @@
             this.seachBoxCTMH.TabStop = false;
             this.seachBoxCTMH.Click += new System.EventHandler(this.seachBoxCTMH_Click);
             // 
-            // btnDelete_CTMH
-            // 
-            this.btnDelete_CTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnDelete_CTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete_CTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_CTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.btnDelete_CTMH.Location = new System.Drawing.Point(842, 149);
-            this.btnDelete_CTMH.Name = "btnDelete_CTMH";
-            this.btnDelete_CTMH.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_CTMH.TabIndex = 8;
-            this.btnDelete_CTMH.Text = "Xóa";
-            this.btnDelete_CTMH.UseVisualStyleBackColor = false;
-            this.btnDelete_CTMH.Click += new System.EventHandler(this.btnDelete_CTMH_Click);
-            // 
             // CbSearchCTDT_CTMH
             // 
             this.CbSearchCTDT_CTMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -2193,20 +2221,6 @@
             this.CbSearchCTDT_CTMH.Size = new System.Drawing.Size(314, 36);
             this.CbSearchCTDT_CTMH.TabIndex = 7;
             this.CbSearchCTDT_CTMH.SelectedIndexChanged += new System.EventHandler(this.CbSearchCTDT_CTMH_SelectedIndexChanged);
-            // 
-            // btnSave_CTMH
-            // 
-            this.btnSave_CTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.btnSave_CTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave_CTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave_CTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.btnSave_CTMH.Location = new System.Drawing.Point(962, 149);
-            this.btnSave_CTMH.Name = "btnSave_CTMH";
-            this.btnSave_CTMH.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_CTMH.TabIndex = 6;
-            this.btnSave_CTMH.Text = "Lưu";
-            this.btnSave_CTMH.UseVisualStyleBackColor = false;
-            this.btnSave_CTMH.Click += new System.EventHandler(this.btnSave_CTMH_Click);
             // 
             // label35
             // 
@@ -2315,9 +2329,24 @@
             0,
             0});
             // 
+            // btnDelete_CTMH
+            // 
+            this.btnDelete_CTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.btnDelete_CTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete_CTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete_CTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnDelete_CTMH.Location = new System.Drawing.Point(842, 149);
+            this.btnDelete_CTMH.Name = "btnDelete_CTMH";
+            this.btnDelete_CTMH.Size = new System.Drawing.Size(82, 36);
+            this.btnDelete_CTMH.TabIndex = 8;
+            this.btnDelete_CTMH.Text = "Xóa";
+            this.btnDelete_CTMH.UseVisualStyleBackColor = false;
+            this.btnDelete_CTMH.Click += new System.EventHandler(this.btnDelete_CTMH_Click);
+            // 
             // cbMH_CTMH
             // 
             this.cbMH_CTMH.DropDownHeight = 400;
+            this.cbMH_CTMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMH_CTMH.DropDownWidth = 350;
             this.cbMH_CTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMH_CTMH.FormattingEnabled = true;
@@ -2329,12 +2358,27 @@
             // 
             // cbCTDT_CTMH
             // 
+            this.cbCTDT_CTMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCTDT_CTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCTDT_CTMH.FormattingEnabled = true;
             this.cbCTDT_CTMH.Location = new System.Drawing.Point(264, 29);
             this.cbCTDT_CTMH.Name = "cbCTDT_CTMH";
             this.cbCTDT_CTMH.Size = new System.Drawing.Size(369, 36);
             this.cbCTDT_CTMH.TabIndex = 9;
+            // 
+            // btnSave_CTMH
+            // 
+            this.btnSave_CTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnSave_CTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave_CTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave_CTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnSave_CTMH.Location = new System.Drawing.Point(962, 149);
+            this.btnSave_CTMH.Name = "btnSave_CTMH";
+            this.btnSave_CTMH.Size = new System.Drawing.Size(79, 36);
+            this.btnSave_CTMH.TabIndex = 6;
+            this.btnSave_CTMH.Text = "Lưu";
+            this.btnSave_CTMH.UseVisualStyleBackColor = false;
+            this.btnSave_CTMH.Click += new System.EventHandler(this.btnSave_CTMH_Click);
             // 
             // label38
             // 
@@ -3765,48 +3809,6 @@
             this.Ngaygui.MinimumWidth = 6;
             this.Ngaygui.Name = "Ngaygui";
             this.Ngaygui.Width = 315;
-            // 
-            // MaChuongTrinh_CT
-            // 
-            this.MaChuongTrinh_CT.DataPropertyName = "MaChuongTrinh";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaChuongTrinh_CT.DefaultCellStyle = dataGridViewCellStyle7;
-            this.MaChuongTrinh_CT.HeaderText = "ID";
-            this.MaChuongTrinh_CT.MinimumWidth = 6;
-            this.MaChuongTrinh_CT.Name = "MaChuongTrinh_CT";
-            this.MaChuongTrinh_CT.Width = 85;
-            // 
-            // TenChuongTrinh_CT
-            // 
-            this.TenChuongTrinh_CT.DataPropertyName = "TenChuongTrinh";
-            this.TenChuongTrinh_CT.HeaderText = "Tên chương trình";
-            this.TenChuongTrinh_CT.MinimumWidth = 6;
-            this.TenChuongTrinh_CT.Name = "TenChuongTrinh_CT";
-            this.TenChuongTrinh_CT.Width = 280;
-            // 
-            // MaBacHoc_CT
-            // 
-            this.MaBacHoc_CT.DataPropertyName = "MaBacHoc";
-            this.MaBacHoc_CT.HeaderText = "Bậc học";
-            this.MaBacHoc_CT.MinimumWidth = 6;
-            this.MaBacHoc_CT.Name = "MaBacHoc_CT";
-            this.MaBacHoc_CT.Width = 125;
-            // 
-            // TenKhoa_CT
-            // 
-            this.TenKhoa_CT.DataPropertyName = "TenKhoa";
-            this.TenKhoa_CT.HeaderText = "Khoa phụ trách";
-            this.TenKhoa_CT.MinimumWidth = 6;
-            this.TenKhoa_CT.Name = "TenKhoa_CT";
-            this.TenKhoa_CT.Width = 330;
-            // 
-            // GiamDoc_CT
-            // 
-            this.GiamDoc_CT.DataPropertyName = "HoTen";
-            this.GiamDoc_CT.HeaderText = "Giám đốc CT";
-            this.GiamDoc_CT.MinimumWidth = 6;
-            this.GiamDoc_CT.Name = "GiamDoc_CT";
-            this.GiamDoc_CT.Width = 300;
             // 
             // MainForm
             // 

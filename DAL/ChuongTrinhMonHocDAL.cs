@@ -40,7 +40,7 @@ namespace DAL
         {
             try
             {
-                var ctmh = context.ChuongTrinhMonHocs.Where(c => c.MaChuongTrinh == mactdt && c.MaMonHoc == mamh).FirstOrDefault();
+                var ctmh = context.ChuongTrinhMonHocs.Where(c => c.MaChuongTrinh == mactdt && c.MaMonHoc == mamh).SingleOrDefault();
                 ctmh.MaChuongTrinh = mactdt;
                 ctmh.MaMonHoc = mamh;
                 ctmh.HocKy = hk;
