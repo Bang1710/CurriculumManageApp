@@ -21,11 +21,49 @@ namespace MainForm
         GiaoVienBLL giaovienBLL = new GiaoVienBLL();
         ChuongTrinhBLL chuongtrinhBLL = new ChuongTrinhBLL();
         MonHocBLL monhocBLL = new MonHocBLL();
+        ChuongTrinhMonHocBLL ctmhBLL = new ChuongTrinhMonHocBLL();
 
         public MainForm()
         {
             InitializeComponent();
 
+            //SetUpControlLoadingForm();
+            //CustomdatagirdviewMenu();
+
+            //// KHOA
+            ////khoaBLL = new KhoaBLL();
+            //turnOffEditModeKhoa();
+            //LoadDataKhoaGirdView();
+            //LoadDataKhoaCombobox();
+
+            ////GIÁO VIÊN
+            ////GiaoVienBLL giaovienBLL = new GiaoVienBLL();
+            //turnOffEditModeGiaoVien();
+            //LoadDataGiaoVienGridview();
+            //LoadDataGiaoVienCombobox();
+
+            ////CHƯƠNG TRÌNH
+            //turnOffEditModeChuongTrinh();
+            //LoadDataChuongTrinhCombobox();
+            //LoadDataGiangVien_ChuongTrinhCombobox(cbKhoa_ChuongTrinh.SelectedValue.ToString());
+            //LoadDataChuongTrinhGridview();
+
+            //// MÔN HỌC
+            //turnOffEditModeMonHoc();
+            //LoadDataKhoa_MonHocComboBox();
+            //LoadDataMonHocGridview();
+
+            ////CHƯƠNG TRÌNH HỌC MÔN
+            //turnOffEditModeCTMH();
+            //LoadDataComboboxCTDT_CTMH();
+            //LoadDataComboboxMH_CTMH();
+            //LoadDataComboboxSearchCTDT_CTMH();
+            //LoadDataCTMHDatagirdview();
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             SetUpControlLoadingForm();
             CustomdatagirdviewMenu();
 
@@ -52,6 +90,12 @@ namespace MainForm
             LoadDataKhoa_MonHocComboBox();
             LoadDataMonHocGridview();
 
+            //CHƯƠNG TRÌNH HỌC MÔN
+            turnOffEditModeCTMH();
+            LoadDataComboboxCTDT_CTMH();
+            LoadDataComboboxMH_CTMH();
+            LoadDataComboboxSearchCTDT_CTMH();
+            LoadDataCTMHDatagirdview();
         }
 
         //---------------------------Set up general------------------------------------
@@ -322,6 +366,7 @@ namespace MainForm
                 {
                     if (khoaBLL.EditKhoa(makhoa, tenkhoa))
                     {
+
                         MessageBox.Show("Lưu thay đổi thành công !");
                         LoadDataKhoaGirdView();
                         LoadDataKhoaCombobox();
@@ -345,6 +390,7 @@ namespace MainForm
         {
             var khoas = khoaBLL.getListKhoa().Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
             ListKhoa.DataSource = khoas;
+            //ListKhoa.ClearSelection();
         }
 
         public void LoadDataKhoaCombobox()
@@ -421,8 +467,10 @@ namespace MainForm
                     } else
                     {
                         var khoalq = khoaBLL.getListKhoa().Where(k => k.MaKhoa == cbMaKhoa_Khoa.SelectedValue.ToString()).Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
+                        cbMaKhoa_Khoa.SelectedIndex = -1;
                         ListKhoa.DataSource = khoalq;
                         cbMaKhoa_Khoa.Text = "";
+                        ListKhoa.ClearSelection();
                         MessageBox.Show("Đã tìm kiếm thành công !");
                         resetDataKhoa();
                     }
@@ -491,6 +539,7 @@ namespace MainForm
                             khoa.TenKhoa
                         };
             ListGiaoVien.DataSource = query.ToList();
+            ListGiaoVien.ClearSelection();
         }
 
         public void LoadDataGiaoVienGridviewSearch(string makhoa)
@@ -505,6 +554,8 @@ namespace MainForm
                             khoa.TenKhoa
                         };
             ListGiaoVien.DataSource = query.ToList();
+            ListGiaoVien.ClearSelection();
+
             if (query.ToList().Count < 1)
             {
                 MessageBox.Show("Không có giáo viên nào thuộc khoa này");
@@ -603,7 +654,7 @@ namespace MainForm
             else if (cbMaKhoa_GiaoVien.Text != "")
             {
                 string value = cbMaKhoa_GiaoVien.SelectedValue.ToString().Trim();
-                //cbMaKhoa_GiaoVien.SelectedIndex = -1;
+                cbMaKhoa_GiaoVien.SelectedIndex = -1;
                 LoadDataGiaoVienGridviewSearch(value);
                 MessageBox.Show("Đã tìm kiếm thành công !");
                 resetDataGiaoVien();
@@ -799,6 +850,7 @@ namespace MainForm
                             gv.HoTen
                         };
             ListChuongTrinh.DataSource = query.ToList();
+            ListChuongTrinh.ClearSelection();
         }
 
         public void LoadDataChuongTrinhGridviewSearch(string makhoa)
@@ -816,6 +868,8 @@ namespace MainForm
                             gv.HoTen
                         };
             ListChuongTrinh.DataSource = query.ToList();
+            ListChuongTrinh.ClearSelection();
+
             if (query.ToList().Count < 1)
             {
                 MessageBox.Show("Không có chương trình đào tạo nào thuộc khoa này");
@@ -825,8 +879,8 @@ namespace MainForm
         public void LoadDataGiangVien_ChuongTrinhCombobox(string makhoa)
         {
             var query = from kh in khoaBLL.getListKhoa()
-                        join gv in giaovienBLL.getListGiaoVien() on kh.MaKhoa equals gv.Khoa.MaKhoa
-                        where gv.Khoa.MaKhoa == makhoa
+                        join gv in giaovienBLL.getListGiaoVien() on kh.MaKhoa equals gv.MaKhoa
+                        where gv.MaKhoa == makhoa
                         select new
                         {
                             gv.MaGiaoVien,
@@ -914,6 +968,8 @@ namespace MainForm
                     {
                         MessageBox.Show("Thêm chương trình đào tạo thành công", "Thông báo", MessageBoxButtons.OK);
                         LoadDataChuongTrinhGridview();
+                        LoadDataComboboxCTDT_CTMH();
+                        LoadDataComboboxSearchCTDT_CTMH();
                         resetDataChuongTrinh();
                     }
                     else
@@ -988,6 +1044,8 @@ namespace MainForm
                         {
                             MessageBox.Show("Xóa thông tin chương trình đào tạo thành công !");
                             LoadDataChuongTrinhGridview();
+                            LoadDataComboboxCTDT_CTMH();
+                            LoadDataComboboxSearchCTDT_CTMH();
                             resetDataChuongTrinh();
                         }
                     }
@@ -1023,6 +1081,10 @@ namespace MainForm
                     {
                         MessageBox.Show("Lưu thay đổi thành công !");
                         LoadDataChuongTrinhGridview();
+
+                        LoadDataComboboxCTDT_CTMH();
+                        LoadDataComboboxSearchCTDT_CTMH();
+                        LoadDataCTMHDatagirdview();
                         resetDataChuongTrinh();
                     }
                     else
@@ -1061,7 +1123,7 @@ namespace MainForm
             else if (cbMaKhoa_ChuongTrinh.Text != "")
             {
                 string value = cbMaKhoa_ChuongTrinh.SelectedValue.ToString().Trim();
-                //cbMaKhoa_GiaoVien.SelectedIndex = -1;
+                cbMaKhoa_ChuongTrinh.SelectedIndex = -1;
                 LoadDataChuongTrinhGridviewSearch(value);
                 MessageBox.Show("Đã tìm kiếm thành công !");
                 resetDataChuongTrinh();
@@ -1153,6 +1215,7 @@ namespace MainForm
                             khoa.TenKhoa,
                         };
             ListMonHoc.DataSource = query.ToList();
+            ListMonHoc.ClearSelection();
         }
 
         public bool checkDataAddMonHoc(string mamh, string tenmh, int stc)
@@ -1219,6 +1282,7 @@ namespace MainForm
                     {
                         MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK);
                         LoadDataMonHocGridview();
+                        LoadDataComboboxMH_CTMH();
                         resetDataMonHoc();
                     }
                     else
@@ -1260,6 +1324,7 @@ namespace MainForm
                         {
                             MessageBox.Show("Xóa thông tin môn học thành công !");
                             LoadDataMonHocGridview();
+                            LoadDataComboboxMH_CTMH();
                             resetDataMonHoc();
                         }
                     }
@@ -1317,6 +1382,8 @@ namespace MainForm
                     {
                         MessageBox.Show("Lưu thay đổi thành công !");
                         LoadDataMonHocGridview();
+                        LoadDataComboboxMH_CTMH();
+                        LoadDataCTMHDatagirdview();
                         resetDataMonHoc();
                     }
                     else
@@ -1341,6 +1408,7 @@ namespace MainForm
                             khoa.TenKhoa,
                         };
             ListMonHoc.DataSource = query.ToList();
+            ListMonHoc.ClearSelection();
 
             if (query.ToList().Count < 1)
             {
@@ -1359,7 +1427,7 @@ namespace MainForm
             else if (cbMaKhoa_MonHoc.Text != "")
             {
                 string value = cbMaKhoa_MonHoc.SelectedValue.ToString().Trim();
-                //cbMaKhoa_GiaoVien.SelectedIndex = -1;
+                cbMaKhoa_MonHoc.SelectedIndex = -1;
                 LoadDataMonHocGridviewSearch(value);
                 MessageBox.Show("Đã tìm kiếm thành công !");
                 resetDataMonHoc();
@@ -1386,6 +1454,181 @@ namespace MainForm
         {
             LoadDataMonHocGridview();
         }
+
+
+        //--------------------------------CHỨC NĂNG CHƯƠNG TRÌNH HỌC MÔN -----------------------------------------
+
+        public void turnOffEditModeCTMH()
+        {
+            btnEditMode_ChuongTrinhMonHoc.Text = "OFF";
+            btnAdd_CTMH.Visible = true;
+            btnDelete_CTMH.Visible = false;
+            btnSave_CTMH.Visible = false;
+
+            cbCTDT_CTMH.Enabled = true;
+            cbMH_CTMH.Enabled = true;
+            cbMH_CTMH.BackColor = Color.White;
+            cbCTDT_CTMH.BackColor = Color.White;
+            btnEditMode_MonHoc.ForeColor = Color.Black;
+            //cbKhoa_MonHoc.SelectedIndex = 0;
+
+            resetDataCTMH();
+        }
+
+        public void turnONEditModeCTMH()
+        {
+            btnEditMode_ChuongTrinhMonHoc.Text = "ON";
+            btnAdd_CTMH.Visible = false;
+            btnDelete_CTMH.Visible = true;
+            btnSave_CTMH.Visible = true;
+
+            cbCTDT_CTMH.Enabled = false;
+            cbMH_CTMH.BackColor = Color.LightGray;
+            cbMH_CTMH.Enabled = false;
+            cbMH_CTMH.BackColor = Color.LightGray;
+
+
+            btnEditMode_ChuongTrinhMonHoc.ForeColor = Color.White;
+
+            //cbKhoa_MonHoc.SelectedIndex = -1;
+            numHocKy_CTMH.TabStop = false;
+
+            resetDataCTMH();
+        }
+
+        public void resetDataCTMH()
+        {
+            cbCTDT_CTMH.Text = "";
+            cbMH_CTMH.Text = "";
+            numHocKy_CTMH.Value = 1;
+        }
+
+        private void btnEditMode_ChuongTrinhMonHoc_Click(object sender, EventArgs e)
+        {
+            if (btnEditMode_ChuongTrinhMonHoc.Text == "ON")
+            {
+                turnOffEditModeCTMH();
+            }
+            else if (btnEditMode_ChuongTrinhMonHoc.Text == "OFF")
+            {
+                turnONEditModeCTMH();
+                //cbKhoa_MonHoc.SelectedIndex = -1;
+            }
+        }
+
+        public void LoadDataComboboxCTDT_CTMH()
+        {
+            var ctdt = chuongtrinhBLL.getListChuongTrinh().Select(c => new { c.MaChuongTrinh, c.TenChuongTrinh }).ToList();
+            cbCTDT_CTMH.DataSource = ctdt;
+            cbCTDT_CTMH.DisplayMember = "TenChuongTrinh";
+            cbCTDT_CTMH.ValueMember = "MaChuongTrinh";
+        }
+
+        public void LoadDataComboboxSearchCTDT_CTMH()
+        {
+            var ctdt = chuongtrinhBLL.getListChuongTrinh().Select(c => new { c.MaChuongTrinh, c.TenChuongTrinh }).ToList();
+            CbSearchCTDT_CTMH .DataSource = ctdt;
+            CbSearchCTDT_CTMH.DisplayMember = "TenChuongTrinh";
+            CbSearchCTDT_CTMH.ValueMember = "MaChuongTrinh";
+            CbSearchCTDT_CTMH.SelectedIndex = -1;
+        }
+
+        public void LoadDataComboboxMH_CTMH()
+        {
+            var monhocs = monhocBLL.getListMonHoc().Select(m => new { m.MaMonHoc, m.TenMonHoc }).ToList();
+            cbMH_CTMH.DataSource = monhocs;
+            cbMH_CTMH.DisplayMember = "TenMonHoc";
+            cbMH_CTMH.ValueMember = "MaMonHoc";
+        }
+
+        public void LoadDataCTMHDatagirdview()
+        {
+            var query = from ctmh in ctmhBLL.getListCTMH()
+                        join ctdt in chuongtrinhBLL.getListChuongTrinh() on ctmh.MaChuongTrinh equals ctdt.MaChuongTrinh
+                        join mh in monhocBLL.getListMonHoc() on ctmh.MaMonHoc equals mh.MaMonHoc
+                        select new
+                        {
+                           ctdt.TenChuongTrinh,
+                           mh.TenMonHoc,
+                           ctmh.HocKy
+
+                        };
+            ListCTMH.DataSource = query.ToList();
+            ListCTMH.ClearSelection();
+        }
+
+        public void LoadDataCTMHDataGridview_Search(string mactdt)
+        {
+            var query = from ctmh in ctmhBLL.getListCTMH()
+                        join ctdt in chuongtrinhBLL.getListChuongTrinh() on ctmh.MaChuongTrinh equals ctdt.MaChuongTrinh
+                        join mh in monhocBLL.getListMonHoc() on ctmh.MaMonHoc equals mh.MaMonHoc
+                        where ctmh.MaChuongTrinh == mactdt
+                        select new
+                        {
+                            ctdt.TenChuongTrinh,
+                            mh.TenMonHoc,
+                            ctmh.HocKy
+
+                        };
+            ListCTMH.DataSource = query.ToList();
+            ListCTMH.ClearSelection();
+        }
+
+        private void btnAdd_CTMH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_CTMH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_CTMH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void seachBoxCTMH_Click(object sender, EventArgs e)
+        {
+            if (CbSearchCTDT_CTMH.Text == "")
+            {
+                MessageBox.Show("Hãy chọn chương trình đào tạo cần tìm !");
+                CbSearchCTDT_CTMH.SelectedIndex = -1;
+                LoadDataCTMHDatagirdview();
+            }
+            else if (CbSearchCTDT_CTMH.Text != "")
+            {
+                string value = CbSearchCTDT_CTMH.SelectedValue.ToString().Trim();
+                CbSearchCTDT_CTMH.SelectedIndex = -1;
+                LoadDataCTMHDataGridview_Search(value);
+                MessageBox.Show("Đã tìm kiếm thành công !");
+                //resetDataCTMH();
+            }
+        }
+
+
+        private void CbSearchCTDT_CTMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataCTMHDatagirdview();
+        }
+
+        private void ListCTMH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            turnONEditModeCTMH();
+            if (btnEditMode_ChuongTrinhMonHoc.Text == "ON")
+            {
+                if (index >= 0 && index < ListCTMH.Rows.Count)
+                {
+                    cbCTDT_CTMH.Text = ListCTMH.Rows[index].Cells["TenChuongTrinh_CTMH"].Value.ToString();
+                    cbMH_CTMH.Text = ListCTMH.Rows[index].Cells["TenMonHoc_CTMH"].Value.ToString();
+                    numHocKy_CTMH.Value = (int)ListCTMH.Rows[index].Cells["HocKy_CTMH"].Value;
+                }
+            }
+        }
+
+        
     }
 
     
