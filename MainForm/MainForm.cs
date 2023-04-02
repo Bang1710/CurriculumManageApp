@@ -1726,12 +1726,12 @@ namespace MainForm
                 mactdt = cbCTDT_CTMH.SelectedValue.ToString().Trim();
                 mamh = cbMH_CTMH.SelectedValue.ToString().Trim();
 
-                var ctmhExist = ctmhBLL.getListCTMH().Where(c => c.MaChuongTrinh == mactdt && c.MaMonHoc == mamh && c.HocKy == hocky).SingleOrDefault();
+                var ctmhExist = ctmhBLL.getListCTMH().Where(c => c.MaChuongTrinh == mactdt && c.MaMonHoc == mamh && c.HocKy == hocky).FirstOrDefault();
                 if (ctmhExist != null)
                 {
                     if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin chương trình học môn này không ?", "Thông báo", MessageBoxButtons.YesNo))
                     {
-                        var dnm = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh).SingleOrDefault();
+                        var dnm = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh).FirstOrDefault();
                         if (dnm != null)
                         {
                             MessageBox.Show("Không thể xóa chương trình học môn này, vì đã được phân công cho giáo viên đảm nhiệm !");
