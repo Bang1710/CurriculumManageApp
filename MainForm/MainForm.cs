@@ -63,6 +63,10 @@ namespace MainForm
             LoadDataComboboxMH_CTMH();
             LoadDataComboboxSearchCTDT_CTMH();
             LoadDataCTMHDatagirdview();
+
+            //PHỤ TRÁCH MÔN HỌC
+            turnOffEditModePTMH();
+            LoadDataCTDT_PTMH();
         }
 
         //---------------------------Set up general------------------------------------
@@ -1534,8 +1538,8 @@ namespace MainForm
 
             cbCTDT_CTMH.Enabled = true;
             cbMH_CTMH.Enabled = true;
-            //cbMH_CTMH.BackColor = Color.White;
-            //cbCTDT_CTMH.BackColor = Color.White;
+            cbMH_CTMH.BackColor = Color.White;
+            cbCTDT_CTMH.BackColor = Color.White;
 
             btnEditMode_MonHoc.ForeColor = Color.Black;
             resetDataCTMH();
@@ -1548,10 +1552,10 @@ namespace MainForm
             btnDelete_CTMH.Visible = true;
             btnSave_CTMH.Visible = true;
 
+            cbMH_CTMH.BackColor = Color.Gray;
+            cbCTDT_CTMH.BackColor = Color.Gray;
             cbCTDT_CTMH.Enabled = false;
-            cbMH_CTMH.BackColor = Color.LightGray;
             cbMH_CTMH.Enabled = false;
-            cbMH_CTMH.BackColor = Color.LightGray;
 
 
             btnEditMode_ChuongTrinhMonHoc.ForeColor = Color.White;
@@ -1850,6 +1854,129 @@ namespace MainForm
         }
 
         // -------------------------------------------------------CHỨC NĂNG TAB ĐẢM NHIỆM MÔN---------------------------------
+
+        public void turnOffEditModePTMH()
+        {
+            btnEditMode_PTMH.Text = "OFF";
+            btnAdd_PTMH.Visible = true;
+            btnDelete_PTMH.Visible = false;
+            btnSave_PTMH.Visible = false;
+
+            cbCTDT_PTMH.Enabled = true;
+            cbMH_PTMH.Enabled = true;
+            cbGV_PTMH.Enabled = true;
+            cbMH_PTMH.BackColor = Color.White;
+            cbMH_CTMH.BackColor = Color.White;
+            cbGV_PTMH.BackColor = Color.White;
+
+            ckDamNhiemChinh.Checked = false;
+
+            btnEditMode_PTMH.ForeColor = Color.Black;
+            resetDataPTMH();
+        }
+
+        public void turnONEditModePTMH()
+        {
+            btnEditMode_PTMH.Text = "ON";
+            btnAdd_PTMH.Visible = false;
+            btnDelete_PTMH.Visible = true;
+            btnSave_PTMH.Visible = true;
+
+            cbMH_PTMH.BackColor = Color.LightGray;
+            cbCTDT_PTMH.Enabled = false;
+            cbMH_CTMH.BackColor = Color.LightGray;
+            cbMH_PTMH.Enabled = false;
+            cbGV_PTMH.BackColor = Color.LightGray;
+            cbGV_PTMH.Enabled = false;
+            btnEditMode_PTMH.ForeColor = Color.White;
+
+            resetDataPTMH();
+        }
+
+        public void resetDataPTMH()
+        {
+            cbCTDT_PTMH.SelectedIndex = -1;
+            cbGV_PTMH.SelectedIndex = -1;
+            cbMH_PTMH.SelectedIndex = -1;
+            ckDamNhiemChinh.Checked = false;
+        }
+
+        private void btnEditMode_PhuTrachMonHoc_Click(object sender, EventArgs e)
+        {
+            if (btnEditMode_PTMH.Text == "ON")
+            {
+                turnOffEditModePTMH();
+            }
+            else if (btnEditMode_PTMH.Text == "OFF")
+            {
+                turnONEditModePTMH();
+            }
+        }
+
+        public void LoadDataCTDT_PTMH()
+        {
+            var ctdt = chuongtrinhBLL.getListChuongTrinh().Select(c => new { c.MaChuongTrinh, c.TenChuongTrinh }).ToList();
+            cbCTDT_PTMH.DataSource = ctdt;
+            cbCTDT_PTMH.DisplayMember = "TenChuongTrinh";
+            cbCTDT_PTMH.ValueMember = "MaChuongTrinh";
+            cbCTDT_PTMH.SelectedIndex = -1;
+        }
+
+        public void LoadDataMH_PTMH(string mactdt)
+        {
+            var query = from kh in ctmhBLL.getListCTMH()
+                        join ct in chuongtrinhBLL.getListChuongTrinh() on kh.MaChuongTrinh equals ct.MaChuongTrinh
+                        join mh in monhocBLL.getListMonHoc() on kh.MaMonHoc equals mh.MaMonHoc
+                        where kh.MaChuongTrinh == mactdt
+                        select new
+                        {
+                            mh.MaMonHoc,
+                            mh.TenMonHoc
+                        };
+            cbMH_PTMH.DataSource = query.ToList();
+            cbMH_PTMH.DisplayMember = "TenMonHoc";
+            cbMH_PTMH.ValueMember = "MaMonHoc";
+            cbMH_PTMH.SelectedIndex = -1;
+        }
+
+        public void LoadDataGV_PTMH(string mamh)
+        {
+
+        }
+
+        private void btnAdd_PTMH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_PTMH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchBoxPTMH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbGiaoVien_Search_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView6_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbCTDT_PTMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCTDT_PTMH.Text != "")
+            {
+                //MessageBox.Show(cbCTDT_PTMH.SelectedValue.ToString().Trim());
+                LoadDataMH_PTMH(cbCTDT_PTMH.SelectedValue.ToString().Trim());
+            }
+        }
     }
 
     

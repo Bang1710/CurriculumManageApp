@@ -42,21 +42,16 @@ namespace DAL
             return true;
         }
 
-        public bool EditKhoa(string makhoa, string tenkhoa, string oldMaKhoa)
+        public bool EditKhoa(string makhoa, string tenkhoa)
         {
             try
             {
-                var kh = context.Khoas.Find(oldMaKhoa);
-                kh.MaKhoa = makhoa;
+                var kh = context.Khoas.Find(makhoa);
                 kh.TenKhoa = tenkhoa;
                 context.SaveChanges();
             }
             catch (Exception e)
             {
-                Exception baseEx = e.GetBaseException();
-
-                // Log or display the base exception message
-                MessageBox.Show(baseEx.Message);
                 return false;
             }
             return true;
