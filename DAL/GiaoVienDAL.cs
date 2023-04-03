@@ -62,7 +62,7 @@ namespace DAL
         {
             try
             {
-                var gv = context.GiaoViens.Where(g => g.MaGiaoVien == id).SingleOrDefault();
+                var gv = context.GiaoViens.Where(g => g.MaGiaoVien == id).FirstOrDefault();
                 context.GiaoViens.Remove(gv);
                 context.SaveChanges();
             }

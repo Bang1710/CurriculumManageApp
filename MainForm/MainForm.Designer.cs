@@ -222,17 +222,11 @@
             this.label41 = new System.Windows.Forms.Label();
             this.tabPTMH = new System.Windows.Forms.TabPage();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.TenMonHoc_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenChuongTrinh_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaGiaoVien_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoLaDamNhiemChinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListPTMH = new System.Windows.Forms.DataGridView();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.searchBoxPTMH = new System.Windows.Forms.PictureBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.btnDelete_PTMH = new System.Windows.Forms.Button();
             this.cbGiaoVien_Search = new System.Windows.Forms.ComboBox();
-            this.btnSave_PTMH = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.label44 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -241,7 +235,9 @@
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.ckDamNhiemChinh = new System.Windows.Forms.CheckBox();
             this.cbGV_PTMH = new System.Windows.Forms.ComboBox();
+            this.btnDelete_PTMH = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
+            this.btnSave_PTMH = new System.Windows.Forms.Button();
             this.cbMH_PTMH = new System.Windows.Forms.ComboBox();
             this.cbCTDT_PTMH = new System.Windows.Forms.ComboBox();
             this.label46 = new System.Windows.Forms.Label();
@@ -332,6 +328,10 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nguoigui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ngaygui = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMonHoc_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChuongTrinh_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoLaDamNhiemChinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backPage)).BeginInit();
             this.panel2.SuspendLayout();
@@ -392,7 +392,7 @@
             this.panel20.SuspendLayout();
             this.tabPTMH.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListPTMH)).BeginInit();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchBoxPTMH)).BeginInit();
             this.panel21.SuspendLayout();
@@ -2492,7 +2492,7 @@
             // 
             // groupBox16
             // 
-            this.groupBox16.Controls.Add(this.dataGridView6);
+            this.groupBox16.Controls.Add(this.ListPTMH);
             this.groupBox16.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox16.Location = new System.Drawing.Point(4, 456);
             this.groupBox16.Name = "groupBox16";
@@ -2501,12 +2501,12 @@
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Danh sách giáo viên phụ trách môn học";
             // 
-            // dataGridView6
+            // ListPTMH
             // 
-            this.dataGridView6.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dataGridView6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.dataGridView6.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView6.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.ListPTMH.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.ListPTMH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.ListPTMH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.ListPTMH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
             dataGridViewCellStyle33.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2514,75 +2514,42 @@
             dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
             dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView6.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
-            this.dataGridView6.ColumnHeadersHeight = 50;
-            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListPTMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            this.ListPTMH.ColumnHeadersHeight = 50;
+            this.ListPTMH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenMonHoc_PTMH,
             this.TenChuongTrinh_PTMH,
-            this.MaGiaoVien_PTMH,
+            this.HoTen_PTMH,
             this.CoLaDamNhiemChinh});
-            this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView6.EnableHeadersVisualStyles = false;
-            this.dataGridView6.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView6.Location = new System.Drawing.Point(3, 32);
-            this.dataGridView6.MultiSelect = false;
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.RowHeadersVisible = false;
-            this.dataGridView6.RowHeadersWidth = 51;
+            this.ListPTMH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListPTMH.EnableHeadersVisualStyles = false;
+            this.ListPTMH.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ListPTMH.Location = new System.Drawing.Point(3, 32);
+            this.ListPTMH.MultiSelect = false;
+            this.ListPTMH.Name = "ListPTMH";
+            this.ListPTMH.RowHeadersVisible = false;
+            this.ListPTMH.RowHeadersWidth = 51;
             dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle34.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
             dataGridViewCellStyle34.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
             dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView6.RowsDefaultCellStyle = dataGridViewCellStyle34;
-            this.dataGridView6.RowTemplate.Height = 50;
-            this.dataGridView6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(1054, 312);
-            this.dataGridView6.TabIndex = 0;
-            this.dataGridView6.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView6_CellClick);
-            // 
-            // TenMonHoc_PTMH
-            // 
-            this.TenMonHoc_PTMH.DataPropertyName = "TenMonHoc";
-            this.TenMonHoc_PTMH.HeaderText = "Tên môn học";
-            this.TenMonHoc_PTMH.MinimumWidth = 6;
-            this.TenMonHoc_PTMH.Name = "TenMonHoc_PTMH";
-            this.TenMonHoc_PTMH.Width = 250;
-            // 
-            // TenChuongTrinh_PTMH
-            // 
-            this.TenChuongTrinh_PTMH.DataPropertyName = "TenChuongTrinh";
-            this.TenChuongTrinh_PTMH.HeaderText = "Chương trình đào tạo";
-            this.TenChuongTrinh_PTMH.MinimumWidth = 6;
-            this.TenChuongTrinh_PTMH.Name = "TenChuongTrinh_PTMH";
-            this.TenChuongTrinh_PTMH.Width = 300;
-            // 
-            // MaGiaoVien_PTMH
-            // 
-            this.MaGiaoVien_PTMH.DataPropertyName = "MaGiaoVien";
-            this.MaGiaoVien_PTMH.HeaderText = "Giáo viên đảm nhiệm";
-            this.MaGiaoVien_PTMH.MinimumWidth = 6;
-            this.MaGiaoVien_PTMH.Name = "MaGiaoVien_PTMH";
-            this.MaGiaoVien_PTMH.Width = 300;
-            // 
-            // CoLaDamNhiemChinh
-            // 
-            this.CoLaDamNhiemChinh.DataPropertyName = "CoLaDamNhiemChinh";
-            this.CoLaDamNhiemChinh.HeaderText = "Đảm nhiệm chính";
-            this.CoLaDamNhiemChinh.MinimumWidth = 6;
-            this.CoLaDamNhiemChinh.Name = "CoLaDamNhiemChinh";
-            this.CoLaDamNhiemChinh.Width = 200;
+            this.ListPTMH.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            this.ListPTMH.RowTemplate.Height = 50;
+            this.ListPTMH.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ListPTMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListPTMH.Size = new System.Drawing.Size(1054, 312);
+            this.ListPTMH.TabIndex = 0;
+            this.ListPTMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListPTMH_CellClick);
+            this.ListPTMH.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ListPTMH_CellFormatting);
             // 
             // groupBox17
             // 
             this.groupBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.groupBox17.Controls.Add(this.searchBoxPTMH);
             this.groupBox17.Controls.Add(this.label43);
-            this.groupBox17.Controls.Add(this.btnDelete_PTMH);
             this.groupBox17.Controls.Add(this.cbGiaoVien_Search);
-            this.groupBox17.Controls.Add(this.btnSave_PTMH);
             this.groupBox17.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox17.Location = new System.Drawing.Point(1, 369);
             this.groupBox17.Name = "groupBox17";
@@ -2613,42 +2580,20 @@
             this.label43.TabIndex = 9;
             this.label43.Text = "Giáo viên đảm nhiệm";
             // 
-            // btnDelete_PTMH
-            // 
-            this.btnDelete_PTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnDelete_PTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete_PTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_PTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.btnDelete_PTMH.Location = new System.Drawing.Point(842, 21);
-            this.btnDelete_PTMH.Name = "btnDelete_PTMH";
-            this.btnDelete_PTMH.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_PTMH.TabIndex = 8;
-            this.btnDelete_PTMH.Text = "Xóa";
-            this.btnDelete_PTMH.UseVisualStyleBackColor = false;
-            this.btnDelete_PTMH.Click += new System.EventHandler(this.btnDelete_PTMH_Click);
-            // 
             // cbGiaoVien_Search
             // 
+            this.cbGiaoVien_Search.DropDownHeight = 400;
+            this.cbGiaoVien_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGiaoVien_Search.DropDownWidth = 350;
             this.cbGiaoVien_Search.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGiaoVien_Search.FormattingEnabled = true;
+            this.cbGiaoVien_Search.IntegralHeight = false;
             this.cbGiaoVien_Search.Location = new System.Drawing.Point(255, 22);
+            this.cbGiaoVien_Search.MaxLength = 8;
             this.cbGiaoVien_Search.Name = "cbGiaoVien_Search";
             this.cbGiaoVien_Search.Size = new System.Drawing.Size(326, 36);
             this.cbGiaoVien_Search.TabIndex = 7;
             this.cbGiaoVien_Search.SelectedIndexChanged += new System.EventHandler(this.cbGiaoVien_Search_SelectedIndexChanged);
-            // 
-            // btnSave_PTMH
-            // 
-            this.btnSave_PTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.btnSave_PTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave_PTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave_PTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.btnSave_PTMH.Location = new System.Drawing.Point(962, 21);
-            this.btnSave_PTMH.Name = "btnSave_PTMH";
-            this.btnSave_PTMH.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_PTMH.TabIndex = 6;
-            this.btnSave_PTMH.Text = "Lưu";
-            this.btnSave_PTMH.UseVisualStyleBackColor = false;
             // 
             // panel21
             // 
@@ -2708,7 +2653,9 @@
             this.groupBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.groupBox18.Controls.Add(this.ckDamNhiemChinh);
             this.groupBox18.Controls.Add(this.cbGV_PTMH);
+            this.groupBox18.Controls.Add(this.btnDelete_PTMH);
             this.groupBox18.Controls.Add(this.label48);
+            this.groupBox18.Controls.Add(this.btnSave_PTMH);
             this.groupBox18.Controls.Add(this.cbMH_PTMH);
             this.groupBox18.Controls.Add(this.cbCTDT_PTMH);
             this.groupBox18.Controls.Add(this.label46);
@@ -2735,12 +2682,27 @@
             // 
             // cbGV_PTMH
             // 
+            this.cbGV_PTMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGV_PTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGV_PTMH.FormattingEnabled = true;
             this.cbGV_PTMH.Location = new System.Drawing.Point(768, 87);
             this.cbGV_PTMH.Name = "cbGV_PTMH";
             this.cbGV_PTMH.Size = new System.Drawing.Size(272, 36);
             this.cbGV_PTMH.TabIndex = 16;
+            // 
+            // btnDelete_PTMH
+            // 
+            this.btnDelete_PTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.btnDelete_PTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete_PTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete_PTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnDelete_PTMH.Location = new System.Drawing.Point(842, 160);
+            this.btnDelete_PTMH.Name = "btnDelete_PTMH";
+            this.btnDelete_PTMH.Size = new System.Drawing.Size(82, 36);
+            this.btnDelete_PTMH.TabIndex = 8;
+            this.btnDelete_PTMH.Text = "Xóa";
+            this.btnDelete_PTMH.UseVisualStyleBackColor = false;
+            this.btnDelete_PTMH.Click += new System.EventHandler(this.btnDelete_PTMH_Click);
             // 
             // label48
             // 
@@ -2753,17 +2715,34 @@
             this.label48.TabIndex = 15;
             this.label48.Text = "Giáo viên đảm nhiệm";
             // 
+            // btnSave_PTMH
+            // 
+            this.btnSave_PTMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnSave_PTMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave_PTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave_PTMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnSave_PTMH.Location = new System.Drawing.Point(962, 160);
+            this.btnSave_PTMH.Name = "btnSave_PTMH";
+            this.btnSave_PTMH.Size = new System.Drawing.Size(79, 36);
+            this.btnSave_PTMH.TabIndex = 6;
+            this.btnSave_PTMH.Text = "Lưu";
+            this.btnSave_PTMH.UseVisualStyleBackColor = false;
+            this.btnSave_PTMH.Click += new System.EventHandler(this.btnSave_PTMH_Click);
+            // 
             // cbMH_PTMH
             // 
+            this.cbMH_PTMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMH_PTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMH_PTMH.FormattingEnabled = true;
             this.cbMH_PTMH.Location = new System.Drawing.Point(254, 87);
             this.cbMH_PTMH.Name = "cbMH_PTMH";
             this.cbMH_PTMH.Size = new System.Drawing.Size(240, 36);
             this.cbMH_PTMH.TabIndex = 14;
+            this.cbMH_PTMH.SelectedIndexChanged += new System.EventHandler(this.cbMH_PTMH_SelectedIndexChanged);
             // 
             // cbCTDT_PTMH
             // 
+            this.cbCTDT_PTMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCTDT_PTMH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCTDT_PTMH.FormattingEnabled = true;
             this.cbCTDT_PTMH.Location = new System.Drawing.Point(254, 30);
@@ -3834,6 +3813,38 @@
             this.Ngaygui.Name = "Ngaygui";
             this.Ngaygui.Width = 315;
             // 
+            // TenMonHoc_PTMH
+            // 
+            this.TenMonHoc_PTMH.DataPropertyName = "TenMonHoc";
+            this.TenMonHoc_PTMH.HeaderText = "Tên môn học";
+            this.TenMonHoc_PTMH.MinimumWidth = 6;
+            this.TenMonHoc_PTMH.Name = "TenMonHoc_PTMH";
+            this.TenMonHoc_PTMH.Width = 250;
+            // 
+            // TenChuongTrinh_PTMH
+            // 
+            this.TenChuongTrinh_PTMH.DataPropertyName = "TenChuongTrinh";
+            this.TenChuongTrinh_PTMH.HeaderText = "Chương trình đào tạo";
+            this.TenChuongTrinh_PTMH.MinimumWidth = 6;
+            this.TenChuongTrinh_PTMH.Name = "TenChuongTrinh_PTMH";
+            this.TenChuongTrinh_PTMH.Width = 300;
+            // 
+            // HoTen_PTMH
+            // 
+            this.HoTen_PTMH.DataPropertyName = "HoTen";
+            this.HoTen_PTMH.HeaderText = "Giáo viên đảm nhiệm";
+            this.HoTen_PTMH.MinimumWidth = 6;
+            this.HoTen_PTMH.Name = "HoTen_PTMH";
+            this.HoTen_PTMH.Width = 280;
+            // 
+            // CoLaDamNhiemChinh
+            // 
+            this.CoLaDamNhiemChinh.DataPropertyName = "CoLaDamNhiemChinh";
+            this.CoLaDamNhiemChinh.HeaderText = "Đảm nhiệm chính";
+            this.CoLaDamNhiemChinh.MinimumWidth = 6;
+            this.CoLaDamNhiemChinh.Name = "CoLaDamNhiemChinh";
+            this.CoLaDamNhiemChinh.Width = 225;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3938,7 +3949,7 @@
             this.panel20.PerformLayout();
             this.tabPTMH.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListPTMH)).EndInit();
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchBoxPTMH)).EndInit();
@@ -4140,7 +4151,7 @@
         private System.Windows.Forms.Button btnEditMode_ChuongTrinhMonHoc;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.DataGridView ListPTMH;
         private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.Button btnDelete_PTMH;
         private System.Windows.Forms.ComboBox cbGiaoVien_Search;
@@ -4197,10 +4208,6 @@
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.NumericUpDown numHocKy_CTMH;
         private System.Windows.Forms.ComboBox cbMH_CTMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMonHoc_PTMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenChuongTrinh_PTMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaGiaoVien_PTMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CoLaDamNhiemChinh;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.CheckBox ckDamNhiemChinh;
         private System.Windows.Forms.ComboBox cbGV_PTMH;
@@ -4268,5 +4275,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaBacHoc_CT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhoa_CT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiamDoc_CT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenMonHoc_PTMH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenChuongTrinh_PTMH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen_PTMH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CoLaDamNhiemChinh;
     }
 }

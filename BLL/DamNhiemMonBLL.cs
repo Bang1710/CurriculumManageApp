@@ -20,5 +20,20 @@ namespace BLL
         {
             return damnhiemmonDAL.getListDamNhiemMon();
         }
+
+        public bool AddDamNhiemMon(DamNhiemMon mon)
+        {
+            return damnhiemmonDAL.AddDamNhiemMon(mon);
+        }
+
+        public bool EditDamNhiemMon(string mactdt, string mamh, string magv, int dnc)
+        {
+            return damnhiemmonDAL.EditDamNhiemMon(mactdt, mamh, magv, dnc);
+        }
+
+        public bool DeleteDamNhiemMon(string mactdt, string mamh, string magv)
+        {
+            return damnhiemmonDAL.DeleteDamNhiemMon(mactdt, mamh, magv);
+        }
     }
 }

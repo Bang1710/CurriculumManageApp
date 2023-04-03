@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietKhoaHocBLL.cs" />
     <Compile Include="ChuongTrinhBLL.cs" />
     <Compile Include="ChuongTrinhMonHocBLL.cs" />
     <Compile Include="DamNhiemMonBLL.cs" />
     <Compile Include="GiaoVienBLL.cs" />
     <Compile Include="KhoaBLL.cs" />
+    <Compile Include="KhoaHocBLL.cs" />
     <Compile Include="MonHocBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

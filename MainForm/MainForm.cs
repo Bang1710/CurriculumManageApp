@@ -24,6 +24,8 @@ namespace MainForm
         ChuongTrinhMonHocBLL ctmhBLL = new ChuongTrinhMonHocBLL();
         DamNhiemMonBLL dnmBLL = new DamNhiemMonBLL();
 
+        ChiTietKhoaHocBLL ctkhBLL = new ChiTietKhoaHocBLL();
+
         public MainForm()
         {
             InitializeComponent();
@@ -67,6 +69,8 @@ namespace MainForm
             //PHỤ TRÁCH MÔN HỌC
             turnOffEditModePTMH();
             LoadDataCTDT_PTMH();
+            LoadDataGVSearch_PTMH();
+            LoadDataPTMHGridview();
         }
 
         //---------------------------Set up general------------------------------------
@@ -616,6 +620,7 @@ namespace MainForm
                         MessageBox.Show("Thêm giáo viên thành công", "Thông báo", MessageBoxButtons.OK);
                         LoadDataGiaoVienGridview();
                         LoadDataChuongTrinhCombobox();
+                        LoadDataGVSearch_PTMH();
                         resetDataGiaoVien();
                     }
                     else
@@ -685,6 +690,7 @@ namespace MainForm
                                 MessageBox.Show("Xóa thông tin giáo viên thành công !");
                                 LoadDataGiaoVienGridview();
                                 LoadDataChuongTrinhCombobox();
+                                LoadDataGVSearch_PTMH();
                                 resetDataGiaoVien();
                             }
                         }
@@ -751,6 +757,7 @@ namespace MainForm
                         LoadDataGiaoVienGridview();
                         LoadDataChuongTrinhGridview();
                         LoadDataChuongTrinhCombobox();
+                        LoadDataGVSearch_PTMH();
                         resetDataGiaoVien();
                     }
                     else
@@ -838,7 +845,7 @@ namespace MainForm
             cbKhoa_ChuongTrinh.DataSource = khoas;
             cbKhoa_ChuongTrinh.DisplayMember = "TenKhoa";
             cbKhoa_ChuongTrinh.ValueMember = "MaKhoa";
-            LoadDataGiangVien_ChuongTrinhCombobox(cbKhoa_ChuongTrinh.SelectedValue.ToString());
+            //LoadDataGiangVien_ChuongTrinhCombobox(cbKhoa_ChuongTrinh.SelectedValue.ToString());
             cbKhoa_ChuongTrinh.SelectedIndex = -1;
         }
 
@@ -988,6 +995,7 @@ namespace MainForm
                         LoadDataChuongTrinhGridview();
                         LoadDataComboboxCTDT_CTMH();
                         LoadDataComboboxSearchCTDT_CTMH();
+                        LoadDataCTDT_PTMH();
                         resetDataChuongTrinh();
                     }
                     else
@@ -1040,6 +1048,7 @@ namespace MainForm
                                 LoadDataChuongTrinhGridview();
                                 LoadDataComboboxCTDT_CTMH();
                                 LoadDataComboboxSearchCTDT_CTMH();
+                                LoadDataCTDT_PTMH();
                                 resetDataChuongTrinh();
                             }
                         }
@@ -1130,6 +1139,7 @@ namespace MainForm
                         LoadDataComboboxCTDT_CTMH();
                         LoadDataComboboxSearchCTDT_CTMH();
                         LoadDataCTMHDatagirdview();
+                        LoadDataCTDT_PTMH();
                         resetDataChuongTrinh();
                     }
                     else
@@ -1454,6 +1464,7 @@ namespace MainForm
                         LoadDataMonHocGridview();
                         LoadDataComboboxMH_CTMH();
                         LoadDataCTMHDatagirdview();
+                        LoadDataPTMHGridview();
                         resetDataMonHoc();
                     }
                     else
@@ -1639,6 +1650,10 @@ namespace MainForm
                         };
             ListCTMH.DataSource = query.ToList();
             ListCTMH.ClearSelection();
+            if (query.ToList().Count < 1)
+            {
+                MessageBox.Show("Không có chương trình học môn nào thuộc chương trình đào tạo này");
+            }
         }
 
         public bool checkDataAddCTMH(string mactdt, string mamh)
@@ -1689,6 +1704,7 @@ namespace MainForm
                         {
                             MessageBox.Show("Thêm chương trình học môn thành công", "Thông báo", MessageBoxButtons.OK);
                             LoadDataCTMHDatagirdview();
+                            LoadDataMH_PTMH(mactdt);
                             resetDataCTMH();
                         }
                         else
@@ -1747,6 +1763,7 @@ namespace MainForm
                             {
                                 MessageBox.Show("Xóa thông tin chương trình môn học thành công !");
                                 LoadDataCTMHDatagirdview();
+                                LoadDataMH_PTMH(mactdt);
                                 resetDataCTMH();
                             } else
                             {
@@ -1865,9 +1882,9 @@ namespace MainForm
             cbCTDT_PTMH.Enabled = true;
             cbMH_PTMH.Enabled = true;
             cbGV_PTMH.Enabled = true;
-            cbMH_PTMH.BackColor = Color.White;
-            cbMH_CTMH.BackColor = Color.White;
-            cbGV_PTMH.BackColor = Color.White;
+            //cbMH_PTMH.BackColor = Color.White;
+            //cbMH_CTMH.BackColor = Color.White;
+            //cbGV_PTMH.BackColor = Color.White;
 
             ckDamNhiemChinh.Checked = false;
 
@@ -1882,11 +1899,11 @@ namespace MainForm
             btnDelete_PTMH.Visible = true;
             btnSave_PTMH.Visible = true;
 
-            cbMH_PTMH.BackColor = Color.LightGray;
+            //cbMH_PTMH.BackColor = Color.LightGray;
             cbCTDT_PTMH.Enabled = false;
-            cbMH_CTMH.BackColor = Color.LightGray;
+            //cbMH_CTMH.BackColor = Color.LightGray;
             cbMH_PTMH.Enabled = false;
-            cbGV_PTMH.BackColor = Color.LightGray;
+            //cbGV_PTMH.BackColor = Color.LightGray;
             cbGV_PTMH.Enabled = false;
             btnEditMode_PTMH.ForeColor = Color.White;
 
@@ -1941,42 +1958,361 @@ namespace MainForm
 
         public void LoadDataGV_PTMH(string mamh)
         {
+            var query = from mh in monhocBLL.getListMonHoc()
+                        join kh in khoaBLL.getListKhoa() on mh.MaKhoa equals kh.MaKhoa
+                        join gv in giaovienBLL.getListGiaoVien() on kh.MaKhoa equals gv.MaKhoa
+                        where mh.MaMonHoc == mamh
+                        select new
+                        {
+                            gv.MaGiaoVien,
+                            gv.HoTen
+                        };
+            cbGV_PTMH.DataSource = query.ToList();
+            cbGV_PTMH.DisplayMember = "HoTen";
+            cbGV_PTMH.ValueMember = "MaGiaoVien";
+            cbGV_PTMH.SelectedIndex = -1;
 
+        }
+
+        public void LoadDataGVSearch_PTMH()
+        {
+            var query = from gv in giaovienBLL.getListGiaoVien()
+                        select new
+                        {
+                            gv.MaGiaoVien,
+                            gv.HoTen
+                        };
+            cbGiaoVien_Search.DataSource = query.ToList();
+            cbGiaoVien_Search.DisplayMember = "HoTen";
+            cbGiaoVien_Search.ValueMember = "MaGiaoVien";
+            cbGiaoVien_Search.SelectedIndex = -1;
+        }
+
+        public void LoadDataPTMHGridview()
+        {
+            var query = from ptmh in dnmBLL.getListDamNhiemMon()
+                        join ctdt in chuongtrinhBLL.getListChuongTrinh() on ptmh.MaChuongTrinh equals ctdt.MaChuongTrinh
+                        join mh in monhocBLL.getListMonHoc() on ptmh.MaMonHoc equals mh.MaMonHoc
+                        join gv in giaovienBLL.getListGiaoVien() on ptmh.MaGiaoVien equals gv.MaGiaoVien
+                        select new {
+                            ctdt.TenChuongTrinh,
+                            mh.TenMonHoc,
+                            gv.HoTen,
+                            ptmh.CoLaDamNhiemChinh
+                        };
+            ListPTMH.DataSource = query.ToList();
+            ListPTMH.ClearSelection();
+        }
+
+        public void LoadDataPTMHGridviewSearch(string magv)
+        {
+            var query = from ptmh in dnmBLL.getListDamNhiemMon()
+                        join ctdt in chuongtrinhBLL.getListChuongTrinh() on ptmh.MaChuongTrinh equals ctdt.MaChuongTrinh
+                        join mh in monhocBLL.getListMonHoc() on ptmh.MaMonHoc equals mh.MaMonHoc
+                        join gv in giaovienBLL.getListGiaoVien() on ptmh.MaGiaoVien equals gv.MaGiaoVien
+                        where ptmh.MaGiaoVien == magv
+                        select new
+                        {
+                            ctdt.TenChuongTrinh,
+                            mh.TenMonHoc,
+                            gv.HoTen,
+                            ptmh.CoLaDamNhiemChinh
+                        };
+            ListPTMH.DataSource = query.ToList();
+            ListPTMH.ClearSelection();
+            if (query.ToList().Count < 1)
+            {
+                MessageBox.Show("Không có phụ trách môn học nào được giáo viên này đảm nhiệm");
+            }
+        }
+
+        public bool checkDataAddPTMH(string mactdt, string mamh, string mgv)
+        {
+            if (string.IsNullOrEmpty(mactdt))
+            {
+                MessageBox.Show("Hãy chọn giá trị chương trình đào tạo, giá trị này không được bỏ trống !");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(mamh))
+            {
+                MessageBox.Show("Hãy chọn giá trị môn học, giá trị này không được bỏ trống !");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(mgv))
+            {
+                MessageBox.Show("Hãy chọn giá trị tên giáo viên đảm nhiệm cho môn học trên, giá trị này không được bỏ trống !");
+                return false;
+            }
+
+            return true;
         }
 
         private void btnAdd_PTMH_Click(object sender, EventArgs e)
         {
+            var mactdtText = cbCTDT_PTMH.Text;
+            var mamhText = cbMH_PTMH.Text;
+            var magvText = cbGV_PTMH.Text;
+            bool dnc = ckDamNhiemChinh.Checked;
 
+            string mactdt;
+            string mamh;
+            string magv;
+
+            if (checkDataAddPTMH(mactdtText, mamhText, magvText))
+            {
+                mactdt = cbCTDT_PTMH.SelectedValue.ToString().Trim();
+                mamh = cbMH_PTMH.SelectedValue.ToString().Trim();
+                magv = cbGV_PTMH.SelectedValue.ToString().Trim();
+
+                var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv).SingleOrDefault();
+                var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).ToList().Count();
+                MessageBox.Show(dncGV.ToString());
+                //MessageBox.Show(dncGV.ToString());  
+
+                if (ptmhExist != null)
+                {
+                    MessageBox.Show("Phụ trách môn học này đã được đăng ký, hãy thử đăng ký lại !");
+                }
+                else if (!(dncGV >= 5 && dnc == true))
+                {
+                    int value = Convert.ToInt32(dnc);
+
+                    var ptmh = new DamNhiemMon()
+                    {
+                        MaChuongTrinh = mactdt,
+                        MaMonHoc = mamh,
+                        MaGiaoVien = magv,
+                        CoLaDamNhiemChinh = value
+                    };
+
+                    if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thêm phụ trách môn học này không", "Thông báo", MessageBoxButtons.YesNo))
+                    {
+                        if (dnmBLL.AddDamNhiemMon(ptmh))
+                        {
+                            MessageBox.Show("Thêm phụ trách môn học thành công", "Thông báo", MessageBoxButtons.OK);
+                            LoadDataPTMHGridview();
+                            resetDataPTMH();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm không thành công ! Hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                } else
+                {
+                    MessageBox.Show("Giáo viên này đã làm đảm nhiệm chính trên 5 môn học khác nhau, hãy đổi giáo viên khác làm đảm nhiệm chính hoặc không cho làm đảm nhiệm chính !");
+                }
+            }
+        }
+
+        public bool checkDataDeletePTMH(string mactdt)
+        {
+            if (string.IsNullOrEmpty(mactdt))
+            {
+                MessageBox.Show("Hãy chọn phụ trách mà bạn muốn xóa!");
+                return false;
+            }
+            return true;
         }
 
         private void btnDelete_PTMH_Click(object sender, EventArgs e)
         {
+            var mactdtText = cbCTDT_PTMH.Text;
+            var mamhText = cbMH_PTMH.Text;
+            var magvText = cbGV_PTMH.Text;
+            bool dnc = ckDamNhiemChinh.Checked;
 
+            string mactdt;
+            string mamh;
+            string magv;
+            if (checkDataDeletePTMH(mactdtText))
+            {
+                int value = Convert.ToInt32(dnc);
+                mactdt = cbCTDT_PTMH.SelectedValue.ToString().Trim();
+                mamh = cbMH_PTMH.SelectedValue.ToString().Trim();
+                magv = cbGV_PTMH.SelectedValue.ToString().Trim();
+
+                var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == value).SingleOrDefault();
+                //var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv).ToList().Count();
+                if (ptmhExist != null)
+                {
+                    if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin phụ trách môn học này không ?", "Thông báo", MessageBoxButtons.YesNo))
+                    {
+                        var ctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaGiaoVien_day == magv && c.MaMonHoc == mamh).FirstOrDefault();
+                        if (ctkh != null)
+                        {
+                            MessageBox.Show("Không thể xóa phụ trách môn học này này, vì đã được phân công trong chi tiết khóa học !");
+                            resetDataPTMH();
+                        }
+                        else
+                        {
+                            if (dnmBLL.DeleteDamNhiemMon(mactdt, mamh, magv))
+                            {
+                                MessageBox.Show("Xóa thông tin phụ trách môn học thành công !");
+                                LoadDataPTMHGridview();
+                                resetDataPTMH();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error");
+                            }
+                        }
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                }
+            }
         }
 
         private void searchBoxPTMH_Click(object sender, EventArgs e)
         {
+            if (cbGiaoVien_Search.Text == "")
+            {
+                MessageBox.Show("Hãy chọn giáo viên mà bạn cần tìm !");
+                cbGiaoVien_Search.SelectedIndex = -1;
+                LoadDataPTMHGridview();
+            }
+            else if (cbGiaoVien_Search.Text != "")
+            {
+                string value = cbGiaoVien_Search.SelectedValue.ToString().Trim();
+                cbGiaoVien_Search.SelectedIndex = -1;
+                LoadDataPTMHGridviewSearch(value);
+                MessageBox.Show("Đã tìm kiếm thành công !");
+                cbGiaoVien_Search.SelectedIndex = -1;
+            }
+        }
 
+        public bool checkDataEditPTMH(string mactdt)
+        {
+            if (string.IsNullOrEmpty(mactdt))
+            {
+                MessageBox.Show("Hãy chọn phụ trách môn học mà bạn muốn sửa !");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnSave_PTMH_Click(object sender, EventArgs e)
+        {
+            var mactdtText = cbCTDT_PTMH.Text;
+            var mamhText = cbMH_PTMH.Text;
+            var magvText = cbGV_PTMH.Text;
+            bool dnc = ckDamNhiemChinh.Checked;
+
+            string mactdt;
+            string mamh;
+            string magv; 
+
+            if (checkDataEditPTMH(mamhText))
+            {
+                int value = Convert.ToInt32(dnc);
+                mactdt = cbCTDT_PTMH.SelectedValue.ToString().Trim();
+                mamh = cbMH_PTMH.SelectedValue.ToString().Trim();
+                magv = cbGV_PTMH.SelectedValue.ToString().Trim();
+
+                var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).ToList().Count();
+                MessageBox.Show(dncGV.ToString());
+                var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == value).SingleOrDefault();
+                if (ptmhExist != null)
+                {
+                    MessageBox.Show("Thông tin chưa chỉnh sữa, hãy thực hiện chỉnh sửa trước khi lưu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!(dncGV >= 5 && dnc == true))
+                {
+                    if (DialogResult.Yes == MessageBox.Show("Bạn có muốn chỉnh sửa thông tin phụ trách môn học này không", "Thông báo", MessageBoxButtons.YesNo))
+                    {
+                        if (dnmBLL.EditDamNhiemMon(mactdt, mamh, magv, value))
+                        {
+                            MessageBox.Show("Chỉnh sửa thông tin phụ trách môn học thành công", "Thông báo", MessageBoxButtons.OK);
+                            LoadDataPTMHGridview();
+                            resetDataPTMH();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lưu không thành công ! Hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Giáo viên này đã làm đảm nhiệm chính trên 5 môn học khác nhau, hãy đổi giáo viên khác làm đảm nhiệm chính hoặc không cho làm đảm nhiệm chính !");
+                }
+            }
         }
 
         private void cbGiaoVien_Search_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void dataGridView6_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            LoadDataPTMHGridview();
         }
 
         private void cbCTDT_PTMH_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbCTDT_PTMH.Text != "")
             {
-                //MessageBox.Show(cbCTDT_PTMH.SelectedValue.ToString().Trim());
                 LoadDataMH_PTMH(cbCTDT_PTMH.SelectedValue.ToString().Trim());
             }
         }
+
+        private void cbMH_PTMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMH_PTMH.Text != "")
+            {
+                LoadDataGV_PTMH(cbMH_PTMH.SelectedValue.ToString().Trim());
+            }
+        }
+
+        private void ListPTMH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            turnONEditModePTMH();
+            if (btnEditMode_PTMH.Text == "ON")
+            {
+                if (index >= 0 && index < ListPTMH.Rows.Count)
+                {
+                    cbCTDT_PTMH.Text = ListPTMH.Rows[index].Cells["TenChuongTrinh_PTMH"].Value.ToString().Trim();
+                    LoadDataMH_PTMH(cbCTDT_PTMH.SelectedValue.ToString().Trim());
+                    cbMH_PTMH.Text = ListPTMH.Rows[index].Cells["TenMonHoc_PTMH"].Value.ToString().Trim();
+                    LoadDataGV_PTMH(cbMH_PTMH.SelectedValue.ToString().Trim());
+                    
+                    cbGV_PTMH.Text = ListPTMH.Rows[index].Cells["HoTen_PTMH"].Value.ToString().Trim();
+                    int dnc = (int)ListPTMH.Rows[index].Cells["CoLaDamNhiemChinh"].Value;
+                    if (dnc == 0)
+                    {
+                        ckDamNhiemChinh.Checked = false;
+                    } else
+                    {
+                        ckDamNhiemChinh.Checked = true;
+                    }
+                }
+            }
+        }
+
+        private void ListPTMH_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra xem cột hiện tại có phải là cột "Giá trị" không
+            if (ListPTMH.Columns[e.ColumnIndex].Name == "CoLaDamNhiemChinh" && e.Value != null)
+            {
+                int value = (int)e.Value;
+
+                if (value == 0)
+                {
+                    e.Value = "Không";
+                    e.FormattingApplied = true;
+                }
+                else if (value == 1)
+                {
+                    e.Value = "Có";
+                    e.FormattingApplied = true;
+                }
+            }
+
+        }
+
     }
 
     
