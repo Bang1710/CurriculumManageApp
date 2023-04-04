@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace MainForm
 {
-    public partial class Login : Form
+    public partial class FrmLogin : Form
     {
         AccountsBLL accountsBLL;
-        public Login()
+        public FrmLogin()
         {
             InitializeComponent();
             accountsBLL = new AccountsBLL();
@@ -72,7 +72,7 @@ namespace MainForm
             if (checkAccount(tendn, mk))
             {
                 this.Hide();
-                MainForm mainForm = new MainForm();
+                FrmMenu mainForm = new FrmMenu();
                 mainForm.tendn = tendn;
                 mainForm.ps = mk;
                 mainForm.ShowDialog();

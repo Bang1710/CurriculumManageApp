@@ -1,6 +1,6 @@
 ﻿namespace MainForm
 {
-    partial class MainForm
+    partial class FrmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Khoa                                       ");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Giáo viên                               ");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Chương trình học môn ");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Phụ trách môn học       ");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Môn học  ▼                          ", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode20});
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Chương trình đào tạo   ▼    ", new System.Windows.Forms.TreeNode[] {
-            treeNode21});
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Chi tiết khóa học               ");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Khóa học   ▼                             ", new System.Windows.Forms.TreeNode[] {
-            treeNode23});
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Khoa                                       ");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Giáo viên                               ");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Chương trình học môn ");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Phụ trách môn học       ");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Môn học  ▼                          ", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Chương trình đào tạo   ▼    ", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Chi tiết khóa học               ");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Khóa học   ▼                             ", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.backPage = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -288,17 +288,17 @@
             this.label57 = new System.Windows.Forms.Label();
             this.tabCTKH = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.ListCTKH = new System.Windows.Forms.DataGridView();
             this.TenKhoaHoc_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMonHoc_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPhong_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaThu_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.button29 = new System.Windows.Forms.Button();
-            this.comboBox23 = new System.Windows.Forms.ComboBox();
-            this.button30 = new System.Windows.Forms.Button();
+            this.searchBox_CTKH = new System.Windows.Forms.PictureBox();
+            this.btnDelete_CTKH = new System.Windows.Forms.Button();
+            this.cbKhoaHoc_Search_CTKH = new System.Windows.Forms.ComboBox();
+            this.btnSave_CTKH = new System.Windows.Forms.Button();
             this.label72 = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
             this.label59 = new System.Windows.Forms.Label();
@@ -306,17 +306,17 @@
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.label60 = new System.Windows.Forms.Label();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox22 = new System.Windows.Forms.ComboBox();
-            this.comboBox21 = new System.Windows.Forms.ComboBox();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.txtMaPhong = new System.Windows.Forms.TextBox();
+            this.cbThoiGian = new System.Windows.Forms.ComboBox();
+            this.cbMH_CTKH = new System.Windows.Forms.ComboBox();
+            this.cbGV_CTKH = new System.Windows.Forms.ComboBox();
+            this.cbKhoaHoc_CTKH = new System.Windows.Forms.ComboBox();
             this.label71 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
-            this.button31 = new System.Windows.Forms.Button();
+            this.btnAdd_CTKH = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
             this.label64 = new System.Windows.Forms.Label();
             this.btnEditMode_ChiTietKhoaHoc = new System.Windows.Forms.Button();
@@ -414,9 +414,9 @@
             this.panel26.SuspendLayout();
             this.tabCTKH.SuspendLayout();
             this.groupBox24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListCTKH)).BeginInit();
             this.groupBox21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBox_CTKH)).BeginInit();
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
@@ -515,27 +515,27 @@
             this.TreeMenu.LineColor = System.Drawing.Color.White;
             this.TreeMenu.Location = new System.Drawing.Point(0, 0);
             this.TreeMenu.Name = "TreeMenu";
-            treeNode17.Name = "Khoa";
-            treeNode17.Text = "Khoa                                       ";
-            treeNode18.Name = "Giáo viên";
-            treeNode18.Text = "Giáo viên                               ";
-            treeNode19.Name = "Chương trình học môn ";
-            treeNode19.Text = "Chương trình học môn ";
-            treeNode20.Name = "Phụ trách môn học";
-            treeNode20.Text = "Phụ trách môn học       ";
-            treeNode21.Name = "Môn học";
-            treeNode21.Text = "Môn học  ▼                          ";
-            treeNode22.Name = "Chương trình đào tạo";
-            treeNode22.Text = "Chương trình đào tạo   ▼    ";
-            treeNode23.Name = "Chi tiết khóa học";
-            treeNode23.Text = "Chi tiết khóa học               ";
-            treeNode24.Name = "Khóa học";
-            treeNode24.Text = "Khóa học   ▼                             ";
+            treeNode1.Name = "Khoa";
+            treeNode1.Text = "Khoa                                       ";
+            treeNode2.Name = "Giáo viên";
+            treeNode2.Text = "Giáo viên                               ";
+            treeNode3.Name = "Chương trình học môn ";
+            treeNode3.Text = "Chương trình học môn ";
+            treeNode4.Name = "Phụ trách môn học";
+            treeNode4.Text = "Phụ trách môn học       ";
+            treeNode5.Name = "Môn học";
+            treeNode5.Text = "Môn học  ▼                          ";
+            treeNode6.Name = "Chương trình đào tạo";
+            treeNode6.Text = "Chương trình đào tạo   ▼    ";
+            treeNode7.Name = "Chi tiết khóa học";
+            treeNode7.Text = "Chi tiết khóa học               ";
+            treeNode8.Name = "Khóa học";
+            treeNode8.Text = "Khóa học   ▼                             ";
             this.TreeMenu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18,
-            treeNode22,
-            treeNode24});
+            treeNode1,
+            treeNode2,
+            treeNode6,
+            treeNode8});
             this.TreeMenu.PathSeparator = "";
             this.TreeMenu.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.TreeMenu.ShowLines = false;
@@ -600,14 +600,14 @@
             this.ListKhoa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ListKhoa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ListKhoa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListKhoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListKhoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ListKhoa.ColumnHeadersHeight = 50;
             this.ListKhoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_Khoa,
@@ -618,28 +618,28 @@
             this.ListKhoa.Location = new System.Drawing.Point(3, 32);
             this.ListKhoa.MultiSelect = false;
             this.ListKhoa.Name = "ListKhoa";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListKhoa.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListKhoa.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ListKhoa.RowHeadersVisible = false;
             this.ListKhoa.RowHeadersWidth = 51;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle43.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.White;
-            this.ListKhoa.RowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.ListKhoa.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.ListKhoa.RowTemplate.Height = 50;
             this.ListKhoa.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListKhoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListKhoa.Size = new System.Drawing.Size(1054, 398);
-            this.ListKhoa.TabIndex = 0;
+            this.ListKhoa.TabIndex = 6;
             this.ListKhoa.TabStop = false;
             this.ListKhoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListKhoa_CellClick);
             // 
@@ -692,7 +692,7 @@
             this.cbMaKhoa_Khoa.Location = new System.Drawing.Point(179, 23);
             this.cbMaKhoa_Khoa.Name = "cbMaKhoa_Khoa";
             this.cbMaKhoa_Khoa.Size = new System.Drawing.Size(200, 36);
-            this.cbMaKhoa_Khoa.TabIndex = 7;
+            this.cbMaKhoa_Khoa.TabIndex = 5;
             this.cbMaKhoa_Khoa.TabStop = false;
             this.cbMaKhoa_Khoa.SelectedIndexChanged += new System.EventHandler(this.cbMaKhoa_Khoa_SelectedIndexChanged);
             // 
@@ -786,7 +786,7 @@
             this.btnDelete_Khoa.Location = new System.Drawing.Point(842, 84);
             this.btnDelete_Khoa.Name = "btnDelete_Khoa";
             this.btnDelete_Khoa.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_Khoa.TabIndex = 8;
+            this.btnDelete_Khoa.TabIndex = 3;
             this.btnDelete_Khoa.Text = "Xóa";
             this.btnDelete_Khoa.UseVisualStyleBackColor = false;
             this.btnDelete_Khoa.Click += new System.EventHandler(this.btnDelete_Khoa_Click);
@@ -800,7 +800,7 @@
             this.btnAdd_Khoa.Location = new System.Drawing.Point(842, 84);
             this.btnAdd_Khoa.Name = "btnAdd_Khoa";
             this.btnAdd_Khoa.Size = new System.Drawing.Size(199, 36);
-            this.btnAdd_Khoa.TabIndex = 6;
+            this.btnAdd_Khoa.TabIndex = 2;
             this.btnAdd_Khoa.Text = "Thêm Khoa";
             this.btnAdd_Khoa.UseVisualStyleBackColor = false;
             this.btnAdd_Khoa.Click += new System.EventHandler(this.btnAdd_Khoa_Click);
@@ -812,7 +812,7 @@
             this.txtTenKhoa_Khoa.Location = new System.Drawing.Point(662, 28);
             this.txtTenKhoa_Khoa.Name = "txtTenKhoa_Khoa";
             this.txtTenKhoa_Khoa.Size = new System.Drawing.Size(379, 36);
-            this.txtTenKhoa_Khoa.TabIndex = 6;
+            this.txtTenKhoa_Khoa.TabIndex = 1;
             // 
             // btnSave_Khoa
             // 
@@ -823,7 +823,7 @@
             this.btnSave_Khoa.Location = new System.Drawing.Point(962, 84);
             this.btnSave_Khoa.Name = "btnSave_Khoa";
             this.btnSave_Khoa.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_Khoa.TabIndex = 6;
+            this.btnSave_Khoa.TabIndex = 4;
             this.btnSave_Khoa.Text = "Lưu";
             this.btnSave_Khoa.UseVisualStyleBackColor = false;
             this.btnSave_Khoa.Click += new System.EventHandler(this.btnSave_Khoa_Click);
@@ -835,7 +835,7 @@
             this.txtID_Khoa.Location = new System.Drawing.Point(81, 28);
             this.txtID_Khoa.Name = "txtID_Khoa";
             this.txtID_Khoa.Size = new System.Drawing.Size(298, 36);
-            this.txtID_Khoa.TabIndex = 5;
+            this.txtID_Khoa.TabIndex = 0;
             // 
             // label7
             // 
@@ -937,14 +937,14 @@
             this.ListGiaoVien.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ListGiaoVien.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ListGiaoVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListGiaoVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListGiaoVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.ListGiaoVien.ColumnHeadersHeight = 50;
             this.ListGiaoVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaGiaoVien_GiaoVien,
@@ -958,13 +958,13 @@
             this.ListGiaoVien.Name = "ListGiaoVien";
             this.ListGiaoVien.RowHeadersVisible = false;
             this.ListGiaoVien.RowHeadersWidth = 51;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle45.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.White;
-            this.ListGiaoVien.RowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.ListGiaoVien.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.ListGiaoVien.RowTemplate.Height = 50;
             this.ListGiaoVien.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListGiaoVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1029,7 +1029,7 @@
             this.cbMaKhoa_GiaoVien.Location = new System.Drawing.Point(206, 18);
             this.cbMaKhoa_GiaoVien.Name = "cbMaKhoa_GiaoVien";
             this.cbMaKhoa_GiaoVien.Size = new System.Drawing.Size(391, 36);
-            this.cbMaKhoa_GiaoVien.TabIndex = 7;
+            this.cbMaKhoa_GiaoVien.TabIndex = 6;
             this.cbMaKhoa_GiaoVien.SelectedIndexChanged += new System.EventHandler(this.cbMaKhoa_GiaoVien_SelectedIndexChanged);
             // 
             // label9
@@ -1123,7 +1123,7 @@
             this.cbKhoa_GiaoVien.Location = new System.Drawing.Point(662, 29);
             this.cbKhoa_GiaoVien.Name = "cbKhoa_GiaoVien";
             this.cbKhoa_GiaoVien.Size = new System.Drawing.Size(378, 36);
-            this.cbKhoa_GiaoVien.TabIndex = 9;
+            this.cbKhoa_GiaoVien.TabIndex = 2;
             // 
             // btnDelete_GiaoVien
             // 
@@ -1134,7 +1134,7 @@
             this.btnDelete_GiaoVien.Location = new System.Drawing.Point(841, 162);
             this.btnDelete_GiaoVien.Name = "btnDelete_GiaoVien";
             this.btnDelete_GiaoVien.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_GiaoVien.TabIndex = 8;
+            this.btnDelete_GiaoVien.TabIndex = 4;
             this.btnDelete_GiaoVien.Text = "Xóa";
             this.btnDelete_GiaoVien.UseVisualStyleBackColor = false;
             this.btnDelete_GiaoVien.Click += new System.EventHandler(this.btnDelete_GiaoVien_Click);
@@ -1159,7 +1159,7 @@
             this.btnSave_GiaoVien.Location = new System.Drawing.Point(961, 162);
             this.btnSave_GiaoVien.Name = "btnSave_GiaoVien";
             this.btnSave_GiaoVien.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_GiaoVien.TabIndex = 6;
+            this.btnSave_GiaoVien.TabIndex = 5;
             this.btnSave_GiaoVien.Text = "Lưu";
             this.btnSave_GiaoVien.UseVisualStyleBackColor = false;
             this.btnSave_GiaoVien.Click += new System.EventHandler(this.btnSave_GiaoVien_Click);
@@ -1173,7 +1173,7 @@
             this.btnAdd_GiaoVien.Location = new System.Drawing.Point(841, 162);
             this.btnAdd_GiaoVien.Name = "btnAdd_GiaoVien";
             this.btnAdd_GiaoVien.Size = new System.Drawing.Size(199, 36);
-            this.btnAdd_GiaoVien.TabIndex = 6;
+            this.btnAdd_GiaoVien.TabIndex = 3;
             this.btnAdd_GiaoVien.Text = "Thêm Giáo viên";
             this.btnAdd_GiaoVien.UseVisualStyleBackColor = false;
             this.btnAdd_GiaoVien.Click += new System.EventHandler(this.btnAdd_GiaoVien_Click);
@@ -1185,7 +1185,7 @@
             this.txtHoTen_GiaoVien.Location = new System.Drawing.Point(143, 112);
             this.txtHoTen_GiaoVien.Name = "txtHoTen_GiaoVien";
             this.txtHoTen_GiaoVien.Size = new System.Drawing.Size(298, 36);
-            this.txtHoTen_GiaoVien.TabIndex = 6;
+            this.txtHoTen_GiaoVien.TabIndex = 1;
             // 
             // txtID_GiaoVien
             // 
@@ -1194,7 +1194,7 @@
             this.txtID_GiaoVien.Location = new System.Drawing.Point(143, 28);
             this.txtID_GiaoVien.Name = "txtID_GiaoVien";
             this.txtID_GiaoVien.Size = new System.Drawing.Size(298, 36);
-            this.txtID_GiaoVien.TabIndex = 5;
+            this.txtID_GiaoVien.TabIndex = 0;
             // 
             // label13
             // 
@@ -1296,14 +1296,14 @@
             this.ListChuongTrinh.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ListChuongTrinh.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ListChuongTrinh.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListChuongTrinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListChuongTrinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.ListChuongTrinh.ColumnHeadersHeight = 50;
             this.ListChuongTrinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaChuongTrinh_CT,
@@ -1319,25 +1319,25 @@
             this.ListChuongTrinh.Name = "ListChuongTrinh";
             this.ListChuongTrinh.RowHeadersVisible = false;
             this.ListChuongTrinh.RowHeadersWidth = 51;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle48.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.White;
-            this.ListChuongTrinh.RowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.ListChuongTrinh.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.ListChuongTrinh.RowTemplate.Height = 50;
             this.ListChuongTrinh.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListChuongTrinh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListChuongTrinh.Size = new System.Drawing.Size(1054, 315);
-            this.ListChuongTrinh.TabIndex = 0;
+            this.ListChuongTrinh.TabIndex = 9;
             this.ListChuongTrinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListChuongTrinh_CellClick);
             // 
             // MaChuongTrinh_CT
             // 
             this.MaChuongTrinh_CT.DataPropertyName = "MaChuongTrinh";
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaChuongTrinh_CT.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaChuongTrinh_CT.DefaultCellStyle = dataGridViewCellStyle7;
             this.MaChuongTrinh_CT.HeaderText = "ID";
             this.MaChuongTrinh_CT.MinimumWidth = 6;
             this.MaChuongTrinh_CT.Name = "MaChuongTrinh_CT";
@@ -1408,7 +1408,7 @@
             this.cbMaKhoa_ChuongTrinh.Location = new System.Drawing.Point(219, 21);
             this.cbMaKhoa_ChuongTrinh.Name = "cbMaKhoa_ChuongTrinh";
             this.cbMaKhoa_ChuongTrinh.Size = new System.Drawing.Size(379, 36);
-            this.cbMaKhoa_ChuongTrinh.TabIndex = 7;
+            this.cbMaKhoa_ChuongTrinh.TabIndex = 8;
             this.cbMaKhoa_ChuongTrinh.SelectedIndexChanged += new System.EventHandler(this.cbMaKhoa_ChuongTrinh_SelectedIndexChanged);
             // 
             // label19
@@ -1505,7 +1505,7 @@
             this.txtTenChuongTrinh_ChuongTrinh.Location = new System.Drawing.Point(672, 27);
             this.txtTenChuongTrinh_ChuongTrinh.Name = "txtTenChuongTrinh_ChuongTrinh";
             this.txtTenChuongTrinh_ChuongTrinh.Size = new System.Drawing.Size(368, 36);
-            this.txtTenChuongTrinh_ChuongTrinh.TabIndex = 13;
+            this.txtTenChuongTrinh_ChuongTrinh.TabIndex = 2;
             // 
             // btnDelete_ChuongTrinh
             // 
@@ -1516,7 +1516,7 @@
             this.btnDelete_ChuongTrinh.Location = new System.Drawing.Point(842, 151);
             this.btnDelete_ChuongTrinh.Name = "btnDelete_ChuongTrinh";
             this.btnDelete_ChuongTrinh.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_ChuongTrinh.TabIndex = 8;
+            this.btnDelete_ChuongTrinh.TabIndex = 6;
             this.btnDelete_ChuongTrinh.Text = "Xóa";
             this.btnDelete_ChuongTrinh.UseVisualStyleBackColor = false;
             this.btnDelete_ChuongTrinh.Click += new System.EventHandler(this.btnDelete_ChuongTrinh_Click);
@@ -1529,7 +1529,7 @@
             this.cbGiaoVien_ChuongTrinh.Location = new System.Drawing.Point(167, 155);
             this.cbGiaoVien_ChuongTrinh.Name = "cbGiaoVien_ChuongTrinh";
             this.cbGiaoVien_ChuongTrinh.Size = new System.Drawing.Size(272, 36);
-            this.cbGiaoVien_ChuongTrinh.TabIndex = 12;
+            this.cbGiaoVien_ChuongTrinh.TabIndex = 4;
             // 
             // btnSave_ChuongTrinh
             // 
@@ -1540,7 +1540,7 @@
             this.btnSave_ChuongTrinh.Location = new System.Drawing.Point(962, 151);
             this.btnSave_ChuongTrinh.Name = "btnSave_ChuongTrinh";
             this.btnSave_ChuongTrinh.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_ChuongTrinh.TabIndex = 6;
+            this.btnSave_ChuongTrinh.TabIndex = 7;
             this.btnSave_ChuongTrinh.Text = "Lưu";
             this.btnSave_ChuongTrinh.UseVisualStyleBackColor = false;
             this.btnSave_ChuongTrinh.Click += new System.EventHandler(this.btnSave_ChuongTrinh_Click);
@@ -1553,7 +1553,7 @@
             this.cbKhoa_ChuongTrinh.Location = new System.Drawing.Point(672, 88);
             this.cbKhoa_ChuongTrinh.Name = "cbKhoa_ChuongTrinh";
             this.cbKhoa_ChuongTrinh.Size = new System.Drawing.Size(368, 36);
-            this.cbKhoa_ChuongTrinh.TabIndex = 9;
+            this.cbKhoa_ChuongTrinh.TabIndex = 3;
             this.cbKhoa_ChuongTrinh.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_ChuongTrinh_SelectedIndexChanged);
             // 
             // label67
@@ -1598,7 +1598,7 @@
             this.btnAdd_ChuongTrinh.Location = new System.Drawing.Point(695, 151);
             this.btnAdd_ChuongTrinh.Name = "btnAdd_ChuongTrinh";
             this.btnAdd_ChuongTrinh.Size = new System.Drawing.Size(345, 36);
-            this.btnAdd_ChuongTrinh.TabIndex = 6;
+            this.btnAdd_ChuongTrinh.TabIndex = 5;
             this.btnAdd_ChuongTrinh.Text = "Thêm chương trình đào tạo";
             this.btnAdd_ChuongTrinh.UseVisualStyleBackColor = false;
             this.btnAdd_ChuongTrinh.Click += new System.EventHandler(this.btnAdd_ChuongTrinh_Click);
@@ -1610,7 +1610,7 @@
             this.txtBacHoc_ChuongTrinh.Location = new System.Drawing.Point(169, 91);
             this.txtBacHoc_ChuongTrinh.Name = "txtBacHoc_ChuongTrinh";
             this.txtBacHoc_ChuongTrinh.Size = new System.Drawing.Size(272, 36);
-            this.txtBacHoc_ChuongTrinh.TabIndex = 6;
+            this.txtBacHoc_ChuongTrinh.TabIndex = 1;
             // 
             // txtID_ChuongTrinh
             // 
@@ -1619,7 +1619,7 @@
             this.txtID_ChuongTrinh.Location = new System.Drawing.Point(169, 28);
             this.txtID_ChuongTrinh.Name = "txtID_ChuongTrinh";
             this.txtID_ChuongTrinh.Size = new System.Drawing.Size(272, 36);
-            this.txtID_ChuongTrinh.TabIndex = 5;
+            this.txtID_ChuongTrinh.TabIndex = 0;
             // 
             // label23
             // 
@@ -1721,14 +1721,14 @@
             this.ListMonHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ListMonHoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ListMonHoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.ListMonHoc.ColumnHeadersHeight = 50;
             this.ListMonHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaMonHoc_MH,
@@ -1743,18 +1743,18 @@
             this.ListMonHoc.Name = "ListMonHoc";
             this.ListMonHoc.RowHeadersVisible = false;
             this.ListMonHoc.RowHeadersWidth = 51;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle50.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.White;
-            this.ListMonHoc.RowsDefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.ListMonHoc.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.ListMonHoc.RowTemplate.Height = 50;
             this.ListMonHoc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListMonHoc.Size = new System.Drawing.Size(1054, 327);
-            this.ListMonHoc.TabIndex = 0;
+            this.ListMonHoc.TabIndex = 7;
             this.ListMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListMonHoc_CellClick);
             // 
             // MaMonHoc_MH
@@ -1822,7 +1822,7 @@
             this.cbMaKhoa_MonHoc.Location = new System.Drawing.Point(191, 22);
             this.cbMaKhoa_MonHoc.Name = "cbMaKhoa_MonHoc";
             this.cbMaKhoa_MonHoc.Size = new System.Drawing.Size(352, 36);
-            this.cbMaKhoa_MonHoc.TabIndex = 7;
+            this.cbMaKhoa_MonHoc.TabIndex = 6;
             this.cbMaKhoa_MonHoc.SelectedIndexChanged += new System.EventHandler(this.cbMaKhoa_MonHoc_SelectedIndexChanged);
             // 
             // label27
@@ -1944,7 +1944,7 @@
             this.btnDelete_MonHoc.Location = new System.Drawing.Point(841, 153);
             this.btnDelete_MonHoc.Name = "btnDelete_MonHoc";
             this.btnDelete_MonHoc.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_MonHoc.TabIndex = 8;
+            this.btnDelete_MonHoc.TabIndex = 4;
             this.btnDelete_MonHoc.Text = "Xóa";
             this.btnDelete_MonHoc.UseVisualStyleBackColor = false;
             this.btnDelete_MonHoc.Click += new System.EventHandler(this.btnDelete_MonHoc_Click);
@@ -1968,7 +1968,7 @@
             this.cbKhoa_MonHoc.Location = new System.Drawing.Point(680, 29);
             this.cbKhoa_MonHoc.Name = "cbKhoa_MonHoc";
             this.cbKhoa_MonHoc.Size = new System.Drawing.Size(360, 36);
-            this.cbKhoa_MonHoc.TabIndex = 9;
+            this.cbKhoa_MonHoc.TabIndex = 2;
             // 
             // btnSave_MonHoc
             // 
@@ -1979,7 +1979,7 @@
             this.btnSave_MonHoc.Location = new System.Drawing.Point(961, 153);
             this.btnSave_MonHoc.Name = "btnSave_MonHoc";
             this.btnSave_MonHoc.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_MonHoc.TabIndex = 6;
+            this.btnSave_MonHoc.TabIndex = 5;
             this.btnSave_MonHoc.Text = "Lưu";
             this.btnSave_MonHoc.UseVisualStyleBackColor = false;
             this.btnSave_MonHoc.Click += new System.EventHandler(this.btnSave_MonHoc_Click);
@@ -2004,7 +2004,7 @@
             this.btnAdd_MonHoc.Location = new System.Drawing.Point(841, 153);
             this.btnAdd_MonHoc.Name = "btnAdd_MonHoc";
             this.btnAdd_MonHoc.Size = new System.Drawing.Size(199, 36);
-            this.btnAdd_MonHoc.TabIndex = 6;
+            this.btnAdd_MonHoc.TabIndex = 3;
             this.btnAdd_MonHoc.Text = "Thêm môn học";
             this.btnAdd_MonHoc.UseVisualStyleBackColor = false;
             this.btnAdd_MonHoc.Click += new System.EventHandler(this.btnAdd_MonHoc_Click);
@@ -2016,7 +2016,7 @@
             this.txtTenMonHoc_MonHoc.Location = new System.Drawing.Point(190, 88);
             this.txtTenMonHoc_MonHoc.Name = "txtTenMonHoc_MonHoc";
             this.txtTenMonHoc_MonHoc.Size = new System.Drawing.Size(282, 36);
-            this.txtTenMonHoc_MonHoc.TabIndex = 6;
+            this.txtTenMonHoc_MonHoc.TabIndex = 1;
             // 
             // txtID_MonHoc
             // 
@@ -2025,7 +2025,7 @@
             this.txtID_MonHoc.Location = new System.Drawing.Point(190, 28);
             this.txtID_MonHoc.Name = "txtID_MonHoc";
             this.txtID_MonHoc.Size = new System.Drawing.Size(282, 36);
-            this.txtID_MonHoc.TabIndex = 5;
+            this.txtID_MonHoc.TabIndex = 0;
             // 
             // label31
             // 
@@ -2127,14 +2127,14 @@
             this.ListCTMH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ListCTMH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ListCTMH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListCTMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListCTMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.ListCTMH.ColumnHeadersHeight = 50;
             this.ListCTMH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenChuongTrinh_CTMH,
@@ -2148,18 +2148,18 @@
             this.ListCTMH.Name = "ListCTMH";
             this.ListCTMH.RowHeadersVisible = false;
             this.ListCTMH.RowHeadersWidth = 51;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle52.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.White;
-            this.ListCTMH.RowsDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.ListCTMH.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.ListCTMH.RowTemplate.Height = 50;
             this.ListCTMH.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListCTMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListCTMH.Size = new System.Drawing.Size(1054, 316);
-            this.ListCTMH.TabIndex = 0;
+            this.ListCTMH.TabIndex = 7;
             this.ListCTMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListCTMH_CellClick);
             // 
             // TenChuongTrinh_CTMH
@@ -2219,7 +2219,7 @@
             this.CbSearchCTDT_CTMH.Location = new System.Drawing.Point(265, 19);
             this.CbSearchCTDT_CTMH.Name = "CbSearchCTDT_CTMH";
             this.CbSearchCTDT_CTMH.Size = new System.Drawing.Size(401, 36);
-            this.CbSearchCTDT_CTMH.TabIndex = 7;
+            this.CbSearchCTDT_CTMH.TabIndex = 6;
             this.CbSearchCTDT_CTMH.SelectedIndexChanged += new System.EventHandler(this.CbSearchCTDT_CTMH_SelectedIndexChanged);
             // 
             // label35
@@ -2321,7 +2321,7 @@
             0});
             this.numHocKy_CTMH.Name = "numHocKy_CTMH";
             this.numHocKy_CTMH.Size = new System.Drawing.Size(116, 36);
-            this.numHocKy_CTMH.TabIndex = 11;
+            this.numHocKy_CTMH.TabIndex = 2;
             this.numHocKy_CTMH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numHocKy_CTMH.Value = new decimal(new int[] {
             1,
@@ -2338,7 +2338,7 @@
             this.btnDelete_CTMH.Location = new System.Drawing.Point(842, 149);
             this.btnDelete_CTMH.Name = "btnDelete_CTMH";
             this.btnDelete_CTMH.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_CTMH.TabIndex = 8;
+            this.btnDelete_CTMH.TabIndex = 4;
             this.btnDelete_CTMH.Text = "Xóa";
             this.btnDelete_CTMH.UseVisualStyleBackColor = false;
             this.btnDelete_CTMH.Click += new System.EventHandler(this.btnDelete_CTMH_Click);
@@ -2355,7 +2355,7 @@
             this.cbMH_CTMH.Location = new System.Drawing.Point(264, 101);
             this.cbMH_CTMH.Name = "cbMH_CTMH";
             this.cbMH_CTMH.Size = new System.Drawing.Size(400, 36);
-            this.cbMH_CTMH.TabIndex = 10;
+            this.cbMH_CTMH.TabIndex = 1;
             // 
             // cbCTDT_CTMH
             // 
@@ -2366,7 +2366,7 @@
             this.cbCTDT_CTMH.Location = new System.Drawing.Point(264, 29);
             this.cbCTDT_CTMH.Name = "cbCTDT_CTMH";
             this.cbCTDT_CTMH.Size = new System.Drawing.Size(400, 36);
-            this.cbCTDT_CTMH.TabIndex = 9;
+            this.cbCTDT_CTMH.TabIndex = 0;
             // 
             // btnSave_CTMH
             // 
@@ -2377,7 +2377,7 @@
             this.btnSave_CTMH.Location = new System.Drawing.Point(962, 149);
             this.btnSave_CTMH.Name = "btnSave_CTMH";
             this.btnSave_CTMH.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_CTMH.TabIndex = 6;
+            this.btnSave_CTMH.TabIndex = 5;
             this.btnSave_CTMH.Text = "Lưu";
             this.btnSave_CTMH.UseVisualStyleBackColor = false;
             this.btnSave_CTMH.Click += new System.EventHandler(this.btnSave_CTMH_Click);
@@ -2402,7 +2402,7 @@
             this.btnAdd_CTMH.Location = new System.Drawing.Point(716, 149);
             this.btnAdd_CTMH.Name = "btnAdd_CTMH";
             this.btnAdd_CTMH.Size = new System.Drawing.Size(325, 36);
-            this.btnAdd_CTMH.TabIndex = 6;
+            this.btnAdd_CTMH.TabIndex = 3;
             this.btnAdd_CTMH.Text = "Thêm chương trình học môn";
             this.btnAdd_CTMH.UseVisualStyleBackColor = false;
             this.btnAdd_CTMH.Click += new System.EventHandler(this.btnAdd_CTMH_Click);
@@ -2507,14 +2507,14 @@
             this.ListPTMH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ListPTMH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ListPTMH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListPTMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListPTMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.ListPTMH.ColumnHeadersHeight = 50;
             this.ListPTMH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenMonHoc_PTMH,
@@ -2529,18 +2529,18 @@
             this.ListPTMH.Name = "ListPTMH";
             this.ListPTMH.RowHeadersVisible = false;
             this.ListPTMH.RowHeadersWidth = 51;
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle54.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.White;
-            this.ListPTMH.RowsDefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.ListPTMH.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.ListPTMH.RowTemplate.Height = 50;
             this.ListPTMH.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListPTMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListPTMH.Size = new System.Drawing.Size(1054, 312);
-            this.ListPTMH.TabIndex = 0;
+            this.ListPTMH.TabIndex = 8;
             this.ListPTMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListPTMH_CellClick);
             this.ListPTMH.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ListPTMH_CellFormatting);
             // 
@@ -2708,7 +2708,7 @@
             this.ckDamNhiemChinh.Name = "ckDamNhiemChinh";
             this.ckDamNhiemChinh.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ckDamNhiemChinh.Size = new System.Drawing.Size(211, 33);
-            this.ckDamNhiemChinh.TabIndex = 18;
+            this.ckDamNhiemChinh.TabIndex = 3;
             this.ckDamNhiemChinh.Text = "Đảm nhiệm chính";
             this.ckDamNhiemChinh.UseVisualStyleBackColor = true;
             // 
@@ -2720,7 +2720,7 @@
             this.cbGV_PTMH.Location = new System.Drawing.Point(253, 141);
             this.cbGV_PTMH.Name = "cbGV_PTMH";
             this.cbGV_PTMH.Size = new System.Drawing.Size(384, 36);
-            this.cbGV_PTMH.TabIndex = 16;
+            this.cbGV_PTMH.TabIndex = 2;
             // 
             // btnDelete_PTMH
             // 
@@ -2731,7 +2731,7 @@
             this.btnDelete_PTMH.Location = new System.Drawing.Point(838, 141);
             this.btnDelete_PTMH.Name = "btnDelete_PTMH";
             this.btnDelete_PTMH.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_PTMH.TabIndex = 8;
+            this.btnDelete_PTMH.TabIndex = 5;
             this.btnDelete_PTMH.Text = "Xóa";
             this.btnDelete_PTMH.UseVisualStyleBackColor = false;
             this.btnDelete_PTMH.Click += new System.EventHandler(this.btnDelete_PTMH_Click);
@@ -2769,7 +2769,7 @@
             this.cbMH_PTMH.Location = new System.Drawing.Point(254, 87);
             this.cbMH_PTMH.Name = "cbMH_PTMH";
             this.cbMH_PTMH.Size = new System.Drawing.Size(383, 36);
-            this.cbMH_PTMH.TabIndex = 14;
+            this.cbMH_PTMH.TabIndex = 1;
             this.cbMH_PTMH.SelectedIndexChanged += new System.EventHandler(this.cbMH_PTMH_SelectedIndexChanged);
             // 
             // cbCTDT_PTMH
@@ -2780,7 +2780,7 @@
             this.cbCTDT_PTMH.Location = new System.Drawing.Point(254, 30);
             this.cbCTDT_PTMH.Name = "cbCTDT_PTMH";
             this.cbCTDT_PTMH.Size = new System.Drawing.Size(383, 36);
-            this.cbCTDT_PTMH.TabIndex = 13;
+            this.cbCTDT_PTMH.TabIndex = 0;
             this.cbCTDT_PTMH.SelectedIndexChanged += new System.EventHandler(this.cbCTDT_PTMH_SelectedIndexChanged);
             // 
             // label46
@@ -2814,7 +2814,7 @@
             this.btnAdd_PTMH.Location = new System.Drawing.Point(764, 141);
             this.btnAdd_PTMH.Name = "btnAdd_PTMH";
             this.btnAdd_PTMH.Size = new System.Drawing.Size(273, 36);
-            this.btnAdd_PTMH.TabIndex = 6;
+            this.btnAdd_PTMH.TabIndex = 4;
             this.btnAdd_PTMH.Text = "Thêm phụ trách môn học";
             this.btnAdd_PTMH.UseVisualStyleBackColor = false;
             this.btnAdd_PTMH.Click += new System.EventHandler(this.btnAdd_PTMH_Click);
@@ -2897,14 +2897,14 @@
             this.ListKhoaHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ListKhoaHoc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ListKhoaHoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListKhoaHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListKhoaHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.ListKhoaHoc.ColumnHeadersHeight = 50;
             this.ListKhoaHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKhoaHoc_KH,
@@ -2920,18 +2920,18 @@
             this.ListKhoaHoc.Name = "ListKhoaHoc";
             this.ListKhoaHoc.RowHeadersVisible = false;
             this.ListKhoaHoc.RowHeadersWidth = 51;
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle56.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.White;
-            this.ListKhoaHoc.RowsDefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.ListKhoaHoc.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.ListKhoaHoc.RowTemplate.Height = 50;
             this.ListKhoaHoc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListKhoaHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListKhoaHoc.Size = new System.Drawing.Size(1053, 314);
-            this.ListKhoaHoc.TabIndex = 0;
+            this.ListKhoaHoc.TabIndex = 9;
             this.ListKhoaHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListKhoaHoc_CellClick);
             // 
             // MaKhoaHoc_KH
@@ -3007,7 +3007,7 @@
             this.cbCTDTSearch_KhoaHoc.Location = new System.Drawing.Point(266, 21);
             this.cbCTDTSearch_KhoaHoc.Name = "cbCTDTSearch_KhoaHoc";
             this.cbCTDTSearch_KhoaHoc.Size = new System.Drawing.Size(356, 36);
-            this.cbCTDTSearch_KhoaHoc.TabIndex = 7;
+            this.cbCTDTSearch_KhoaHoc.TabIndex = 8;
             this.cbCTDTSearch_KhoaHoc.SelectedIndexChanged += new System.EventHandler(this.cbCTDTSearch_KhoaHoc_SelectedIndexChanged);
             // 
             // label50
@@ -3112,7 +3112,7 @@
             0});
             this.numNamKetThuc.Name = "numNamKetThuc";
             this.numNamKetThuc.Size = new System.Drawing.Size(111, 36);
-            this.numNamKetThuc.TabIndex = 13;
+            this.numNamKetThuc.TabIndex = 4;
             this.numNamKetThuc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numNamKetThuc.Value = new decimal(new int[] {
             2024,
@@ -3129,7 +3129,7 @@
             this.btnDelete_KhoaHoc.Location = new System.Drawing.Point(840, 191);
             this.btnDelete_KhoaHoc.Name = "btnDelete_KhoaHoc";
             this.btnDelete_KhoaHoc.Size = new System.Drawing.Size(82, 36);
-            this.btnDelete_KhoaHoc.TabIndex = 8;
+            this.btnDelete_KhoaHoc.TabIndex = 6;
             this.btnDelete_KhoaHoc.Text = "Xóa";
             this.btnDelete_KhoaHoc.UseVisualStyleBackColor = false;
             this.btnDelete_KhoaHoc.Click += new System.EventHandler(this.btnDelete_KhoaHoc_Click);
@@ -3149,7 +3149,7 @@
             0});
             this.numNamBatDau.Name = "numNamBatDau";
             this.numNamBatDau.Size = new System.Drawing.Size(111, 36);
-            this.numNamBatDau.TabIndex = 12;
+            this.numNamBatDau.TabIndex = 3;
             this.numNamBatDau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numNamBatDau.Value = new decimal(new int[] {
             2020,
@@ -3177,7 +3177,7 @@
             this.btnSave_KhoaHoc.Location = new System.Drawing.Point(961, 191);
             this.btnSave_KhoaHoc.Name = "btnSave_KhoaHoc";
             this.btnSave_KhoaHoc.Size = new System.Drawing.Size(79, 36);
-            this.btnSave_KhoaHoc.TabIndex = 6;
+            this.btnSave_KhoaHoc.TabIndex = 7;
             this.btnSave_KhoaHoc.Text = "Lưu";
             this.btnSave_KhoaHoc.UseVisualStyleBackColor = false;
             this.btnSave_KhoaHoc.Click += new System.EventHandler(this.btnSave_KhoaHoc_Click);
@@ -3201,7 +3201,7 @@
             this.cbCTDT_KhoaHoc.Location = new System.Drawing.Point(281, 142);
             this.cbCTDT_KhoaHoc.Name = "cbCTDT_KhoaHoc";
             this.cbCTDT_KhoaHoc.Size = new System.Drawing.Size(358, 36);
-            this.cbCTDT_KhoaHoc.TabIndex = 9;
+            this.cbCTDT_KhoaHoc.TabIndex = 2;
             // 
             // label53
             // 
@@ -3223,7 +3223,7 @@
             this.btnAdd_KhoaHoc.Location = new System.Drawing.Point(768, 191);
             this.btnAdd_KhoaHoc.Name = "btnAdd_KhoaHoc";
             this.btnAdd_KhoaHoc.Size = new System.Drawing.Size(272, 36);
-            this.btnAdd_KhoaHoc.TabIndex = 6;
+            this.btnAdd_KhoaHoc.TabIndex = 5;
             this.btnAdd_KhoaHoc.Text = "Thêm khóa học";
             this.btnAdd_KhoaHoc.UseVisualStyleBackColor = false;
             this.btnAdd_KhoaHoc.Click += new System.EventHandler(this.btnAdd_KhoaHoc_Click);
@@ -3235,7 +3235,7 @@
             this.txtTenKhoaHoc_KhoaHoc.Location = new System.Drawing.Point(281, 83);
             this.txtTenKhoaHoc_KhoaHoc.Name = "txtTenKhoaHoc_KhoaHoc";
             this.txtTenKhoaHoc_KhoaHoc.Size = new System.Drawing.Size(358, 36);
-            this.txtTenKhoaHoc_KhoaHoc.TabIndex = 6;
+            this.txtTenKhoaHoc_KhoaHoc.TabIndex = 1;
             // 
             // txtID_KhoaHoc
             // 
@@ -3244,7 +3244,7 @@
             this.txtID_KhoaHoc.Location = new System.Drawing.Point(281, 31);
             this.txtID_KhoaHoc.Name = "txtID_KhoaHoc";
             this.txtID_KhoaHoc.Size = new System.Drawing.Size(358, 36);
-            this.txtID_KhoaHoc.TabIndex = 5;
+            this.txtID_KhoaHoc.TabIndex = 0;
             // 
             // label54
             // 
@@ -3331,7 +3331,7 @@
             // 
             // groupBox24
             // 
-            this.groupBox24.Controls.Add(this.dataGridView10);
+            this.groupBox24.Controls.Add(this.ListCTKH);
             this.groupBox24.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox24.Location = new System.Drawing.Point(-2, 473);
             this.groupBox24.Name = "groupBox24";
@@ -3340,47 +3340,47 @@
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "Danh sách chi tiết khóa học";
             // 
-            // dataGridView10
+            // ListCTKH
             // 
-            this.dataGridView10.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dataGridView10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.dataGridView10.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView10.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView10.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
-            this.dataGridView10.ColumnHeadersHeight = 50;
-            this.dataGridView10.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ListCTKH.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.ListCTKH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.ListCTKH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.ListCTKH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListCTKH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.ListCTKH.ColumnHeadersHeight = 50;
+            this.ListCTKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenKhoaHoc_CTKH,
             this.TenMonHoc_CTKH,
             this.HoTen_CTKH,
             this.MaPhong_CTKH,
             this.MaThu_CTKH});
-            this.dataGridView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView10.EnableHeadersVisualStyles = false;
-            this.dataGridView10.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView10.Location = new System.Drawing.Point(3, 32);
-            this.dataGridView10.MultiSelect = false;
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.RowHeadersVisible = false;
-            this.dataGridView10.RowHeadersWidth = 51;
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle58.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView10.RowsDefaultCellStyle = dataGridViewCellStyle58;
-            this.dataGridView10.RowTemplate.Height = 50;
-            this.dataGridView10.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView10.Size = new System.Drawing.Size(1058, 293);
-            this.dataGridView10.TabIndex = 0;
+            this.ListCTKH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListCTKH.EnableHeadersVisualStyles = false;
+            this.ListCTKH.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ListCTKH.Location = new System.Drawing.Point(3, 32);
+            this.ListCTKH.MultiSelect = false;
+            this.ListCTKH.Name = "ListCTKH";
+            this.ListCTKH.RowHeadersVisible = false;
+            this.ListCTKH.RowHeadersWidth = 51;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            this.ListCTKH.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.ListCTKH.RowTemplate.Height = 50;
+            this.ListCTKH.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ListCTKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListCTKH.Size = new System.Drawing.Size(1058, 293);
+            this.ListCTKH.TabIndex = 10;
             // 
             // TenKhoaHoc_CTKH
             // 
@@ -3425,10 +3425,10 @@
             // groupBox21
             // 
             this.groupBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.groupBox21.Controls.Add(this.pictureBox18);
-            this.groupBox21.Controls.Add(this.button29);
-            this.groupBox21.Controls.Add(this.comboBox23);
-            this.groupBox21.Controls.Add(this.button30);
+            this.groupBox21.Controls.Add(this.searchBox_CTKH);
+            this.groupBox21.Controls.Add(this.btnDelete_CTKH);
+            this.groupBox21.Controls.Add(this.cbKhoaHoc_Search_CTKH);
+            this.groupBox21.Controls.Add(this.btnSave_CTKH);
             this.groupBox21.Controls.Add(this.label72);
             this.groupBox21.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox21.Location = new System.Drawing.Point(3, 390);
@@ -3437,50 +3437,51 @@
             this.groupBox21.TabIndex = 24;
             this.groupBox21.TabStop = false;
             // 
-            // pictureBox18
+            // searchBox_CTKH
             // 
-            this.pictureBox18.BackColor = System.Drawing.Color.White;
-            this.pictureBox18.Image = global::MainForm.Properties.Resources.Search_PNG_Images;
-            this.pictureBox18.Location = new System.Drawing.Point(550, 21);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(37, 36);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox18.TabIndex = 11;
-            this.pictureBox18.TabStop = false;
+            this.searchBox_CTKH.BackColor = System.Drawing.Color.White;
+            this.searchBox_CTKH.Image = global::MainForm.Properties.Resources.Search_PNG_Images;
+            this.searchBox_CTKH.Location = new System.Drawing.Point(550, 21);
+            this.searchBox_CTKH.Name = "searchBox_CTKH";
+            this.searchBox_CTKH.Size = new System.Drawing.Size(37, 36);
+            this.searchBox_CTKH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.searchBox_CTKH.TabIndex = 11;
+            this.searchBox_CTKH.TabStop = false;
             // 
-            // button29
+            // btnDelete_CTKH
             // 
-            this.button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button29.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button29.Location = new System.Drawing.Point(834, 21);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(82, 36);
-            this.button29.TabIndex = 8;
-            this.button29.Text = "Xóa";
-            this.button29.UseVisualStyleBackColor = false;
+            this.btnDelete_CTKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.btnDelete_CTKH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete_CTKH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete_CTKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnDelete_CTKH.Location = new System.Drawing.Point(834, 21);
+            this.btnDelete_CTKH.Name = "btnDelete_CTKH";
+            this.btnDelete_CTKH.Size = new System.Drawing.Size(82, 36);
+            this.btnDelete_CTKH.TabIndex = 6;
+            this.btnDelete_CTKH.Text = "Xóa";
+            this.btnDelete_CTKH.UseVisualStyleBackColor = false;
             // 
-            // comboBox23
+            // cbKhoaHoc_Search_CTKH
             // 
-            this.comboBox23.FormattingEnabled = true;
-            this.comboBox23.Location = new System.Drawing.Point(216, 21);
-            this.comboBox23.Name = "comboBox23";
-            this.comboBox23.Size = new System.Drawing.Size(302, 36);
-            this.comboBox23.TabIndex = 7;
+            this.cbKhoaHoc_Search_CTKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKhoaHoc_Search_CTKH.FormattingEnabled = true;
+            this.cbKhoaHoc_Search_CTKH.Location = new System.Drawing.Point(216, 21);
+            this.cbKhoaHoc_Search_CTKH.Name = "cbKhoaHoc_Search_CTKH";
+            this.cbKhoaHoc_Search_CTKH.Size = new System.Drawing.Size(302, 36);
+            this.cbKhoaHoc_Search_CTKH.TabIndex = 8;
             // 
-            // button30
+            // btnSave_CTKH
             // 
-            this.button30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button30.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button30.Location = new System.Drawing.Point(951, 21);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(79, 36);
-            this.button30.TabIndex = 6;
-            this.button30.Text = "Lưu";
-            this.button30.UseVisualStyleBackColor = false;
+            this.btnSave_CTKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnSave_CTKH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave_CTKH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave_CTKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnSave_CTKH.Location = new System.Drawing.Point(951, 21);
+            this.btnSave_CTKH.Name = "btnSave_CTKH";
+            this.btnSave_CTKH.Size = new System.Drawing.Size(79, 36);
+            this.btnSave_CTKH.TabIndex = 7;
+            this.btnSave_CTKH.Text = "Lưu";
+            this.btnSave_CTKH.UseVisualStyleBackColor = false;
             // 
             // label72
             // 
@@ -3549,17 +3550,17 @@
             // groupBox22
             // 
             this.groupBox22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.groupBox22.Controls.Add(this.textBox9);
-            this.groupBox22.Controls.Add(this.comboBox22);
-            this.groupBox22.Controls.Add(this.comboBox21);
-            this.groupBox22.Controls.Add(this.comboBox15);
-            this.groupBox22.Controls.Add(this.comboBox14);
+            this.groupBox22.Controls.Add(this.txtMaPhong);
+            this.groupBox22.Controls.Add(this.cbThoiGian);
+            this.groupBox22.Controls.Add(this.cbMH_CTKH);
+            this.groupBox22.Controls.Add(this.cbGV_CTKH);
+            this.groupBox22.Controls.Add(this.cbKhoaHoc_CTKH);
             this.groupBox22.Controls.Add(this.label71);
             this.groupBox22.Controls.Add(this.label63);
             this.groupBox22.Controls.Add(this.label62);
             this.groupBox22.Controls.Add(this.label61);
             this.groupBox22.Controls.Add(this.label58);
-            this.groupBox22.Controls.Add(this.button31);
+            this.groupBox22.Controls.Add(this.btnAdd_CTKH);
             this.groupBox22.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox22.Location = new System.Drawing.Point(4, 97);
             this.groupBox22.Name = "groupBox22";
@@ -3567,50 +3568,76 @@
             this.groupBox22.TabIndex = 18;
             this.groupBox22.TabStop = false;
             // 
-            // textBox9
+            // txtMaPhong
             // 
-            this.textBox9.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
-            this.textBox9.Location = new System.Drawing.Point(216, 98);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(120, 36);
-            this.textBox9.TabIndex = 21;
+            this.txtMaPhong.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaPhong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(67)))));
+            this.txtMaPhong.Location = new System.Drawing.Point(216, 98);
+            this.txtMaPhong.Name = "txtMaPhong";
+            this.txtMaPhong.Size = new System.Drawing.Size(120, 36);
+            this.txtMaPhong.TabIndex = 2;
             // 
-            // comboBox22
+            // cbThoiGian
             // 
-            this.comboBox22.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox22.FormattingEnabled = true;
-            this.comboBox22.Location = new System.Drawing.Point(216, 151);
-            this.comboBox22.Name = "comboBox22";
-            this.comboBox22.Size = new System.Drawing.Size(120, 36);
-            this.comboBox22.TabIndex = 20;
+            this.cbThoiGian.DropDownHeight = 400;
+            this.cbThoiGian.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbThoiGian.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbThoiGian.FormattingEnabled = true;
+            this.cbThoiGian.IntegralHeight = false;
+            this.cbThoiGian.Items.AddRange(new object[] {
+            "S2",
+            "C2",
+            "T2",
+            "S3",
+            "C3",
+            "T3",
+            "S4",
+            "C4",
+            "T4",
+            "S5",
+            "C5",
+            "T5",
+            "S6",
+            "C6",
+            "T6",
+            "S7",
+            "C7",
+            "T7"});
+            this.cbThoiGian.Location = new System.Drawing.Point(216, 151);
+            this.cbThoiGian.MaxLength = 8;
+            this.cbThoiGian.Name = "cbThoiGian";
+            this.cbThoiGian.Size = new System.Drawing.Size(120, 36);
+            this.cbThoiGian.TabIndex = 3;
             // 
-            // comboBox21
+            // cbMH_CTKH
             // 
-            this.comboBox21.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox21.FormattingEnabled = true;
-            this.comboBox21.Location = new System.Drawing.Point(772, 35);
-            this.comboBox21.Name = "comboBox21";
-            this.comboBox21.Size = new System.Drawing.Size(258, 36);
-            this.comboBox21.TabIndex = 19;
+            this.cbMH_CTKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMH_CTKH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMH_CTKH.FormattingEnabled = true;
+            this.cbMH_CTKH.Location = new System.Drawing.Point(772, 35);
+            this.cbMH_CTKH.Name = "cbMH_CTKH";
+            this.cbMH_CTKH.Size = new System.Drawing.Size(258, 36);
+            this.cbMH_CTKH.TabIndex = 1;
             // 
-            // comboBox15
+            // cbGV_CTKH
             // 
-            this.comboBox15.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Location = new System.Drawing.Point(772, 98);
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(258, 36);
-            this.comboBox15.TabIndex = 18;
+            this.cbGV_CTKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGV_CTKH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGV_CTKH.FormattingEnabled = true;
+            this.cbGV_CTKH.Location = new System.Drawing.Point(772, 98);
+            this.cbGV_CTKH.Name = "cbGV_CTKH";
+            this.cbGV_CTKH.Size = new System.Drawing.Size(258, 36);
+            this.cbGV_CTKH.TabIndex = 4;
             // 
-            // comboBox14
+            // cbKhoaHoc_CTKH
             // 
-            this.comboBox14.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Location = new System.Drawing.Point(216, 42);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(259, 36);
-            this.comboBox14.TabIndex = 17;
+            this.cbKhoaHoc_CTKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKhoaHoc_CTKH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKhoaHoc_CTKH.FormattingEnabled = true;
+            this.cbKhoaHoc_CTKH.Location = new System.Drawing.Point(216, 42);
+            this.cbKhoaHoc_CTKH.Name = "cbKhoaHoc_CTKH";
+            this.cbKhoaHoc_CTKH.Size = new System.Drawing.Size(259, 36);
+            this.cbKhoaHoc_CTKH.TabIndex = 0;
             // 
             // label71
             // 
@@ -3667,18 +3694,18 @@
             this.label58.TabIndex = 7;
             this.label58.Text = "Tên khóa học";
             // 
-            // button31
+            // btnAdd_CTKH
             // 
-            this.button31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button31.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
-            this.button31.Location = new System.Drawing.Point(772, 179);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(258, 36);
-            this.button31.TabIndex = 6;
-            this.button31.Text = "Thêm chi tiết khóa học";
-            this.button31.UseVisualStyleBackColor = false;
+            this.btnAdd_CTKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            this.btnAdd_CTKH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd_CTKH.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd_CTKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(96)))));
+            this.btnAdd_CTKH.Location = new System.Drawing.Point(772, 179);
+            this.btnAdd_CTKH.Name = "btnAdd_CTKH";
+            this.btnAdd_CTKH.Size = new System.Drawing.Size(258, 36);
+            this.btnAdd_CTKH.TabIndex = 5;
+            this.btnAdd_CTKH.Text = "Thêm chi tiết khóa học";
+            this.btnAdd_CTKH.UseVisualStyleBackColor = false;
             // 
             // panel29
             // 
@@ -3801,14 +3828,14 @@
             this.dataGridView11.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView11.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView11.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView11.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(53)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView11.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView11.ColumnHeadersHeight = 50;
             this.dataGridView11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -3820,13 +3847,13 @@
             this.dataGridView11.Name = "dataGridView11";
             this.dataGridView11.RowHeadersVisible = false;
             this.dataGridView11.RowHeadersWidth = 51;
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle60.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView11.RowsDefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(47)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(166)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView11.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView11.RowTemplate.Height = 50;
             this.dataGridView11.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -3855,7 +3882,7 @@
             this.Ngaygui.Name = "Ngaygui";
             this.Ngaygui.Width = 315;
             // 
-            // MainForm
+            // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -3869,7 +3896,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Name = "MainForm";
+            this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý chương trình học";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -3991,10 +4018,10 @@
             this.panel26.PerformLayout();
             this.tabCTKH.ResumeLayout(false);
             this.groupBox24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListCTKH)).EndInit();
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBox_CTKH)).EndInit();
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
             this.panel28.ResumeLayout(false);
@@ -4194,13 +4221,13 @@
         private System.Windows.Forms.Button btnEditMode_KhoaHoc;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox searchBox_CTKH;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.GroupBox groupBox22;
-        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button btnAdd_CTKH;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Button btnEditMode_ChiTietKhoaHoc;
@@ -4247,22 +4274,22 @@
         private System.Windows.Forms.PictureBox SearchBox_KhoaHoc;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.GroupBox groupBox24;
-        private System.Windows.Forms.DataGridView dataGridView10;
+        private System.Windows.Forms.DataGridView ListCTKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhoaHoc_CTKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMonHoc_CTKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen_CTKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhong_CTKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaThu_CTKH;
         private System.Windows.Forms.GroupBox groupBox21;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.ComboBox comboBox23;
-        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button btnDelete_CTKH;
+        private System.Windows.Forms.ComboBox cbKhoaHoc_Search_CTKH;
+        private System.Windows.Forms.Button btnSave_CTKH;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox22;
-        private System.Windows.Forms.ComboBox comboBox21;
-        private System.Windows.Forms.ComboBox comboBox15;
-        private System.Windows.Forms.ComboBox comboBox14;
+        private System.Windows.Forms.TextBox txtMaPhong;
+        private System.Windows.Forms.ComboBox cbThoiGian;
+        private System.Windows.Forms.ComboBox cbMH_CTKH;
+        private System.Windows.Forms.ComboBox cbGV_CTKH;
+        private System.Windows.Forms.ComboBox cbKhoaHoc_CTKH;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label62;

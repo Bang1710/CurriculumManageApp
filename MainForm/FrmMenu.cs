@@ -16,7 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MainForm
 {
-    public partial class MainForm : Form
+    public partial class FrmMenu : Form
     {
         KhoaBLL khoaBLL = new KhoaBLL();
         GiaoVienBLL giaovienBLL = new GiaoVienBLL();
@@ -33,7 +33,7 @@ namespace MainForm
         public string ps;
         public string displayname;
 
-        public MainForm()
+        public FrmMenu()
         {
             InitializeComponent();
         }
@@ -42,7 +42,7 @@ namespace MainForm
         {
             SetUpControlLoadingForm();
             CustomdatagirdviewMenu();
-            ShowInforUser();
+            //ShowInforUser();
 
             // KHOA
             turnOffEditModeKhoa();
@@ -2081,8 +2081,8 @@ namespace MainForm
                 magv = cbGV_PTMH.SelectedValue.ToString().Trim();
 
                 var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv).SingleOrDefault();
-                var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).ToList().Count();
-                MessageBox.Show(dncGV.ToString());
+                var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).GroupBy(d => d.MaMonHoc).ToList().Count();
+                //MessageBox.Show(dncGV.ToString());
                 //MessageBox.Show(dncGV.ToString());  
 
                 if (ptmhExist != null)
@@ -2231,7 +2231,7 @@ namespace MainForm
                 magv = cbGV_PTMH.SelectedValue.ToString().Trim();
 
                 var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).ToList().Count();
-                MessageBox.Show(dncGV.ToString());
+                //MessageBox.Show(dncGV.ToString());
                 var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == value).SingleOrDefault();
                 if (ptmhExist != null)
                 {
@@ -2366,7 +2366,6 @@ namespace MainForm
             numNamKetThuc.Value = (int)2024;
             cbCTDT_KhoaHoc.SelectedIndex = -1;
         }
-
 
         private void btnEditMode_KhoaHoc_Click(object sender, EventArgs e)
         {
@@ -2704,6 +2703,10 @@ namespace MainForm
                 }
             }
         }
+
+        //--------------------------------------------CHỨC NĂNG CHI TIẾT KHÓA HỌC ---------------------------------------------
+
+
     }
 
     

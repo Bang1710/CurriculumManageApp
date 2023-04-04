@@ -13,7 +13,6 @@ C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\bin\Debug\DAL.dll.config
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\bin\Debug\EntityFramework.xml
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.AssemblyReference.cache
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
-C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.Form1.resources
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.Properties.Resources.resources
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.GenerateResource.cache
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.CoreCompileInputs.cache
@@ -22,6 +21,5 @@ C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.exe
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.pdb
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.Login.resources
-C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.MainForm.resources
-C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.Menu.resources
+C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.FrmLogin.resources
+C:\Users\Van Bang\Desktop\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.FrmMenu.resources
