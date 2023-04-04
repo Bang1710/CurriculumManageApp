@@ -66,7 +66,7 @@ namespace DAL
 
             try
             {
-                var ct = context.ChuongTrinhs.Where(c => c.MaChuongTrinh == mact).SingleOrDefault();
+                var ct = context.ChuongTrinhs.Where(c => c.MaChuongTrinh == mact).FirstOrDefault();
                 context.ChuongTrinhs.Remove(ct);
                 context.SaveChanges();
             }

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountsBLL.cs" />
     <Compile Include="ChiTietKhoaHocBLL.cs" />
     <Compile Include="ChuongTrinhBLL.cs" />
     <Compile Include="ChuongTrinhMonHocBLL.cs" />
