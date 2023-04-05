@@ -26,7 +26,6 @@ namespace MainForm
         DamNhiemMonBLL dnmBLL = new DamNhiemMonBLL();
         KhoaHocBLL khoahocBLL = new KhoaHocBLL();
         ChiTietKhoaHocBLL ctkhBLL = new ChiTietKhoaHocBLL();
-
         AccountsBLL accountsBLL = new AccountsBLL();
 
         public string tendn;
@@ -83,7 +82,11 @@ namespace MainForm
             LoadDataCTDTSearch_KhoaHoc();
             LoadDataGirdviewKhoaHoc();
 
-            //MessageBox.Show(tendn);
+            //CHI TIẾT KHÓA HỌC
+            turnOffEditModeCTKH();
+            LoadDataKhoaHoc_CTKH();
+            LoadDataKhoaHocSearch_CTKH();
+            LoadDataGridviewCTKH();
         }
 
         //---------------------------Set up general------------------------------------
@@ -2706,7 +2709,186 @@ namespace MainForm
 
         //--------------------------------------------CHỨC NĂNG CHI TIẾT KHÓA HỌC ---------------------------------------------
 
+        public void turnOffEditModeCTKH()
+        {
+            btnEditMode_ChiTietKhoaHoc.Text = "OFF";
+            btnAdd_CTKH.Visible = true;
+            btnDelete_CTKH.Visible = false;
+            btnSave_CTKH.Visible = false;
 
+            cbKhoaHoc_CTKH.Enabled = true;
+            cbMH_CTKH.Enabled = true;
+            cbGV_CTKH.Enabled = true;
+
+            btnEditMode_ChiTietKhoaHoc.ForeColor = Color.Black;
+            resetDataCTKH();
+        }
+
+        public void turnONEditModeCTKH()
+        {
+            btnEditMode_ChiTietKhoaHoc.Text = "ON";
+            btnAdd_CTKH.Visible = false;
+            btnDelete_CTKH.Visible = true;
+            btnSave_CTKH.Visible = true;
+
+            cbKhoaHoc_CTKH.Enabled = true;
+            cbMH_CTKH.Enabled = true;
+            cbGV_CTKH.Enabled = true;
+
+            btnEditMode_ChiTietKhoaHoc.ForeColor = Color.White;
+
+            resetDataCTKH();
+        }
+
+        public void resetDataCTKH()
+        {
+            cbKhoaHoc_CTKH.SelectedIndex = -1;
+            cbMH_CTKH.SelectedIndex = -1;
+            cbGV_CTKH.SelectedIndex = -1;
+            txtMaPhong.Text = "";
+            cbThoiGian.SelectedIndex = -1;
+        }
+
+        private void btnEditMode_ChiTietKhoaHoc_Click(object sender, EventArgs e)
+        {
+            if (btnEditMode_ChiTietKhoaHoc.Text == "ON")
+            {
+                turnOffEditModeCTKH();
+            }
+            else if (btnEditMode_ChiTietKhoaHoc.Text == "OFF")
+            {
+                turnONEditModeCTKH();
+            }
+        }
+
+        public void LoadDataKhoaHoc_CTKH()
+        {
+            var query = from kh in khoahocBLL.getListKhoaHoc()
+                        select new
+                        {
+                            kh.MaKhoaHoc,
+                            kh.TenKhoaHoc
+                        };
+            cbKhoaHoc_CTKH.DataSource = query.ToList();
+            cbKhoaHoc_CTKH.DisplayMember = "TenKhoaHoc";
+            cbKhoaHoc_CTKH.ValueMember = "MaKhoaHoc";
+            cbKhoaHoc_CTKH.SelectedIndex = -1;
+        }
+
+        public void LoadDataMH_CTKH(string makhoahoc)
+        {
+            var query = from kh in khoahocBLL.getListKhoaHoc()
+                        join ct in chuongtrinhBLL.getListChuongTrinh() on kh.MaChuongTrinh equals ct.MaChuongTrinh
+                        join damnhiemmon in dnmBLL.getListDamNhiemMon() on ct.MaChuongTrinh equals damnhiemmon.MaChuongTrinh
+                        join mh in monhocBLL.getListMonHoc() on damnhiemmon.MaMonHoc equals mh.MaMonHoc
+                        where kh.MaKhoaHoc == makhoahoc
+                        select new
+                        {
+                            mh.MaMonHoc,
+                            mh.TenMonHoc
+                        };
+            cbMH_CTKH.DataSource = query.Distinct().ToList();
+            cbMH_CTKH.DisplayMember = "TenMonHoc";
+            cbMH_CTKH.ValueMember = "MaMonHoc";
+            cbMH_CTKH.SelectedIndex = -1;
+        }
+
+        public void LoadDataGV_CTKH(string mamh)
+        {
+            var query = from mh in monhocBLL.getListMonHoc()
+                        join dnm in dnmBLL.getListDamNhiemMon() on mh.MaMonHoc equals dnm.MaMonHoc
+                        join gv in giaovienBLL.getListGiaoVien() on dnm.MaGiaoVien equals gv.MaGiaoVien
+                        where mh.MaMonHoc == mamh
+                        select new
+                        {
+                            gv.MaGiaoVien,
+                            gv.HoTen
+                        };
+            cbGV_CTKH.DataSource = query.Distinct().ToList();
+            cbGV_CTKH.DisplayMember = "HoTen";
+            cbGV_CTKH.ValueMember = "MaGiaoVien";
+            cbGV_CTKH.SelectedIndex = -1;
+        }
+
+        private void cbKhoaHoc_CTKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbKhoaHoc_CTKH.Text != "")
+            {
+                LoadDataMH_CTKH(cbKhoaHoc_CTKH.SelectedValue.ToString().Trim());
+            }
+        }
+
+        private void cbMH_CTKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMH_CTKH.Text != "")
+            {
+                LoadDataGV_CTKH(cbMH_CTKH.SelectedValue.ToString().Trim());
+            }
+        }
+
+        public void LoadDataKhoaHocSearch_CTKH()
+        {
+
+            var query = from kh in khoahocBLL.getListKhoaHoc()
+                        select new
+                        {
+                            kh.MaKhoaHoc,
+                            kh.TenKhoaHoc
+                        };
+            cbKhoaHoc_Search_CTKH .DataSource = query.ToList();
+            cbKhoaHoc_Search_CTKH.DisplayMember = "TenKhoaHoc";
+            cbKhoaHoc_Search_CTKH.ValueMember = "MaKhoaHoc";
+            cbKhoaHoc_Search_CTKH.SelectedIndex = -1;
+
+        }
+
+        public void LoadDataGridviewCTKH()
+        {
+            var query = from ctkh in ctkhBLL.getListChiTietKhoaHoc()
+                        join kh in khoahocBLL.getListKhoaHoc() on ctkh.MaKhoaHoc equals kh.MaKhoaHoc
+                        join mh in monhocBLL.getListMonHoc() on ctkh.MaMonHoc equals mh.MaMonHoc
+                        join gv in giaovienBLL.getListGiaoVien() on ctkh.MaGiaoVien_day equals gv.MaGiaoVien
+                        select new
+                        {
+                            kh.TenKhoaHoc,
+                            mh.TenMonHoc,
+                            gv.HoTen,
+                            ctkh.MaThu,
+                            ctkh.MaPhong
+                        };
+            ListCTKH.DataSource = query.ToList();
+
+        }
+
+        private void btnAdd_CTKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_CTKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_CTKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbKhoaHoc_Search_CTKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataGridviewCTKH();
+        }
+
+        private void searchBox_CTKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListCTKH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
     
