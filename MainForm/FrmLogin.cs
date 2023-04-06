@@ -43,7 +43,7 @@ namespace MainForm
                 return false;
             }
 
-            if (!(pass.Length - 1 >= 7 && pass.Length - 1 <= 20))
+            if (!(pass.Length - 1 >= 7 && pass.Length <= 20))
             {
                 MessageBox.Show("Password tối thiểu 8 ký tự và tối đa 20 ký tự, hãy nhập lại giá trị password !");
                 return false;

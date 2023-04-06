@@ -149,12 +149,6 @@ namespace MainForm
                 if (tabPage.Text == nodeName)
                 {
                     tabFunction.SelectedTab = tabPage;
-
-                    //if (tabPage.Text == "Khoa")
-                    //{
-                    //    LoadDataKhoaGirdView();
-                    //    LoadDataKhoaCombobox();
-                    //}
                     break;
                 }
             }
@@ -2731,9 +2725,9 @@ namespace MainForm
             btnDelete_CTKH.Visible = true;
             btnSave_CTKH.Visible = true;
 
-            cbKhoaHoc_CTKH.Enabled = true;
-            cbMH_CTKH.Enabled = true;
-            cbGV_CTKH.Enabled = true;
+            cbKhoaHoc_CTKH.Enabled = false;
+            cbMH_CTKH.Enabled = false;
+            cbGV_CTKH.Enabled = false;
 
             btnEditMode_ChiTietKhoaHoc.ForeColor = Color.White;
 
@@ -2857,22 +2851,389 @@ namespace MainForm
                             ctkh.MaPhong
                         };
             ListCTKH.DataSource = query.ToList();
-
         }
+
+        public void LoadDataGridviewCTKH_Search(string makhoahoc)
+        {
+            var query = from ctkh in ctkhBLL.getListChiTietKhoaHoc()
+                        join kh in khoahocBLL.getListKhoaHoc() on ctkh.MaKhoaHoc equals kh.MaKhoaHoc
+                        join mh in monhocBLL.getListMonHoc() on ctkh.MaMonHoc equals mh.MaMonHoc
+                        join gv in giaovienBLL.getListGiaoVien() on ctkh.MaGiaoVien_day equals gv.MaGiaoVien
+                        where ctkh.MaKhoaHoc == makhoahoc
+                        select new
+                        {
+                            kh.TenKhoaHoc,
+                            mh.TenMonHoc,
+                            gv.HoTen,
+                            ctkh.MaThu,
+                            ctkh.MaPhong
+                        };
+            ListCTKH.DataSource = query.ToList();
+
+            if (query.ToList().Count < 1)
+            {
+                MessageBox.Show("Không có chi tiết khóa học nào thuộc khóa học này !");
+            }
+        }
+
+        public bool checkDataAddCTKH(string makhoahoc, string mamh, string magv, string maphong, string mathu)
+        {
+
+            if (string.IsNullOrEmpty(makhoahoc))
+            {
+                MessageBox.Show("Giá trị khóa học không được bỏ trống, hãy chọn giá trị khóa học !");
+                return false;
+            }
+            if (string.IsNullOrEmpty(mamh))
+            {
+                MessageBox.Show("Giá trị môn học không được bỏ trống, hãy chọn giá trị môn học !");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(magv))
+            {
+                MessageBox.Show("Giá trị giáo viên không được bỏ trống, hãy chọn giá trị giáo viên !");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(maphong))
+            {
+                MessageBox.Show("Giá trị phòng học không được bỏ trống, hãy chọn giá trị phòng học !");
+                return false;
+            }
+
+            if (maphong.Length - 1 > 10)
+            {
+                MessageBox.Show("Chiều dài ký tự phòng học không được quá 10 ký tự !");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(mathu))
+            {
+                MessageBox.Show("Giá trị thời gian không được bỏ trống, hãy chọn giá trị thời gian cho chi tiết khóa học này !");
+                return false;
+            }
+
+            var listctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaKhoaHoc == makhoahoc && c.MaMonHoc == mamh && c.MaGiaoVien_day == magv).FirstOrDefault();
+
+            if (listctkh != null)
+            {
+                MessageBox.Show("Chi tiết khóa học này đã được đăng ký, hãy đăng ký lại");
+                return false;
+            }
+            return true;
+        }
+
+        public int getNamBatDau(string makhoahoc)
+        {
+            var query = from ctkh in ctkhBLL.getListChiTietKhoaHoc()
+                        join kh in khoahocBLL.getListKhoaHoc() on ctkh.MaKhoaHoc equals kh.MaKhoaHoc
+                        where ctkh.MaKhoaHoc == makhoahoc
+                        select kh.NamBatDau;
+            var value = query.FirstOrDefault();
+            return value;
+        }
+
+        public int getNamBatDauInput(string makhoahoc)
+        {
+            var query = from kh in khoahocBLL.getListKhoaHoc()
+                        where kh.MaKhoaHoc == makhoahoc
+                        select kh.NamBatDau;
+            var value = query.FirstOrDefault();
+            return value;
+        }
+
+        public string getMaChuongTrinh(string makhoahoc)
+        {
+            var query = from ctkh in ctkhBLL.getListChiTietKhoaHoc()
+                        join kh in khoahocBLL.getListKhoaHoc() on ctkh.MaKhoaHoc equals kh.MaKhoaHoc
+                        where ctkh.MaKhoaHoc == makhoahoc
+                        select kh.MaChuongTrinh;
+            var value = query.FirstOrDefault();
+            return value;
+        }
+
+        public string getMaChuongTrinhInput(string makhoahoc)
+        {
+            var query = from kh in khoahocBLL.getListKhoaHoc()
+                        where kh.MaKhoaHoc == makhoahoc
+                        select kh.MaChuongTrinh;
+            var value = query.FirstOrDefault();
+            return value;
+        }
+
+        public int getHocKy(string mact, string mamh)
+        {
+            var query = from ctmh in ctmhBLL.getListCTMH()
+                  where ctmh.MaMonHoc == mamh && ctmh.MaChuongTrinh == mact
+                  select ctmh.HocKy;
+            var value = query.FirstOrDefault();
+            return value;
+        }
+
+        public IList<KhoaHocMon> getListCTKHequals(string magv, string mathu)
+        {
+            var query = from ctkh in ctkhBLL.getListChiTietKhoaHoc()
+                        where ctkh.MaGiaoVien_day == magv && ctkh.MaThu == mathu
+                        select ctkh;
+            return query.ToList();
+        }
+
+        public bool checkThoiGianGiangDay(string makhoahoc, string mamh, string magv, string maphong, string thu)
+        {
+            //Dùng để debug
+            //MessageBox.Show(makhoahoc);
+            //MessageBox.Show(mamh);
+            //MessageBox.Show(magv);
+
+            int nambatdau = getNamBatDauInput(makhoahoc);
+            //Hiển thị năm bắt đầu của chi tiết khóa học đang thêm
+            MessageBox.Show(nambatdau.ToString());
+
+            string mact = getMaChuongTrinhInput(makhoahoc);
+            //Hiển thị chương trình của chi tiết khóa học đang thêm
+            MessageBox.Show(mact);
+
+            int hocky = getHocKy(mact, mamh);
+            //Hiển thị học kỳ của môn học mà giảng viên đó đang phụ trách cho chi tiết khóa học này
+            MessageBox.Show(hocky.ToString());
+
+            var ctkhGeneral = getListCTKHequals(magv, thu);
+
+            foreach (var item in ctkhGeneral)
+            {
+                var mamhKH = item.MaMonHoc;
+                int itemNamBatDau = getNamBatDau(item.MaKhoaHoc);
+                MessageBox.Show(itemNamBatDau.ToString());
+                string itemMCT = getMaChuongTrinh(item.MaKhoaHoc);
+                MessageBox.Show(itemMCT);
+                int itemhocky = getHocKy(itemMCT, mamhKH);
+                MessageBox.Show(itemhocky.ToString());
+
+                if (itemNamBatDau == nambatdau && itemhocky == hocky)
+                {
+                    MessageBox.Show($"Thời gian giảng dạy của giáo viên này đã bị trùng với {item.KhoaHoc.TenKhoaHoc} tại thời điểm {maphong} lúc {thu} ");
+                    return false;
+                }
+                else if (itemNamBatDau > nambatdau)
+                {
+                    switch (itemNamBatDau - nambatdau)
+                    {
+                        case 1:
+                            if (itemhocky - hocky == 2)
+                            {
+                                MessageBox.Show($"Thời gian giảng dạy của giáo viên này đã bị trùng với {item.KhoaHoc.TenKhoaHoc} tại thời điểm {maphong} lúc {thu} ");
+                                return false;
+                            }
+                            break;
+                        case 2:
+                            if (itemhocky - hocky == 4)
+                            {
+                                MessageBox.Show($"Thời gian giảng dạy của giáo viên này đã bị trùng với {item.KhoaHoc.TenKhoaHoc} tại thời điểm {maphong} lúc {thu} ");
+                                return false;
+                            }
+                            break;
+                        case 3:
+                            if (itemhocky - hocky == 6)
+                            {
+                                MessageBox.Show($"Thời gian giảng dạy của giáo viên này đã bị trùng với {item.KhoaHoc.TenKhoaHoc} tại thời điểm {maphong} lúc {thu} ");
+                                return false;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else if (itemNamBatDau < nambatdau)
+                {
+                    switch (nambatdau - itemNamBatDau)
+                    {
+                        case 1:
+                            if (hocky - itemhocky == 2)
+                            {
+                                MessageBox.Show($"Thời gian giảng dạy của giáo viên này đã bị trùng với {item.KhoaHoc.TenKhoaHoc} tại thời điểm {maphong} lúc {thu} ");
+                                return false;
+                            }
+                            break;
+                        case 2:
+                            if (hocky - itemhocky == 4)
+                            {
+                                MessageBox.Show($"Thời gian giảng dạy của giáo viên này đã bị trùng với {item.KhoaHoc.TenKhoaHoc} tại thời điểm {maphong} lúc {thu} ");
+                                return false;
+                            }
+                            break;
+                        case 3:
+                            if (hocky - itemhocky == 6)
+                            {
+                                MessageBox.Show($"Thời gian giảng dạy của giáo viên này đã bị trùng với {item.KhoaHoc.TenKhoaHoc} tại thời điểm {maphong} lúc {thu} ");
+                                return false;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+            }
+            return true;
+        }
+        
 
         private void btnAdd_CTKH_Click(object sender, EventArgs e)
         {
+            var makhoahocText = cbKhoaHoc_CTKH.Text;
+            var mamhText = cbMH_CTKH.Text;
+            var magvText = cbGV_CTKH.Text;
+            var maphong = txtMaPhong.Text;
+            var thu = cbThoiGian.Text;
 
+
+            if (checkDataAddCTKH(makhoahocText, mamhText, magvText, maphong, thu))
+            {
+                string makhoahoc = cbKhoaHoc_CTKH.SelectedValue.ToString().Trim();
+                string mamh = cbMH_CTKH.SelectedValue.ToString().Trim();
+                string magv = cbGV_CTKH.SelectedValue.ToString().Trim();
+                if (checkThoiGianGiangDay(makhoahoc, mamh, magv, maphong, thu))
+                {
+                    var chitietkhpahoc = new KhoaHocMon()
+                    {
+                        MaKhoaHoc = makhoahoc,
+                        MaMonHoc = mamh,
+                        MaGiaoVien_day = magv,
+                        MaPhong = maphong,
+                        MaThu = thu
+                    };
+
+                    if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thêm chi tiết khóa học này không", "Thông báo", MessageBoxButtons.YesNo))
+                    {
+                        if (ctkhBLL.AddChiTietKhoaHoc(chitietkhpahoc))
+                        {
+                            MessageBox.Show("Thêm chi tiết Khóa học thành công", "Thông báo", MessageBoxButtons.OK);
+                            LoadDataGridviewCTKH();
+                            resetDataCTKH();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm không thành công ! Hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+                }
+
+
+            }
+        }
+
+        public bool checkDataDeleteCTKH(string makhoahoc) 
+        {
+            if (string.IsNullOrEmpty(makhoahoc))
+            {
+                MessageBox.Show("Hãy chọn chi tiết khóa học mà bạn muốn xóa !");
+                return false;
+            }
+
+            return true;
         }
 
         private void btnDelete_CTKH_Click(object sender, EventArgs e)
         {
+            var makhoahocText = cbKhoaHoc_CTKH.Text;
+            var mamhText = cbMH_CTKH.Text;
+            var magvText = cbGV_CTKH.Text;
+            var maphong = txtMaPhong.Text;
+            var thu = cbThoiGian.Text;
 
+            if (checkDataDeleteCTKH(makhoahocText))
+            {
+                string makhoahoc = cbKhoaHoc_CTKH.SelectedValue.ToString().Trim();
+                string mamh = cbMH_CTKH.SelectedValue.ToString().Trim();
+                string magv = cbGV_CTKH.SelectedValue.ToString().Trim();
+                var ctkhExist = ctkhBLL.getListChiTietKhoaHoc().Where(k => k.MaKhoaHoc == makhoahoc && k.MaMonHoc == mamh && k.MaGiaoVien_day == magv && k.MaThu == thu && k.MaPhong == maphong).FirstOrDefault();
+                if (ctkhExist != null)
+                {
+                    if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin chi tiết khóa học này không ?", "Thông báo", MessageBoxButtons.YesNo))
+                    {
+                        
+                        if (ctkhBLL.DeleteChiTietKhoaHoc(makhoahoc, mamh, magv))
+                        {
+                            MessageBox.Show("Xóa thông tin chi tiết khóa học thành công !");
+                            LoadDataGridviewCTKH();
+                            resetDataCTKH();
+                        }
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                }
+            }
+        }
+
+        public bool checkDataEditCTKH(string makhoahoc, string maphong, string mathu)
+        {
+            if (string.IsNullOrEmpty(makhoahoc))
+            {
+                MessageBox.Show("Hãy chọn giá trị chi tiết khóa học mà bạn cần chỉnh sửa");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(maphong))
+            {
+                MessageBox.Show("Giá trị phòng học không được bỏ trống, hãy chọn giá trị phòng học !");
+                return false;
+            }
+
+            if (maphong.Length - 1 > 10)
+            {
+                MessageBox.Show("Chiều dài ký tự phòng học không được quá 10 ký tự !");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(mathu))
+            {
+                MessageBox.Show("Giá trị thời gian không được bỏ trống, hãy chọn giá trị thời gian cho chi tiết khóa học này !");
+                return false;
+            }
+
+            return true;
         }
 
         private void btnSave_CTKH_Click(object sender, EventArgs e)
         {
+            var makhoahocText = cbKhoaHoc_CTKH.Text;
+            var mamhText = cbMH_CTKH.Text;
+            var magvText = cbGV_CTKH.Text;
+            var maphong = txtMaPhong.Text;
+            var thu = cbThoiGian.Text;
 
+            if (checkDataEditCTKH(makhoahocText, maphong, thu))
+            {
+                string makhoahoc = cbKhoaHoc_CTKH.SelectedValue.ToString().Trim();
+                string mamh = cbMH_CTKH.SelectedValue.ToString().Trim();
+                string magv = cbGV_CTKH.SelectedValue.ToString().Trim();
+                var ctkhExist = ctkhBLL.getListChiTietKhoaHoc().Where(k => k.MaKhoaHoc == makhoahoc && k.MaMonHoc == mamh && k.MaGiaoVien_day == magv && k.MaThu == thu && k.MaPhong == maphong).FirstOrDefault();
+                if (ctkhExist != null)
+                {
+                    MessageBox.Show("Thông tin chưa chỉnh sữa, hãy thực hiện chỉnh sửa trước khi lưu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (DialogResult.Yes == MessageBox.Show("Bạn có muốn lưu thông tin chỉnh sửa chi tiết Khóa học này không ?", "Thông báo", MessageBoxButtons.YesNo))
+                {
+                    if (checkThoiGianGiangDay(makhoahoc, mamh, magv, maphong, thu))
+                    {
+                        if (ctkhBLL.EditChiTietKhoaHoc(makhoahoc, mamh, magv, maphong, thu))
+                        {
+                            MessageBox.Show("Lưu thay đổi thành công !");
+                            LoadDataGridviewCTKH();
+                            resetDataCTKH();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                        }
+                    }
+                }
+            }
         }
 
         private void cbKhoaHoc_Search_CTKH_SelectedIndexChanged(object sender, EventArgs e)
@@ -2882,12 +3243,52 @@ namespace MainForm
 
         private void searchBox_CTKH_Click(object sender, EventArgs e)
         {
-
+            if (cbKhoaHoc_Search_CTKH.Text == "")
+            {
+                MessageBox.Show("Hãy chọn khóa học cần tìm !");
+                cbKhoaHoc_Search_CTKH.SelectedIndex = -1;
+                LoadDataGridviewCTKH();
+                ListCTKH.ClearSelection();
+            }
+            else if (cbKhoaHoc_Search_CTKH.Text != "")
+            {
+                string value = cbKhoaHoc_Search_CTKH.SelectedValue.ToString().Trim();
+                cbKhoaHoc_Search_CTKH.SelectedIndex = -1;
+                LoadDataGridviewCTKH_Search(value);
+                ListCTKH.ClearSelection();
+                MessageBox.Show("Đã tìm kiếm thành công !");
+            }
         }
 
         private void ListCTKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int index = e.RowIndex;
+            turnONEditModeCTKH();
+            if (btnEditMode_ChiTietKhoaHoc.Text == "ON")
+            {
+                if (index >= 0 && index < ListCTKH.Rows.Count)
+                {
+                    cbKhoaHoc_CTKH.Text = ListCTKH.Rows[index].Cells["TenKhoaHoc_CTKH"].Value.ToString();
+                    LoadDataMH_CTKH(cbKhoaHoc_CTKH.SelectedValue.ToString().Trim());
+                    cbMH_CTKH.Text = ListCTKH.Rows[index].Cells["TenMonHoc_CTKH"].Value.ToString();
+                    LoadDataGV_CTKH(cbMH_CTKH.SelectedValue.ToString().Trim());
+                    cbGV_CTKH.Text = ListCTKH.Rows[index].Cells["HoTen_CTKH"].Value.ToString();
+                    txtMaPhong.Text = ListCTKH.Rows[index].Cells["MaPhong_CTKH"].Value.ToString();
+                    cbThoiGian.Text = ListCTKH.Rows[index].Cells["MaThu_CTKH"].Value.ToString();
 
+                    string mamh = cbMH_CTKH.SelectedValue.ToString().Trim();
+
+                    int nambatdau = getNamBatDau(cbKhoaHoc_CTKH.SelectedValue.ToString().Trim());
+                    MessageBox.Show(nambatdau.ToString());
+
+                    string mact = getMaChuongTrinh(cbKhoaHoc_CTKH.SelectedValue.ToString().Trim());
+                    MessageBox.Show(mact);
+
+                    int hocky = getHocKy(mact, mamh);
+                    MessageBox.Show(hocky.ToString());
+
+                }
+            }
         }
     }
 
