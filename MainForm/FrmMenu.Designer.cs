@@ -194,6 +194,9 @@
             this.tabCTMH = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.ListCTMH = new System.Windows.Forms.DataGridView();
+            this.TenChuongTrinh_CTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMonHoc_CTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocKy_CTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.seachBoxCTMH = new System.Windows.Forms.PictureBox();
             this.CbSearchCTDT_CTMH = new System.Windows.Forms.ComboBox();
@@ -220,6 +223,10 @@
             this.tabPTMH = new System.Windows.Forms.TabPage();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.ListPTMH = new System.Windows.Forms.DataGridView();
+            this.TenMonHoc_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChuongTrinh_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoLaDamNhiemChinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.searchBoxPTMH = new System.Windows.Forms.PictureBox();
             this.label43 = new System.Windows.Forms.Label();
@@ -247,6 +254,11 @@
             this.tabKH = new System.Windows.Forms.TabPage();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.ListKhoaHoc = new System.Windows.Forms.DataGridView();
+            this.MaKhoaHoc_KH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKhoaHoc_KH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChuongTrinh_KH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamBatDaU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.SearchBox_KhoaHoc = new System.Windows.Forms.PictureBox();
             this.cbCTDTSearch_KhoaHoc = new System.Windows.Forms.ComboBox();
@@ -277,6 +289,11 @@
             this.tabCTKH = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.ListCTKH = new System.Windows.Forms.DataGridView();
+            this.TenKhoaHoc_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMonHoc_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhong_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaThu_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.searchBox_CTKH = new System.Windows.Forms.PictureBox();
             this.cbKhoaHoc_Search_CTKH = new System.Windows.Forms.ComboBox();
@@ -312,26 +329,9 @@
             this.panel33 = new System.Windows.Forms.Panel();
             this.label74 = new System.Windows.Forms.Label();
             this.dataGridView11 = new System.Windows.Forms.DataGridView();
-            this.TenChuongTrinh_CTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMonHoc_CTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocKy_CTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMonHoc_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenChuongTrinh_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen_PTMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoLaDamNhiemChinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKhoaHoc_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMonHoc_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaPhong_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaThu_CTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nguoigui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ngaygui = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKhoaHoc_KH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKhoaHoc_KH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenChuongTrinh_KH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamBatDaU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backPage)).BeginInit();
             this.panel2.SuspendLayout();
@@ -2162,6 +2162,30 @@
             this.ListCTMH.TabIndex = 7;
             this.ListCTMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListCTMH_CellClick);
             // 
+            // TenChuongTrinh_CTMH
+            // 
+            this.TenChuongTrinh_CTMH.DataPropertyName = "TenChuongTrinh";
+            this.TenChuongTrinh_CTMH.HeaderText = "Chương trình đào tạo";
+            this.TenChuongTrinh_CTMH.MinimumWidth = 6;
+            this.TenChuongTrinh_CTMH.Name = "TenChuongTrinh_CTMH";
+            this.TenChuongTrinh_CTMH.Width = 480;
+            // 
+            // TenMonHoc_CTMH
+            // 
+            this.TenMonHoc_CTMH.DataPropertyName = "TenMonHoc";
+            this.TenMonHoc_CTMH.HeaderText = "Tên môn học";
+            this.TenMonHoc_CTMH.MinimumWidth = 6;
+            this.TenMonHoc_CTMH.Name = "TenMonHoc_CTMH";
+            this.TenMonHoc_CTMH.Width = 420;
+            // 
+            // HocKy_CTMH
+            // 
+            this.HocKy_CTMH.DataPropertyName = "HocKy";
+            this.HocKy_CTMH.HeaderText = "Học Kỳ";
+            this.HocKy_CTMH.MinimumWidth = 6;
+            this.HocKy_CTMH.Name = "HocKy_CTMH";
+            this.HocKy_CTMH.Width = 150;
+            // 
             // groupBox14
             // 
             this.groupBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
@@ -2520,6 +2544,38 @@
             this.ListPTMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListPTMH_CellClick);
             this.ListPTMH.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ListPTMH_CellFormatting);
             // 
+            // TenMonHoc_PTMH
+            // 
+            this.TenMonHoc_PTMH.DataPropertyName = "TenMonHoc";
+            this.TenMonHoc_PTMH.HeaderText = "Tên môn học";
+            this.TenMonHoc_PTMH.MinimumWidth = 6;
+            this.TenMonHoc_PTMH.Name = "TenMonHoc_PTMH";
+            this.TenMonHoc_PTMH.Width = 250;
+            // 
+            // TenChuongTrinh_PTMH
+            // 
+            this.TenChuongTrinh_PTMH.DataPropertyName = "TenChuongTrinh";
+            this.TenChuongTrinh_PTMH.HeaderText = "Chương trình đào tạo";
+            this.TenChuongTrinh_PTMH.MinimumWidth = 6;
+            this.TenChuongTrinh_PTMH.Name = "TenChuongTrinh_PTMH";
+            this.TenChuongTrinh_PTMH.Width = 350;
+            // 
+            // HoTen_PTMH
+            // 
+            this.HoTen_PTMH.DataPropertyName = "HoTen";
+            this.HoTen_PTMH.HeaderText = "Giáo viên đảm nhiệm";
+            this.HoTen_PTMH.MinimumWidth = 6;
+            this.HoTen_PTMH.Name = "HoTen_PTMH";
+            this.HoTen_PTMH.Width = 250;
+            // 
+            // CoLaDamNhiemChinh
+            // 
+            this.CoLaDamNhiemChinh.DataPropertyName = "CoLaDamNhiemChinh";
+            this.CoLaDamNhiemChinh.HeaderText = "Đảm nhiệm chính";
+            this.CoLaDamNhiemChinh.MinimumWidth = 6;
+            this.CoLaDamNhiemChinh.Name = "CoLaDamNhiemChinh";
+            this.CoLaDamNhiemChinh.Width = 200;
+            // 
             // groupBox17
             // 
             this.groupBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
@@ -2877,6 +2933,46 @@
             this.ListKhoaHoc.Size = new System.Drawing.Size(1053, 314);
             this.ListKhoaHoc.TabIndex = 9;
             this.ListKhoaHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListKhoaHoc_CellClick);
+            // 
+            // MaKhoaHoc_KH
+            // 
+            this.MaKhoaHoc_KH.DataPropertyName = "MaKhoaHoc";
+            this.MaKhoaHoc_KH.HeaderText = "ID";
+            this.MaKhoaHoc_KH.MinimumWidth = 6;
+            this.MaKhoaHoc_KH.Name = "MaKhoaHoc_KH";
+            this.MaKhoaHoc_KH.Width = 125;
+            // 
+            // TenKhoaHoc_KH
+            // 
+            this.TenKhoaHoc_KH.DataPropertyName = "TenKhoaHoc";
+            this.TenKhoaHoc_KH.HeaderText = "Tên khóa học";
+            this.TenKhoaHoc_KH.MinimumWidth = 6;
+            this.TenKhoaHoc_KH.Name = "TenKhoaHoc_KH";
+            this.TenKhoaHoc_KH.Width = 335;
+            // 
+            // TenChuongTrinh_KH
+            // 
+            this.TenChuongTrinh_KH.DataPropertyName = "TenChuongTrinh";
+            this.TenChuongTrinh_KH.HeaderText = "Chương trình đào tạo";
+            this.TenChuongTrinh_KH.MinimumWidth = 6;
+            this.TenChuongTrinh_KH.Name = "TenChuongTrinh_KH";
+            this.TenChuongTrinh_KH.Width = 300;
+            // 
+            // NamBatDaU
+            // 
+            this.NamBatDaU.DataPropertyName = "NamBatDau";
+            this.NamBatDaU.HeaderText = "Năm Bắt đầu";
+            this.NamBatDaU.MinimumWidth = 6;
+            this.NamBatDaU.Name = "NamBatDaU";
+            this.NamBatDaU.Width = 150;
+            // 
+            // NamKetThuc
+            // 
+            this.NamKetThuc.DataPropertyName = "NamKetThuc";
+            this.NamKetThuc.HeaderText = "Năm kết thúc";
+            this.NamKetThuc.MinimumWidth = 6;
+            this.NamKetThuc.Name = "NamKetThuc";
+            this.NamKetThuc.Width = 170;
             // 
             // groupBox23
             // 
@@ -3286,6 +3382,46 @@
             this.ListCTKH.Size = new System.Drawing.Size(1058, 293);
             this.ListCTKH.TabIndex = 10;
             this.ListCTKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListCTKH_CellClick);
+            // 
+            // TenKhoaHoc_CTKH
+            // 
+            this.TenKhoaHoc_CTKH.DataPropertyName = "TenKhoaHoc";
+            this.TenKhoaHoc_CTKH.HeaderText = "Tên khóa học";
+            this.TenKhoaHoc_CTKH.MinimumWidth = 6;
+            this.TenKhoaHoc_CTKH.Name = "TenKhoaHoc_CTKH";
+            this.TenKhoaHoc_CTKH.Width = 300;
+            // 
+            // TenMonHoc_CTKH
+            // 
+            this.TenMonHoc_CTKH.DataPropertyName = "TenMonHoc";
+            this.TenMonHoc_CTKH.HeaderText = "Tên môn học";
+            this.TenMonHoc_CTKH.MinimumWidth = 6;
+            this.TenMonHoc_CTKH.Name = "TenMonHoc_CTKH";
+            this.TenMonHoc_CTKH.Width = 270;
+            // 
+            // HoTen_CTKH
+            // 
+            this.HoTen_CTKH.DataPropertyName = "HoTen";
+            this.HoTen_CTKH.HeaderText = "Giáo viên giảng dạy";
+            this.HoTen_CTKH.MinimumWidth = 6;
+            this.HoTen_CTKH.Name = "HoTen_CTKH";
+            this.HoTen_CTKH.Width = 230;
+            // 
+            // MaPhong_CTKH
+            // 
+            this.MaPhong_CTKH.DataPropertyName = "MaPhong";
+            this.MaPhong_CTKH.HeaderText = "Phòng học";
+            this.MaPhong_CTKH.MinimumWidth = 6;
+            this.MaPhong_CTKH.Name = "MaPhong_CTKH";
+            this.MaPhong_CTKH.Width = 130;
+            // 
+            // MaThu_CTKH
+            // 
+            this.MaThu_CTKH.DataPropertyName = "MaThu";
+            this.MaThu_CTKH.HeaderText = "Thời gian";
+            this.MaThu_CTKH.MinimumWidth = 6;
+            this.MaThu_CTKH.Name = "MaThu_CTKH";
+            this.MaThu_CTKH.Width = 150;
             // 
             // groupBox21
             // 
@@ -3743,102 +3879,6 @@
             this.dataGridView11.Size = new System.Drawing.Size(1067, 809);
             this.dataGridView11.TabIndex = 7;
             // 
-            // TenChuongTrinh_CTMH
-            // 
-            this.TenChuongTrinh_CTMH.DataPropertyName = "TenChuongTrinh";
-            this.TenChuongTrinh_CTMH.HeaderText = "Chương trình đào tạo";
-            this.TenChuongTrinh_CTMH.MinimumWidth = 6;
-            this.TenChuongTrinh_CTMH.Name = "TenChuongTrinh_CTMH";
-            this.TenChuongTrinh_CTMH.Width = 480;
-            // 
-            // TenMonHoc_CTMH
-            // 
-            this.TenMonHoc_CTMH.DataPropertyName = "TenMonHoc";
-            this.TenMonHoc_CTMH.HeaderText = "Tên môn học";
-            this.TenMonHoc_CTMH.MinimumWidth = 6;
-            this.TenMonHoc_CTMH.Name = "TenMonHoc_CTMH";
-            this.TenMonHoc_CTMH.Width = 420;
-            // 
-            // HocKy_CTMH
-            // 
-            this.HocKy_CTMH.DataPropertyName = "HocKy";
-            this.HocKy_CTMH.HeaderText = "Học Kỳ";
-            this.HocKy_CTMH.MinimumWidth = 6;
-            this.HocKy_CTMH.Name = "HocKy_CTMH";
-            this.HocKy_CTMH.Width = 150;
-            // 
-            // TenMonHoc_PTMH
-            // 
-            this.TenMonHoc_PTMH.DataPropertyName = "TenMonHoc";
-            this.TenMonHoc_PTMH.HeaderText = "Tên môn học";
-            this.TenMonHoc_PTMH.MinimumWidth = 6;
-            this.TenMonHoc_PTMH.Name = "TenMonHoc_PTMH";
-            this.TenMonHoc_PTMH.Width = 250;
-            // 
-            // TenChuongTrinh_PTMH
-            // 
-            this.TenChuongTrinh_PTMH.DataPropertyName = "TenChuongTrinh";
-            this.TenChuongTrinh_PTMH.HeaderText = "Chương trình đào tạo";
-            this.TenChuongTrinh_PTMH.MinimumWidth = 6;
-            this.TenChuongTrinh_PTMH.Name = "TenChuongTrinh_PTMH";
-            this.TenChuongTrinh_PTMH.Width = 350;
-            // 
-            // HoTen_PTMH
-            // 
-            this.HoTen_PTMH.DataPropertyName = "HoTen";
-            this.HoTen_PTMH.HeaderText = "Giáo viên đảm nhiệm";
-            this.HoTen_PTMH.MinimumWidth = 6;
-            this.HoTen_PTMH.Name = "HoTen_PTMH";
-            this.HoTen_PTMH.Width = 250;
-            // 
-            // CoLaDamNhiemChinh
-            // 
-            this.CoLaDamNhiemChinh.DataPropertyName = "CoLaDamNhiemChinh";
-            this.CoLaDamNhiemChinh.HeaderText = "Đảm nhiệm chính";
-            this.CoLaDamNhiemChinh.MinimumWidth = 6;
-            this.CoLaDamNhiemChinh.Name = "CoLaDamNhiemChinh";
-            this.CoLaDamNhiemChinh.Width = 200;
-            // 
-            // TenKhoaHoc_CTKH
-            // 
-            this.TenKhoaHoc_CTKH.DataPropertyName = "TenKhoaHoc";
-            this.TenKhoaHoc_CTKH.HeaderText = "Tên khóa học";
-            this.TenKhoaHoc_CTKH.MinimumWidth = 6;
-            this.TenKhoaHoc_CTKH.Name = "TenKhoaHoc_CTKH";
-            this.TenKhoaHoc_CTKH.Width = 300;
-            // 
-            // TenMonHoc_CTKH
-            // 
-            this.TenMonHoc_CTKH.DataPropertyName = "TenMonHoc";
-            this.TenMonHoc_CTKH.HeaderText = "Tên môn học";
-            this.TenMonHoc_CTKH.MinimumWidth = 6;
-            this.TenMonHoc_CTKH.Name = "TenMonHoc_CTKH";
-            this.TenMonHoc_CTKH.Width = 270;
-            // 
-            // HoTen_CTKH
-            // 
-            this.HoTen_CTKH.DataPropertyName = "HoTen";
-            this.HoTen_CTKH.HeaderText = "Giáo viên giảng dạy";
-            this.HoTen_CTKH.MinimumWidth = 6;
-            this.HoTen_CTKH.Name = "HoTen_CTKH";
-            this.HoTen_CTKH.Width = 230;
-            // 
-            // MaPhong_CTKH
-            // 
-            this.MaPhong_CTKH.DataPropertyName = "MaPhong";
-            this.MaPhong_CTKH.HeaderText = "Phòng học";
-            this.MaPhong_CTKH.MinimumWidth = 6;
-            this.MaPhong_CTKH.Name = "MaPhong_CTKH";
-            this.MaPhong_CTKH.Width = 130;
-            // 
-            // MaThu_CTKH
-            // 
-            this.MaThu_CTKH.DataPropertyName = "MaThu";
-            this.MaThu_CTKH.HeaderText = "Thời gian";
-            this.MaThu_CTKH.MinimumWidth = 6;
-            this.MaThu_CTKH.Name = "MaThu_CTKH";
-            this.MaThu_CTKH.Width = 150;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "TenKhoaHoc";
@@ -3861,45 +3901,6 @@
             this.Ngaygui.Name = "Ngaygui";
             this.Ngaygui.Width = 180;
             // 
-            // MaKhoaHoc_KH
-            // 
-            this.MaKhoaHoc_KH.DataPropertyName = "MaKhoaHoc";
-            this.MaKhoaHoc_KH.HeaderText = "ID";
-            this.MaKhoaHoc_KH.MinimumWidth = 6;
-            this.MaKhoaHoc_KH.Name = "MaKhoaHoc_KH";
-            // 
-            // TenKhoaHoc_KH
-            // 
-            this.TenKhoaHoc_KH.DataPropertyName = "TenKhoaHoc";
-            this.TenKhoaHoc_KH.HeaderText = "Tên khóa học";
-            this.TenKhoaHoc_KH.MinimumWidth = 6;
-            this.TenKhoaHoc_KH.Name = "TenKhoaHoc_KH";
-            this.TenKhoaHoc_KH.Width = 335;
-            // 
-            // TenChuongTrinh_KH
-            // 
-            this.TenChuongTrinh_KH.DataPropertyName = "TenChuongTrinh";
-            this.TenChuongTrinh_KH.HeaderText = "Chương trình đào tạo";
-            this.TenChuongTrinh_KH.MinimumWidth = 6;
-            this.TenChuongTrinh_KH.Name = "TenChuongTrinh_KH";
-            this.TenChuongTrinh_KH.Width = 300;
-            // 
-            // NamBatDaU
-            // 
-            this.NamBatDaU.DataPropertyName = "NamBatDau";
-            this.NamBatDaU.HeaderText = "Năm Bắt đầu";
-            this.NamBatDaU.MinimumWidth = 6;
-            this.NamBatDaU.Name = "NamBatDaU";
-            this.NamBatDaU.Width = 150;
-            // 
-            // NamKetThuc
-            // 
-            this.NamKetThuc.DataPropertyName = "NamKetThuc";
-            this.NamKetThuc.HeaderText = "Năm kết thúc";
-            this.NamKetThuc.MinimumWidth = 6;
-            this.NamKetThuc.Name = "NamKetThuc";
-            this.NamKetThuc.Width = 170;
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3917,6 +3918,7 @@
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý chương trình học";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.backPage)).EndInit();

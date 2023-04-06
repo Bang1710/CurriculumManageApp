@@ -41,7 +41,7 @@ namespace MainForm
         {
             SetUpControlLoadingForm();
             CustomdatagirdviewMenu();
-            //ShowInforUser();
+            ShowInforUser();
 
             // KHOA
             turnOffEditModeKhoa();
@@ -169,6 +169,15 @@ namespace MainForm
             lbdatetime.Text = DateTime.Today.ToString("dd/MM/yyyy"); ;
         }
 
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có thật sự muốn thoát khỏi màn hình làm việc này không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
+
+
         // -------------------------CHỨC NĂNG TAB QUẢN LÝ KHOA---------------------------------------------------
         public void turnOffEditModeKhoa()
         {
@@ -228,25 +237,25 @@ namespace MainForm
 
             if (string.IsNullOrEmpty(makhoa))
             {
-                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID");
+                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (makhoa.Length - 1 >= 10)
             {
-                MessageBox.Show("Chiều dài ID không được quá 10 ký tự, hãy nhập lại giá trị ID");
+                MessageBox.Show("Chiều dài ID không được quá 10 ký tự, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(tenkhoa))
             {
-                MessageBox.Show("Tên khoa không được bỏ trống, hãy nhập giá trị khoa");
+                MessageBox.Show("Tên khoa không được bỏ trống, hãy nhập giá trị khoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (tenkhoa.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên khoa không được quá 50 ký tự, hãy nhập lại giá trị khoa");
+                MessageBox.Show("Chiều dài tên khoa không được quá 50 ký tự, hãy nhập lại giá trị khoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -275,10 +284,11 @@ namespace MainForm
                         LoadDataKhoaCombobox();
                         LoadDataGiaoVienCombobox();
                         LoadDataChuongTrinhCombobox();
+                        LoadDataKhoa_MonHocComboBox();
                         resetDataKhoa();
                     } else
                     {
-                        MessageBox.Show("Thêm không thành công ! Hãy thử lại");
+                        MessageBox.Show("Thêm không thành công ! Hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -302,24 +312,29 @@ namespace MainForm
                     var kh = listkhoa.Where(k => k.MaKhoa == makhoa).FirstOrDefault();
                     if (kh.GiaoViens.Any())
                     {
-                        MessageBox.Show("Không thể xóa khoa này");
+                        MessageBox.Show("Không thể xóa khoa này, vì có bản ghi liên quan đến thông tin của khoa này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         resetDataKhoa();
                     } else
                     {
                         if (khoaBLL.DeleteKhoa(makhoa))
                         {
-                            MessageBox.Show("Xóa thông tin khoa thành công !");
+                            MessageBox.Show("Xóa thông tin khoa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadDataKhoaGirdView();
                             LoadDataKhoaCombobox();
-                            LoadDataGiaoVienCombobox();
-                            LoadDataChuongTrinhCombobox();
                             resetDataKhoa();
+
+                            LoadDataGiaoVienCombobox();
+
+                            LoadDataChuongTrinhCombobox();
+
+                            LoadDataKhoa_MonHocComboBox();
+
                         }
                     }
                 }
             } else
             {
-                MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -327,19 +342,19 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(makhoa))
             {
-                MessageBox.Show("Hãy chọn khoa mà bạn cần muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn khoa mà bạn cần muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(tenkhoa))
             {
-                MessageBox.Show("Tên khoa không được bỏ trống, hãy nhập giá trị tên khoa cần chỉnh sửa !");
+                MessageBox.Show("Tên khoa không được bỏ trống, hãy nhập giá trị tên khoa cần chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (tenkhoa.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên khoa không được quá 50 ký tự, hãy nhập lại giá trị khoa cần chỉnh sửa");
+                MessageBox.Show("Chiều dài tên khoa không được quá 50 ký tự, hãy nhập lại giá trị khoa cần chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -365,7 +380,7 @@ namespace MainForm
                     if (khoaBLL.EditKhoa(makhoa, tenkhoa))
                     {
 
-                        MessageBox.Show("Lưu thay đổi thành công !");
+                        MessageBox.Show("Lưu thay đổi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadDataKhoaGirdView();
                         LoadDataKhoaCombobox();
 
@@ -374,12 +389,15 @@ namespace MainForm
 
                         LoadDataChuongTrinhCombobox();
                         LoadDataChuongTrinhGridview();
+
+                        LoadDataKhoa_MonHocComboBox();
+                        LoadDataMonHocGridview();
                         
                         resetDataKhoa();
                         resetDataCombobox();
                     } else
                     {
-                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -389,11 +407,11 @@ namespace MainForm
         {
             var khoas = khoaBLL.getListKhoa().Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
             ListKhoa.DataSource = khoas;
-            //ListKhoa.ClearSelection();
         }
 
         public void LoadDataKhoaCombobox()
         {
+            // tabkhoa
             var khoas = khoaBLL.getListKhoa().Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
             cbMaKhoa_Khoa.DataSource = khoas;
             cbMaKhoa_Khoa.DisplayMember = "MaKhoa";
@@ -440,41 +458,19 @@ namespace MainForm
 
         private void searchBox_Click(object sender, EventArgs e)
         {
-            //string value = cbMaKhoa_Khoa.SelectedValue.ToString();
             if (cbMaKhoa_Khoa.Text == "")
             {
-                MessageBox.Show("Hãy chọn mã khoa cần tìm !");
+                MessageBox.Show("Hãy chọn mã khoa cần tìm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadDataKhoaGirdView();
             }
             else if (cbMaKhoa_Khoa.Text != "")
             {
-                string value = cbMaKhoa_Khoa.Text.ToString().Trim();
-                var khoas = khoaBLL.getListKhoa().Where(k => k.MaKhoa == value).Select(k => new { k.MaKhoa, k.TenKhoa }).FirstOrDefault();
-                if (khoas == null)
-                {
-                    MessageBox.Show("Tìm kiếm không thành công !, không tồn tại mã khoa, hãy chọn giá trị khác !");
-                }
-                else
-                {
-                    if (cbMaKhoa_Khoa.SelectedValue == null)
-                    {
-                        var khoalq = khoaBLL.getListKhoa().Where(k => k.MaKhoa == cbMaKhoa_Khoa.Text.ToString().Trim()).Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
-                        ListKhoa.DataSource = khoalq;
-                        cbMaKhoa_Khoa.Text = "";
-                        MessageBox.Show("Đã tìm kiếm thành công !");
-                        resetDataKhoa();
-                        //LoadDataKhoaCombobox();
-                    } else
-                    {
-                        var khoalq = khoaBLL.getListKhoa().Where(k => k.MaKhoa == cbMaKhoa_Khoa.SelectedValue.ToString()).Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
-                        cbMaKhoa_Khoa.SelectedIndex = -1;
-                        ListKhoa.DataSource = khoalq;
-                        cbMaKhoa_Khoa.Text = "";
-                        ListKhoa.ClearSelection();
-                        MessageBox.Show("Đã tìm kiếm thành công !");
-                        resetDataKhoa();
-                    }
-                }
+                var khoalq = khoaBLL.getListKhoa().Where(k => k.MaKhoa == cbMaKhoa_Khoa.SelectedValue.ToString()).Select(k => new { k.MaKhoa, k.TenKhoa }).ToList();
+                resetDataCombobox();
+                ListKhoa.DataSource = khoalq;
+                ListKhoa.ClearSelection();
+                MessageBox.Show("Đã tìm kiếm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetDataKhoa();
             }
         }
 
@@ -559,7 +555,7 @@ namespace MainForm
 
             if (query.ToList().Count < 1)
             {
-                MessageBox.Show("Không có giáo viên nào thuộc khoa này");
+                MessageBox.Show("Không có giáo viên nào thuộc khoa này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         
@@ -585,31 +581,31 @@ namespace MainForm
 
             if (string.IsNullOrEmpty(mgv))
             {
-                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID");
+                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (mgv.Length - 1 >= 10)
             {
-                MessageBox.Show("Chiều dài ID không được quá 10 ký tự, hãy nhập lại giá trị ID");
+                MessageBox.Show("Chiều dài ID không được quá 10 ký tự, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(hoten))
             {
-                MessageBox.Show("Tên giáo viên không được bỏ trống, hãy nhập giá trị tên giáo viên");
+                MessageBox.Show("Tên giáo viên không được bỏ trống, hãy nhập giá trị tên giáo viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (hoten.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên khoa không được quá 50 ký tự, hãy nhập lại giá trị khoa");
+                MessageBox.Show("Chiều dài tên khoa không được quá 50 ký tự, hãy nhập lại giá trị khoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (makhoa == "")
             {
-                MessageBox.Show("Hãy chọn khoa trực thuộc cho giáo viên mà bạn cần thêm !");
+                MessageBox.Show("Hãy chọn khoa trực thuộc cho giáo viên mà bạn cần thêm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -636,9 +632,11 @@ namespace MainForm
                     {
                         MessageBox.Show("Thêm giáo viên thành công", "Thông báo", MessageBoxButtons.OK);
                         LoadDataGiaoVienGridview();
-                        LoadDataChuongTrinhCombobox();
-                        LoadDataGVSearch_PTMH();
                         resetDataGiaoVien();
+
+                        LoadDataChuongTrinhCombobox();
+
+                        LoadDataGVSearch_PTMH();
                     }
                     else
                     {
@@ -652,7 +650,7 @@ namespace MainForm
         {
             if (cbMaKhoa_GiaoVien.Text == "")
             {
-                MessageBox.Show("Hãy chọn khoa cần tìm !");
+                MessageBox.Show("Hãy chọn khoa cần tìm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbMaKhoa_GiaoVien.SelectedIndex = -1;
                 LoadDataGiaoVienGridview();
             }
@@ -661,7 +659,7 @@ namespace MainForm
                 string value = cbMaKhoa_GiaoVien.SelectedValue.ToString().Trim();
                 cbMaKhoa_GiaoVien.SelectedIndex = -1;
                 LoadDataGiaoVienGridviewSearch(value);
-                MessageBox.Show("Đã tìm kiếm thành công !");
+                MessageBox.Show("Đã tìm kiếm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetDataGiaoVien();
                 resetDataCombobox();
             }
@@ -671,7 +669,7 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mgv))
             {
-                MessageBox.Show("Hãy chọn giáo viên mà bạn cần xóa !");
+                MessageBox.Show("Hãy chọn giáo viên mà bạn cần xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -681,9 +679,7 @@ namespace MainForm
         {
             var magv = txtID_GiaoVien.Text.ToString().Trim();
             var hoten = txtHoTen_GiaoVien.Text.ToString().Trim();
-            //var makhoaText = cbKhoa_GiaoVien.Text.ToString().Trim();
             string makhoa;
-
 
             if (checkDataDeletGiaoVien(magv))
             {
@@ -697,14 +693,14 @@ namespace MainForm
                         var gv = listGiaoVien.Where(g => g.MaGiaoVien == magv).FirstOrDefault();
                         if (gv.ChuongTrinhs.Any())
                         {
-                            MessageBox.Show("Không thể xóa giáo viên này này");
+                            MessageBox.Show("Không thể xóa giáo viên này này, vì có liên quan đến các bản ghi khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataGiaoVien();
                         }
                         else
                         {
                             if (giaovienBLL.DeleteGiaoVien(magv))
                             {
-                                MessageBox.Show("Xóa thông tin giáo viên thành công !");
+                                MessageBox.Show("Xóa thông tin giáo viên thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadDataGiaoVienGridview();
                                 LoadDataChuongTrinhCombobox();
                                 LoadDataGVSearch_PTMH();
@@ -715,7 +711,7 @@ namespace MainForm
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
@@ -725,25 +721,25 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(magv))
             {
-                MessageBox.Show("Hãy chọn giáo viên mà bạn cần muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn giáo viên mà bạn cần muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(hoten))
             {
-                MessageBox.Show("Tên giáo viên không được bỏ trống, hãy nhập giá trị tên giáo viên cần chỉnh sửa !");
+                MessageBox.Show("Tên giáo viên không được bỏ trống, hãy nhập giá trị tên giáo viên cần chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (hoten.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên giáo viên không được quá 50 ký tự, hãy nhập lại giá trị tên giáo viên cần chỉnh sửa");
+                MessageBox.Show("Chiều dài tên giáo viên không được quá 50 ký tự, hãy nhập lại giá trị tên giáo viên cần chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (makhoa == "")
             {
-                MessageBox.Show("Hãy chọn khoa trực thuộc cho giáo viên mà bạn cần chỉnh sửa !");
+                MessageBox.Show("Hãy chọn khoa trực thuộc cho giáo viên mà bạn cần chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -770,16 +766,21 @@ namespace MainForm
                 {
                     if (giaovienBLL.EditGiangVien(magv, hoten, makhoa))
                     {
-                        MessageBox.Show("Lưu thay đổi thành công !");
+                        MessageBox.Show("Lưu thay đổi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadDataGiaoVienGridview();
+                        resetDataGiaoVien();
+
                         LoadDataChuongTrinhGridview();
                         LoadDataChuongTrinhCombobox();
+
                         LoadDataGVSearch_PTMH();
-                        resetDataGiaoVien();
+                        LoadDataPTMHGridview();
+
+                        LoadDataGridviewCTKH();
                     }
                     else
                     {
-                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -862,7 +863,6 @@ namespace MainForm
             cbKhoa_ChuongTrinh.DataSource = khoas;
             cbKhoa_ChuongTrinh.DisplayMember = "TenKhoa";
             cbKhoa_ChuongTrinh.ValueMember = "MaKhoa";
-            //LoadDataGiangVien_ChuongTrinhCombobox(cbKhoa_ChuongTrinh.SelectedValue.ToString());
             cbKhoa_ChuongTrinh.SelectedIndex = -1;
         }
 
@@ -902,7 +902,7 @@ namespace MainForm
 
             if (query.ToList().Count < 1)
             {
-                MessageBox.Show("Không có chương trình đào tạo nào thuộc khoa này");
+                MessageBox.Show("Không có chương trình đào tạo nào thuộc khoa này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -935,25 +935,25 @@ namespace MainForm
 
             if (string.IsNullOrEmpty(mact))
             {
-                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID");
+                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (mact.Length - 1 >= 5)
             {
-                MessageBox.Show("Chiều dài ID không được quá 5 ký tự, hãy nhập lại giá trị ID");
+                MessageBox.Show("Chiều dài ID không được quá 5 ký tự, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(tenct))
             {
-                MessageBox.Show("Tên chương trình đào tạo không được bỏ trống, hãy nhập giá trị tên chương trình đào tạo");
+                MessageBox.Show("Tên chương trình đào tạo không được bỏ trống, hãy nhập giá trị tên chương trình đào tạo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (tenct.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên chương trình đào tạo không được quá 50 ký tự, hãy nhập lại giá trị tên chương trình đào tạo");
+                MessageBox.Show("Chiều dài tên chương trình đào tạo không được quá 50 ký tự, hãy nhập lại giá trị tên chương trình đào tạo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -971,13 +971,13 @@ namespace MainForm
 
             if (makhoa == "")
             {
-                MessageBox.Show("Hãy chọn khoa phụ trách cho chương trình đào tạo này !");
+                MessageBox.Show("Hãy chọn khoa phụ trách cho chương trình đào tạo này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (mgv == "")
             {
-                MessageBox.Show("Hãy chọn giáo viên làm giáo đốc cho chương trình đào tạo này !");
+                MessageBox.Show("Hãy chọn giáo viên làm giáo đốc cho chương trình đào tạo này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -1008,12 +1008,17 @@ namespace MainForm
                 {
                     if (chuongtrinhBLL.AddChuongTrinh(ct))
                     {
-                        MessageBox.Show("Thêm chương trình đào tạo thành công", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Thêm chương trình đào tạo thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadDataChuongTrinhGridview();
+                        resetDataChuongTrinh();
+
                         LoadDataComboboxCTDT_CTMH();
                         LoadDataComboboxSearchCTDT_CTMH();
+
                         LoadDataCTDT_PTMH();
-                        resetDataChuongTrinh();
+
+                        LoadDataCTDT_KhoaHoc();
+                        LoadDataCTDTSearch_KhoaHoc();
                     }
                     else
                     {
@@ -1027,7 +1032,7 @@ namespace MainForm
         {
             if(string.IsNullOrEmpty(mct))
             {
-                MessageBox.Show("Hãy chọn chương trình mà bạn cần xóa");
+                MessageBox.Show("Hãy chọn chương trình mà bạn cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -1054,26 +1059,32 @@ namespace MainForm
                         var ct = listchuongtrinh.Where(c => c.MaChuongTrinh == mact).FirstOrDefault();
                         if (ct.ChuongTrinhMonHocs.Any())
                         {
-                            MessageBox.Show("Không thể xóa chương trình đào tạo này");
+                            MessageBox.Show("Không thể xóa chương trình đào tạo này, vì ảnh hưởng đến các bản ghi có liên quan", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataChuongTrinh();
                         }
                         else
                         {
                             if (chuongtrinhBLL.DeleteChuongTrinh(mact))
                             {
-                                MessageBox.Show("Xóa thông tin chương trình đào tạo thành công !");
+                                MessageBox.Show("Xóa thông tin chương trình đào tạo thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadDataChuongTrinhGridview();
+                                resetDataChuongTrinh();
+
                                 LoadDataComboboxCTDT_CTMH();
                                 LoadDataComboboxSearchCTDT_CTMH();
+
                                 LoadDataCTDT_PTMH();
-                                resetDataChuongTrinh();
+
+                                LoadDataCTDT_KhoaHoc();
+                                LoadDataCTDTSearch_KhoaHoc();
+
                             }
                         }
 
                     }
                 } else
                 {
-                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
@@ -1083,19 +1094,19 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mact))
             {
-                MessageBox.Show("Hãy chọn chương trình đào tạo mà bạn muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn chương trình đào tạo mà bạn muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(tenct))
             {
-                MessageBox.Show("Tên chương trình đào tạo không được bỏ trống, hãy nhập giá trị tên chương trình đào tạo");
+                MessageBox.Show("Tên chương trình đào tạo không được bỏ trống, hãy nhập giá trị tên chương trình đào tạo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (tenct.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên chương trình đào tạo không được quá 50 ký tự, hãy nhập lại giá trị tên chương trình đào tạo");
+                MessageBox.Show("Chiều dài tên chương trình đào tạo không được quá 50 ký tự, hãy nhập lại giá trị tên chương trình đào tạo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1113,13 +1124,13 @@ namespace MainForm
 
             if (makhoa == "")
             {
-                MessageBox.Show("Hãy chọn khoa phụ trách cho chương trình đào tạo này !");
+                MessageBox.Show("Hãy chọn khoa phụ trách cho chương trình đào tạo này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (mgv == "")
             {
-                MessageBox.Show("Hãy chọn giáo viên làm giáo đốc cho chương trình đào tạo này !");
+                MessageBox.Show("Hãy chọn giáo viên làm giáo đốc cho chương trình đào tạo này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1150,18 +1161,24 @@ namespace MainForm
                 {
                     if (chuongtrinhBLL.EditChuongTrinh(mact, tenct, mabh, makhoa, magv))
                     {
-                        MessageBox.Show("Lưu thay đổi thành công !");
+                        MessageBox.Show("Lưu thay đổi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadDataChuongTrinhGridview();
+                        resetDataChuongTrinh();
 
                         LoadDataComboboxCTDT_CTMH();
                         LoadDataComboboxSearchCTDT_CTMH();
                         LoadDataCTMHDatagirdview();
+
                         LoadDataCTDT_PTMH();
-                        resetDataChuongTrinh();
+                        LoadDataPTMHGridview();
+
+                        LoadDataCTDT_KhoaHoc();
+                        LoadDataCTDTSearch_KhoaHoc();
+                        LoadDataGirdviewKhoaHoc();
                     }
                     else
                     {
-                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -1188,7 +1205,7 @@ namespace MainForm
         {
             if (cbMaKhoa_ChuongTrinh.Text == "")
             {
-                MessageBox.Show("Hãy chọn khoa cần tìm !");
+                MessageBox.Show("Hãy chọn khoa cần tìm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbMaKhoa_ChuongTrinh.SelectedIndex = -1;
                 LoadDataChuongTrinhGridview();
             }
@@ -1197,7 +1214,7 @@ namespace MainForm
                 string value = cbMaKhoa_ChuongTrinh.SelectedValue.ToString().Trim();
                 cbMaKhoa_ChuongTrinh.SelectedIndex = -1;
                 LoadDataChuongTrinhGridviewSearch(value);
-                MessageBox.Show("Đã tìm kiếm thành công !");
+                MessageBox.Show("Đã tìm kiếm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetDataCombobox();
                 resetDataChuongTrinh();
             }
@@ -1308,31 +1325,31 @@ namespace MainForm
 
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID");
+                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (mamh.Length - 1 >= 5)
             {
-                MessageBox.Show("Chiều dài ID không được quá 5 ký tự, hãy nhập lại giá trị ID");
+                MessageBox.Show("Chiều dài ID không được quá 5 ký tự, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(tenmh))
             {
-                MessageBox.Show("Tên môn học không được bỏ trống, hãy nhập giá trị tên môn học");
+                MessageBox.Show("Tên môn học không được bỏ trống, hãy nhập giá trị tên môn học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (tenmh.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên môn học không được quá 50 ký tự, hãy nhập lại giá trị tên môn học");
+                MessageBox.Show("Chiều dài tên môn học không được quá 50 ký tự, hãy nhập lại giá trị tên môn học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (makhoa == "")
             {
-                MessageBox.Show("Hãy chọn khoa phụ trách cho môn học mà bạn cần thêm !");
+                MessageBox.Show("Hãy chọn khoa phụ trách cho môn học mà bạn cần thêm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -1362,8 +1379,9 @@ namespace MainForm
                     {
                         MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK);
                         LoadDataMonHocGridview();
-                        LoadDataComboboxMH_CTMH();
                         resetDataMonHoc();
+
+                        LoadDataComboboxMH_CTMH();
                     }
                     else
                     {
@@ -1378,7 +1396,7 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("Hãy chọn môn học mà bạn muốn xóa");
+                MessageBox.Show("Hãy chọn môn học mà bạn muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1404,24 +1422,25 @@ namespace MainForm
                         var mh = listmonhoc.Where(m => m.MaMonHoc == mamh).FirstOrDefault();
                         if (mh.ChuongTrinhMonHocs.Any())
                         {
-                            MessageBox.Show("Không thể xóa môn học này");
+                            MessageBox.Show("Không thể xóa môn học này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataMonHoc();
                         }
                         else
                         {
                             if (monhocBLL.DeleteMonHoc(mamh))
                             {
-                                MessageBox.Show("Xóa thông tin môn học thành công !");
+                                MessageBox.Show("Xóa thông tin môn học thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadDataMonHocGridview();
-                                LoadDataComboboxMH_CTMH();
                                 resetDataMonHoc();
+
+                                LoadDataComboboxMH_CTMH();
                             }
                         }
 
                     }
                 } else
                 {
-                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
@@ -1431,25 +1450,25 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("Hãy chọn môn học mà bạn muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn môn học mà bạn muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(ten))
             {
-                MessageBox.Show("Tên môn học không được bỏ trống, hãy nhập giá trị tên môn học");
+                MessageBox.Show("Tên môn học không được bỏ trống, hãy nhập giá trị tên môn học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (ten.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên môn học không được quá 50 ký tự, hãy nhập lại giá trị tên môn học");
+                MessageBox.Show("Chiều dài tên môn học không được quá 50 ký tự, hãy nhập lại giá trị tên môn học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (makhoa == "")
             {
-                MessageBox.Show("Hãy chọn khoa phụ trách cho môn học này !");
+                MessageBox.Show("Hãy chọn khoa phụ trách cho môn học này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1477,16 +1496,20 @@ namespace MainForm
                 {
                     if (monhocBLL.EditMonHoc(mamh, tenmh, stc, makhoa))
                     {
-                        MessageBox.Show("Lưu thay đổi thành công !");
+                        MessageBox.Show("Lưu thay đổi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadDataMonHocGridview();
+                        resetDataMonHoc();
+
                         LoadDataComboboxMH_CTMH();
                         LoadDataCTMHDatagirdview();
+
                         LoadDataPTMHGridview();
-                        resetDataMonHoc();
+
+                        LoadDataGridviewCTKH();
                     }
                     else
                     {
-                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
 
@@ -1510,7 +1533,7 @@ namespace MainForm
 
             if (query.ToList().Count < 1)
             {
-                MessageBox.Show("Không có chương trình đào tạo nào thuộc khoa này");
+                MessageBox.Show("Không có môn học nào nào thuộc khoa này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -1518,7 +1541,7 @@ namespace MainForm
         {
             if (cbMaKhoa_MonHoc.Text == "")
             {
-                MessageBox.Show("Hãy chọn khoa cần tìm !");
+                MessageBox.Show("Hãy chọn khoa cần tìm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbMaKhoa_MonHoc.SelectedIndex = -1;
                 LoadDataMonHocGridview();
             }
@@ -1527,7 +1550,7 @@ namespace MainForm
                 string value = cbMaKhoa_MonHoc.SelectedValue.ToString().Trim();
                 cbMaKhoa_MonHoc.SelectedIndex = -1;
                 LoadDataMonHocGridviewSearch(value);
-                MessageBox.Show("Đã tìm kiếm thành công !");
+                MessageBox.Show("Đã tìm kiếm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetDataMonHoc();
                 resetDataCombobox();
             }
@@ -1669,20 +1692,20 @@ namespace MainForm
             ListCTMH.ClearSelection();
             if (query.ToList().Count < 1)
             {
-                MessageBox.Show("Không có chương trình học môn nào thuộc chương trình đào tạo này");
+                MessageBox.Show("Không có chương trình học môn nào thuộc chương trình đào tạo này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public bool checkDataAddCTMH(string mactdt, string mamh)
         {
             if (string.IsNullOrEmpty(mactdt)) {
-                MessageBox.Show("Hãy chọn giá trị chương trình đào tạo !");
+                MessageBox.Show("Hãy chọn giá trị chương trình đào tạo !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false; 
             }
 
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("Hãy chọn giá trị môn học mà bạn muốn đăng ký cho chương trình đào tạo trên !");
+                MessageBox.Show("Hãy chọn giá trị môn học mà bạn muốn đăng ký cho chương trình đào tạo trên !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1706,7 +1729,7 @@ namespace MainForm
 
                 if (listctmh != null)
                 {
-                    MessageBox.Show("Chương trình học môn này đã được đăng ký, hãy thử đăng ký lại !");
+                    MessageBox.Show("Chương trình học môn này đã được đăng ký, hãy thử đăng ký lại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else
                 {
                     var ctmh = new ChuongTrinhMonHoc()
@@ -1738,13 +1761,13 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mactdt))
             {
-                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn xóa !");
+                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn xóa !");
+                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -1771,14 +1794,14 @@ namespace MainForm
                         var dnm = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh).FirstOrDefault();
                         if (dnm != null)
                         {
-                            MessageBox.Show("Không thể xóa chương trình học môn này, vì đã được phân công cho giáo viên đảm nhiệm !");
+                            MessageBox.Show("Không thể xóa chương trình học môn này, vì đã được phân công cho giáo viên đảm nhiệm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataCTMH();
                         }
                         else
                         {
                             if (ctmhBLL.DeleteCTMH(mactdt, mamh))
                             {
-                                MessageBox.Show("Xóa thông tin chương trình môn học thành công !");
+                                MessageBox.Show("Xóa thông tin chương trình môn học thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadDataCTMHDatagirdview();
                                 LoadDataMH_PTMH(mactdt);
                                 resetDataCTMH();
@@ -1792,7 +1815,7 @@ namespace MainForm
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -1801,13 +1824,13 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mactdt))
             {
-                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn chương trình học môn mà bạn muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1836,13 +1859,13 @@ namespace MainForm
                 {
                     if (ctmhBLL.EditCTMH(mactdt, mamh, hocky))
                     {
-                        MessageBox.Show("Lưu thay đổi thành công !");
+                        MessageBox.Show("Lưu thay đổi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadDataCTMHDatagirdview();
                         resetDataCTMH();
                     }
                     else
                     {
-                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
 
@@ -2033,7 +2056,7 @@ namespace MainForm
             ListPTMH.ClearSelection();
             if (query.ToList().Count < 1)
             {
-                MessageBox.Show("Không có phụ trách môn học nào được giáo viên này đảm nhiệm");
+                MessageBox.Show("Không có phụ trách môn học nào được giáo viên này đảm nhiệm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -2041,19 +2064,19 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mactdt))
             {
-                MessageBox.Show("Hãy chọn giá trị chương trình đào tạo, giá trị này không được bỏ trống !");
+                MessageBox.Show("Hãy chọn giá trị chương trình đào tạo, giá trị này không được bỏ trống !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("Hãy chọn giá trị môn học, giá trị này không được bỏ trống !");
+                MessageBox.Show("Hãy chọn giá trị môn học, giá trị này không được bỏ trống !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(mgv))
             {
-                MessageBox.Show("Hãy chọn giá trị tên giáo viên đảm nhiệm cho môn học trên, giá trị này không được bỏ trống !");
+                MessageBox.Show("Hãy chọn giá trị tên giáo viên đảm nhiệm cho môn học trên, giá trị này không được bỏ trống !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -2079,12 +2102,10 @@ namespace MainForm
 
                 var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv).SingleOrDefault();
                 var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).GroupBy(d => d.MaMonHoc).ToList().Count();
-                //MessageBox.Show(dncGV.ToString());
-                //MessageBox.Show(dncGV.ToString());  
 
                 if (ptmhExist != null)
                 {
-                    MessageBox.Show("Phụ trách môn học này đã được đăng ký, hãy thử đăng ký lại !");
+                    MessageBox.Show("Phụ trách môn học này đã được đăng ký, hãy thử đăng ký lại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!(dncGV >= 5 && dnc == true))
                 {
@@ -2113,7 +2134,7 @@ namespace MainForm
                     }
                 } else
                 {
-                    MessageBox.Show("Giáo viên này đã làm đảm nhiệm chính trên 5 môn học khác nhau, hãy đổi giáo viên khác làm đảm nhiệm chính hoặc không cho làm đảm nhiệm chính !");
+                    MessageBox.Show("Giáo viên này đã làm đảm nhiệm chính trên 5 môn học khác nhau, hãy đổi giáo viên khác làm đảm nhiệm chính hoặc không cho làm đảm nhiệm chính !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -2122,7 +2143,7 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mactdt))
             {
-                MessageBox.Show("Hãy chọn phụ trách mà bạn muốn xóa!");
+                MessageBox.Show("Hãy chọn phụ trách mà bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -2154,14 +2175,14 @@ namespace MainForm
                         var ctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaGiaoVien_day == magv && c.MaMonHoc == mamh).FirstOrDefault();
                         if (ctkh != null)
                         {
-                            MessageBox.Show("Không thể xóa phụ trách môn học này này, vì đã được phân công trong chi tiết khóa học !");
+                            MessageBox.Show("Không thể xóa phụ trách môn học này này, vì đã được phân công trong chi tiết khóa học !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataPTMH();
                         }
                         else
                         {
                             if (dnmBLL.DeleteDamNhiemMon(mactdt, mamh, magv))
                             {
-                                MessageBox.Show("Xóa thông tin phụ trách môn học thành công !");
+                                MessageBox.Show("Xóa thông tin phụ trách môn học thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadDataPTMHGridview();
                                 resetDataPTMH();
                             }
@@ -2175,7 +2196,7 @@ namespace MainForm
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -2203,7 +2224,7 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(mactdt))
             {
-                MessageBox.Show("Hãy chọn phụ trách môn học mà bạn muốn sửa !");
+                MessageBox.Show("Hãy chọn phụ trách môn học mà bạn muốn sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -2252,7 +2273,7 @@ namespace MainForm
                 }
                 else
                 {
-                    MessageBox.Show("Giáo viên này đã làm đảm nhiệm chính trên 5 môn học khác nhau, hãy đổi giáo viên khác làm đảm nhiệm chính hoặc không cho làm đảm nhiệm chính !");
+                    MessageBox.Show("Giáo viên này đã làm đảm nhiệm chính trên 5 môn học khác nhau, hãy đổi giáo viên khác làm đảm nhiệm chính hoặc không cho làm đảm nhiệm chính !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -2306,7 +2327,6 @@ namespace MainForm
 
         private void ListPTMH_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Kiểm tra xem cột hiện tại có phải là cột "Giá trị" không
             if (ListPTMH.Columns[e.ColumnIndex].Name == "CoLaDamNhiemChinh" && e.Value != null)
             {
                 int value = (int)e.Value;
@@ -2438,7 +2458,7 @@ namespace MainForm
 
             if (query.ToList().Count < 1)
             {
-                MessageBox.Show("Không có khóa học nào trong chương trình đào tạo này !");
+                MessageBox.Show("Không có khóa học nào trong chương trình đào tạo này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -2451,7 +2471,7 @@ namespace MainForm
         {
             if (cbCTDTSearch_KhoaHoc.Text == "")
             {
-                MessageBox.Show("Hãy chọn chương trình đào tạo cần tìm !");
+                MessageBox.Show("Hãy chọn chương trình đào tạo cần tìm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbCTDTSearch_KhoaHoc.SelectedIndex = -1;
                 LoadDataGirdviewKhoaHoc();
                 ListKhoaHoc.ClearSelection();
@@ -2462,7 +2482,7 @@ namespace MainForm
                 cbCTDTSearch_KhoaHoc.SelectedIndex = -1;
                 LoadDataGirdviewKhoaHocSearch(value);
                 ListKhoaHoc.ClearSelection();
-                MessageBox.Show("Đã tìm kiếm thành công !");
+                MessageBox.Show("Đã tìm kiếm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -2479,25 +2499,25 @@ namespace MainForm
 
             if (string.IsNullOrEmpty(id))
             {
-                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID");
+                MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (id.Length - 1 >= 10)
             {
-                MessageBox.Show("Chiều dài ID không được quá 10 ký tự, hãy nhập lại giá trị ID");
+                MessageBox.Show("Chiều dài ID không được quá 10 ký tự, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(ten))
             {
-                MessageBox.Show("Tên khóa học không được bỏ trống, hãy nhập giá trị tên khóa học");
+                MessageBox.Show("Tên khóa học không được bỏ trống, hãy nhập giá trị tên khóa học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (ten.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên khóa học không được quá 50 ký tự, hãy nhập lại giá trị tên khóa học");
+                MessageBox.Show("Chiều dài tên khóa học không được quá 50 ký tự, hãy nhập lại giá trị tên khóa học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -2509,13 +2529,13 @@ namespace MainForm
 
             if (nambatdau >= namketthuc)
             {
-                MessageBox.Show("Năm bắt đầu phải nhỏ hơn năm kết thúc!, hãy nhập lại giá trị !");
+                MessageBox.Show("Năm bắt đầu phải nhỏ hơn năm kết thúc!, hãy nhập lại giá trị !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (namketthuc < nambatdau + 2)
             {
-                MessageBox.Show("Khóa học có khoảng thời gian ít nhất là 2 năm, hãy nhập lại giá trị !");
+                MessageBox.Show("Khóa học có khoảng thời gian ít nhất là 2 năm, hãy nhập lại giá trị !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -2548,6 +2568,9 @@ namespace MainForm
                         MessageBox.Show("Thêm Khóa học thành công", "Thông báo", MessageBoxButtons.OK);
                         LoadDataGirdviewKhoaHoc();
                         resetDataKH();
+
+                        LoadDataCTDT_KhoaHoc();
+                        LoadDataCTDTSearch_KhoaHoc();
                     }
                     else
                     {
@@ -2561,7 +2584,7 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(makhoahoc))
             {
-                MessageBox.Show("Hãy chọn khóa học mà bạn muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn khóa học mà bạn muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -2588,16 +2611,19 @@ namespace MainForm
                         var listkhoahoc = khoahocBLL.getListKhoaHoc().Where(k => k.MaKhoaHoc == makhoahoc).FirstOrDefault();
                         if (listkhoahoc.KhoaHocMons.Any())
                         {
-                            MessageBox.Show("Không thể xóa khóa học này");
+                            MessageBox.Show("Không thể xóa khóa học này, vì ảnh hưởng đến các bản ghi của chi tiết khóa học !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataKH();
                         }
                         else
                         {
                             if (khoahocBLL.DeleteKhoaHoc(makhoahoc))
                             {
-                                MessageBox.Show("Xóa thông tin khóa học thành công !");
+                                MessageBox.Show("Xóa thông tin khóa học thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadDataGirdviewKhoaHoc();
                                 resetDataKH();
+
+                                LoadDataCTDT_KhoaHoc();
+                                LoadDataCTDTSearch_KhoaHoc();
                             }
                         }
 
@@ -2605,7 +2631,7 @@ namespace MainForm
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -2614,19 +2640,19 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(makhoahoc))
             {
-                MessageBox.Show("Hãy chọn khóa học mà bạn muốn chỉnh sửa !");
+                MessageBox.Show("Hãy chọn khóa học mà bạn muốn chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(tenkhoahoc))
             {
-                MessageBox.Show("Tên khóa học không được bỏ trống, hãy nhập giá trị tên khóa học");
+                MessageBox.Show("Tên khóa học không được bỏ trống, hãy nhập giá trị tên khóa học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (tenkhoahoc.Length - 1 >= 50)
             {
-                MessageBox.Show("Chiều dài tên khóa học không được quá 50 ký tự, hãy nhập lại giá trị tên khóa học");
+                MessageBox.Show("Chiều dài tên khóa học không được quá 50 ký tự, hãy nhập lại giá trị tên khóa học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -2638,13 +2664,13 @@ namespace MainForm
 
             if (nambatdau >= namketthuc)
             {
-                MessageBox.Show("Năm bắt đầu phải nhỏ hơn năm kết thúc!, hãy nhập lại giá trị !");
+                MessageBox.Show("Năm bắt đầu phải nhỏ hơn năm kết thúc!, hãy nhập lại giá trị !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (namketthuc < nambatdau + 2)
             {
-                MessageBox.Show("Khóa học có khoảng thời gian ít nhất là 2 năm, hãy nhập lại giá trị !");
+                MessageBox.Show("Khóa học có khoảng thời gian ít nhất là 2 năm, hãy nhập lại giá trị !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -2675,10 +2701,14 @@ namespace MainForm
                         MessageBox.Show("Lưu thay đổi thành công !");
                         LoadDataGirdviewKhoaHoc();
                         resetDataKH();
+
+                        LoadDataCTDT_KhoaHoc();
+                        LoadDataCTDTSearch_KhoaHoc();
+                        LoadDataGridviewCTKH();
                     }
                     else
                     {
-                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                        MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -2872,7 +2902,7 @@ namespace MainForm
 
             if (query.ToList().Count < 1)
             {
-                MessageBox.Show("Không có chi tiết khóa học nào thuộc khóa học này !");
+                MessageBox.Show("Không có chi tiết khóa học nào thuộc khóa học này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -2881,36 +2911,36 @@ namespace MainForm
 
             if (string.IsNullOrEmpty(makhoahoc))
             {
-                MessageBox.Show("Giá trị khóa học không được bỏ trống, hãy chọn giá trị khóa học !");
+                MessageBox.Show("Giá trị khóa học không được bỏ trống, hãy chọn giá trị khóa học !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             if (string.IsNullOrEmpty(mamh))
             {
-                MessageBox.Show("Giá trị môn học không được bỏ trống, hãy chọn giá trị môn học !");
+                MessageBox.Show("Giá trị môn học không được bỏ trống, hãy chọn giá trị môn học !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(magv))
             {
-                MessageBox.Show("Giá trị giáo viên không được bỏ trống, hãy chọn giá trị giáo viên !");
+                MessageBox.Show("Giá trị giáo viên không được bỏ trống, hãy chọn giá trị giáo viên !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(maphong))
             {
-                MessageBox.Show("Giá trị phòng học không được bỏ trống, hãy chọn giá trị phòng học !");
+                MessageBox.Show("Giá trị phòng học không được bỏ trống, hãy chọn giá trị phòng học !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (maphong.Length - 1 > 10)
             {
-                MessageBox.Show("Chiều dài ký tự phòng học không được quá 10 ký tự !");
+                MessageBox.Show("Chiều dài ký tự phòng học không được quá 10 ký tự !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(mathu))
             {
-                MessageBox.Show("Giá trị thời gian không được bỏ trống, hãy chọn giá trị thời gian cho chi tiết khóa học này !");
+                MessageBox.Show("Giá trị thời gian không được bỏ trống, hãy chọn giá trị thời gian cho chi tiết khóa học này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -2918,7 +2948,7 @@ namespace MainForm
 
             if (listctkh != null)
             {
-                MessageBox.Show("Chi tiết khóa học này đã được đăng ký, hãy đăng ký lại");
+                MessageBox.Show("Chi tiết khóa học này đã được đăng ký, hãy đăng ký lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -2988,15 +3018,15 @@ namespace MainForm
 
             int nambatdau = getNamBatDauInput(makhoahoc);
             //Hiển thị năm bắt đầu của chi tiết khóa học đang thêm
-            MessageBox.Show(nambatdau.ToString());
+            //MessageBox.Show(nambatdau.ToString());
 
             string mact = getMaChuongTrinhInput(makhoahoc);
             //Hiển thị chương trình của chi tiết khóa học đang thêm
-            MessageBox.Show(mact);
+            //MessageBox.Show(mact);
 
             int hocky = getHocKy(mact, mamh);
             //Hiển thị học kỳ của môn học mà giảng viên đó đang phụ trách cho chi tiết khóa học này
-            MessageBox.Show(hocky.ToString());
+            //MessageBox.Show(hocky.ToString());
 
             var ctkhGeneral = getListCTKHequals(magv, thu);
 
@@ -3004,11 +3034,11 @@ namespace MainForm
             {
                 var mamhKH = item.MaMonHoc;
                 int itemNamBatDau = getNamBatDau(item.MaKhoaHoc);
-                MessageBox.Show(itemNamBatDau.ToString());
+                //MessageBox.Show(itemNamBatDau.ToString());
                 string itemMCT = getMaChuongTrinh(item.MaKhoaHoc);
-                MessageBox.Show(itemMCT);
+                //MessageBox.Show(itemMCT);
                 int itemhocky = getHocKy(itemMCT, mamhKH);
-                MessageBox.Show(itemhocky.ToString());
+                //MessageBox.Show(itemhocky.ToString());
 
                 if (itemNamBatDau == nambatdau && itemhocky == hocky)
                 {
@@ -3077,7 +3107,6 @@ namespace MainForm
             }
             return true;
         }
-        
 
         private void btnAdd_CTKH_Click(object sender, EventArgs e)
         {
@@ -3128,7 +3157,7 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(makhoahoc))
             {
-                MessageBox.Show("Hãy chọn chi tiết khóa học mà bạn muốn xóa !");
+                MessageBox.Show("Hãy chọn chi tiết khóa học mà bạn muốn xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -3156,7 +3185,7 @@ namespace MainForm
                         
                         if (ctkhBLL.DeleteChiTietKhoaHoc(makhoahoc, mamh, magv))
                         {
-                            MessageBox.Show("Xóa thông tin chi tiết khóa học thành công !");
+                            MessageBox.Show("Xóa thông tin chi tiết khóa học thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadDataGridviewCTKH();
                             resetDataCTKH();
                         }
@@ -3165,7 +3194,7 @@ namespace MainForm
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa");
+                    MessageBox.Show("Thông tin đã có sự thay đổi, người dùng hãy thực hiện thao tác lưu trước khi xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -3174,25 +3203,25 @@ namespace MainForm
         {
             if (string.IsNullOrEmpty(makhoahoc))
             {
-                MessageBox.Show("Hãy chọn giá trị chi tiết khóa học mà bạn cần chỉnh sửa");
+                MessageBox.Show("Hãy chọn giá trị chi tiết khóa học mà bạn cần chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(maphong))
             {
-                MessageBox.Show("Giá trị phòng học không được bỏ trống, hãy chọn giá trị phòng học !");
+                MessageBox.Show("Giá trị phòng học không được bỏ trống, hãy chọn giá trị phòng học !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (maphong.Length - 1 > 10)
             {
-                MessageBox.Show("Chiều dài ký tự phòng học không được quá 10 ký tự !");
+                MessageBox.Show("Chiều dài ký tự phòng học không được quá 10 ký tự !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             if (string.IsNullOrEmpty(mathu))
             {
-                MessageBox.Show("Giá trị thời gian không được bỏ trống, hãy chọn giá trị thời gian cho chi tiết khóa học này !");
+                MessageBox.Show("Giá trị thời gian không được bỏ trống, hãy chọn giá trị thời gian cho chi tiết khóa học này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -3223,13 +3252,13 @@ namespace MainForm
                     {
                         if (ctkhBLL.EditChiTietKhoaHoc(makhoahoc, mamh, magv, maphong, thu))
                         {
-                            MessageBox.Show("Lưu thay đổi thành công !");
+                            MessageBox.Show("Lưu thay đổi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadDataGridviewCTKH();
                             resetDataCTKH();
                         }
                         else
                         {
-                            MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.");
+                            MessageBox.Show("Lưu thay đổi không thành công ! Hãy thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -3245,7 +3274,7 @@ namespace MainForm
         {
             if (cbKhoaHoc_Search_CTKH.Text == "")
             {
-                MessageBox.Show("Hãy chọn khóa học cần tìm !");
+                MessageBox.Show("Hãy chọn khóa học cần tìm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbKhoaHoc_Search_CTKH.SelectedIndex = -1;
                 LoadDataGridviewCTKH();
                 ListCTKH.ClearSelection();
@@ -3256,7 +3285,7 @@ namespace MainForm
                 cbKhoaHoc_Search_CTKH.SelectedIndex = -1;
                 LoadDataGridviewCTKH_Search(value);
                 ListCTKH.ClearSelection();
-                MessageBox.Show("Đã tìm kiếm thành công !");
+                MessageBox.Show("Đã tìm kiếm thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -3279,17 +3308,18 @@ namespace MainForm
                     string mamh = cbMH_CTKH.SelectedValue.ToString().Trim();
 
                     int nambatdau = getNamBatDau(cbKhoaHoc_CTKH.SelectedValue.ToString().Trim());
-                    MessageBox.Show(nambatdau.ToString());
+                    //MessageBox.Show(nambatdau.ToString());
 
                     string mact = getMaChuongTrinh(cbKhoaHoc_CTKH.SelectedValue.ToString().Trim());
-                    MessageBox.Show(mact);
+                    //MessageBox.Show(mact);
 
                     int hocky = getHocKy(mact, mamh);
-                    MessageBox.Show(hocky.ToString());
+                    //MessageBox.Show(hocky.ToString());
 
                 }
             }
         }
+
     }
 
     

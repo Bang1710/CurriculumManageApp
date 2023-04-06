@@ -17,6 +17,7 @@ namespace DAL
             return listChiTietKhoaHoc;
         }
 
+
         public bool AddChiTietKhoaHoc(KhoaHocMon mon)
         {
             try
