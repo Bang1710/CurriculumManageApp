@@ -2944,13 +2944,13 @@ namespace MainForm
                 return false;
             }
 
-            var listctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaKhoaHoc == makhoahoc && c.MaMonHoc == mamh && c.MaGiaoVien_day == magv).FirstOrDefault();
+            //var listctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaKhoaHoc == makhoahoc && c.MaMonHoc == mamh && c.MaGiaoVien_day == magv).FirstOrDefault();
 
-            if (listctkh != null)
-            {
-                MessageBox.Show("Chi tiết khóa học này đã được đăng ký, hãy đăng ký lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
+            //if (listctkh != null)
+            //{
+            //    MessageBox.Show("Chi tiết khóa học này đã được đăng ký, hãy đăng ký lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return false;
+            //}
             return true;
         }
 
@@ -3122,7 +3122,11 @@ namespace MainForm
                 string makhoahoc = cbKhoaHoc_CTKH.SelectedValue.ToString().Trim();
                 string mamh = cbMH_CTKH.SelectedValue.ToString().Trim();
                 string magv = cbGV_CTKH.SelectedValue.ToString().Trim();
-                if (checkThoiGianGiangDay(makhoahoc, mamh, magv, maphong, thu))
+                var listctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaKhoaHoc == makhoahoc && c.MaMonHoc == mamh && c.MaGiaoVien_day == magv).FirstOrDefault();
+                if (listctkh != null)
+                {
+                    MessageBox.Show("Chi tiết khóa học này đã được đăng ký, hãy đăng ký lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else if (checkThoiGianGiangDay(makhoahoc, mamh, magv, maphong, thu))
                 {
                     var chitietkhpahoc = new KhoaHocMon()
                     {
