@@ -48,3 +48,28 @@ C:\Users\Van Bang\Desktop\Nhóm 5 _PTUDWindows\Source code\QuanLyChuongTrinhHoc\
 C:\Users\Van Bang\Desktop\Nhóm 5 _PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\Van Bang\Desktop\Nhóm 5 _PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.exe
 C:\Users\Van Bang\Desktop\Nhóm 5 _PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.pdb
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\MainForm.exe.config
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\MainForm.exe
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\MainForm.pdb
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\BLL.dll
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\DTO.dll
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\EntityFramework.dll
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\DAL.dll
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\BLL.pdb
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\DTO.pdb
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\DTO.dll.config
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\EntityFramework.xml
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\DAL.pdb
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\bin\Debug\DAL.dll.config
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.FrmLogin.resources
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.FrmMenu.resources
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.Properties.Resources.resources
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\GUI.csproj.CopyComplete
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.exe
+C:\Users\Van Bang\Desktop\HKD-2023\Windows\Đồ án\Nhóm5_PTUDWindows\Source code\QuanLyChuongTrinhHoc\MainForm\obj\Debug\MainForm.pdb

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -232,6 +233,12 @@ namespace MainForm
             if (khoaID != null)
             {
                 MessageBox.Show("ID đã tồn tại, hãy nhập lại giá trị ID khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (!Regex.IsMatch(makhoa, @"^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("ID Không được nhập ký tự có dấu hoặc không được phép có khoảng trắng (các ký tự đặc biệt) trong giá trị, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -582,6 +589,12 @@ namespace MainForm
             if (string.IsNullOrEmpty(mgv))
             {
                 MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (!Regex.IsMatch(mgv, @"^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("ID Không được nhập ký tự có dấu hoặc không được phép có khoảng trắng (các ký tự đặc biệt) trong giá trị, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -936,6 +949,12 @@ namespace MainForm
             if (string.IsNullOrEmpty(mact))
             {
                 MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (!Regex.IsMatch(mact, @"^[a-zA-Z0-9\u00C0-\u1EF3]+$"))
+            {
+                MessageBox.Show("ID không được chứa các ký tự đặc biệt, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -1328,6 +1347,13 @@ namespace MainForm
                 MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+
+            if (!Regex.IsMatch(mamh, @"^[a-zA-Z0-9\u00C0-\u1EF3]+$"))
+            {
+                MessageBox.Show("ID không được chứa các ký tự đặc biệt, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
 
             if (mamh.Length - 1 >= 5)
             {
@@ -2500,6 +2526,12 @@ namespace MainForm
             if (string.IsNullOrEmpty(id))
             {
                 MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (!Regex.IsMatch(id, @"^[a-zA-Z0-9\u00C0-\u1EF3]+$"))
+            {
+                MessageBox.Show("ID không được chứa các ký tự đặc biệt, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
