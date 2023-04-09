@@ -216,12 +216,32 @@ namespace MainForm
 
         private void btnEditMode_Khoa_Click(object sender, EventArgs e)
         {
-            if (btnEditMode_Khoa.Text == "ON")
+
+            if (txtID_Khoa.Text != "" || txtTenKhoa_Khoa.Text != "")
             {
-                turnOffEditModeKhoa();
-            } else if (btnEditMode_Khoa.Text == "OFF")
+                if (btnEditMode_Khoa.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModeKhoa();
+                    }
+                } else if (btnEditMode_Khoa.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnONEditModeKhoa();
+                    }
+                }
+            } else
             {
-                turnONEditModeKhoa();
+                if (btnEditMode_Khoa.Text == "ON")
+                {
+                     turnOffEditModeKhoa();
+                }
+                else if (btnEditMode_Khoa.Text == "OFF")
+                {
+                    turnONEditModeKhoa();
+                }
             }
         }
 
@@ -236,15 +256,15 @@ namespace MainForm
                 return false;
             }
 
-            if (!Regex.IsMatch(makhoa, @"^[a-zA-Z0-9]+$"))
-            {
-                MessageBox.Show("ID Không được nhập ký tự có dấu hoặc không được phép có khoảng trắng (các ký tự đặc biệt) trong giá trị, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-
             if (string.IsNullOrEmpty(makhoa))
             {
                 MessageBox.Show("ID không được bỏ trống, hãy nhập giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (!Regex.IsMatch(makhoa, @"^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("ID Không được nhập ký tự có dấu hoặc không được phép có khoảng trắng (các ký tự đặc biệt) trong giá trị, hãy nhập lại giá trị ID", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -317,7 +337,7 @@ namespace MainForm
                 if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin khoa này không ?", "Thông báo", MessageBoxButtons.YesNo))
                 {
                     var kh = listkhoa.Where(k => k.MaKhoa == makhoa).FirstOrDefault();
-                    if (kh.GiaoViens.Any())
+                    if (kh.GiaoViens.Any() || kh.ChuongTrinhs.Any() || kh.MonHocs.Any())
                     {
                         MessageBox.Show("Không thể xóa khoa này, vì có bản ghi liên quan đến thông tin của khoa này !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         resetDataKhoa();
@@ -436,7 +456,7 @@ namespace MainForm
             cbMaKhoa_ChuongTrinh.DisplayMember = "TenKhoa";
             cbMaKhoa_ChuongTrinh.ValueMember = "MaKhoa";
             cbMaKhoa_ChuongTrinh.SelectedIndex = -1;
-
+            
             //tab môn học
             cbMaKhoa_MonHoc.DataSource = khoas;
             cbMaKhoa_MonHoc.DisplayMember = "TenKhoa";
@@ -523,12 +543,31 @@ namespace MainForm
 
         private void btnEditMode_GiaoVien_Click(object sender, EventArgs e)
         {
-            if (btnEditMode_GiaoVien.Text == "ON")
+            if (cbKhoa_GiaoVien.Text != "" || txtHoTen_GiaoVien.Text != "" || txtID_GiaoVien.Text != "")
             {
-                turnOffEditModeGiaoVien();
-            } else if (btnEditMode_GiaoVien.Text == "OFF")
+                if (btnEditMode_GiaoVien.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModeGiaoVien();
+                    }
+                }
+                else if (btnEditMode_GiaoVien.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                       turnONEditModeGiaoVien();   
+                    }
+                }
+            } else
             {
-                turnONEditModeGiaoVien();
+                if (btnEditMode_GiaoVien.Text == "ON")
+                {
+                    turnOffEditModeGiaoVien();
+                } else if (btnEditMode_GiaoVien.Text == "OFF")
+                {
+                    turnONEditModeGiaoVien();
+                }
             }
         }
 
@@ -704,7 +743,7 @@ namespace MainForm
                     if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin giáo viên này không ?", "Thông báo", MessageBoxButtons.YesNo))
                     {
                         var gv = listGiaoVien.Where(g => g.MaGiaoVien == magv).FirstOrDefault();
-                        if (gv.ChuongTrinhs.Any())
+                        if (gv.ChuongTrinhs.Any() || gv.DamNhiemMons.Any() || gv.KhoaHocMons.Any())
                         {
                             MessageBox.Show("Không thể xóa giáo viên này này, vì có liên quan đến các bản ghi khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataGiaoVien();
@@ -860,13 +899,32 @@ namespace MainForm
 
         private void btnEditMode_ChuongTrinh_Click(object sender, EventArgs e)
         {
-            if (btnEditMode_ChuongTrinh.Text == "ON")
+            if (txtID_ChuongTrinh.Text != "" || txtTenChuongTrinh_ChuongTrinh.Text != "" || txtBacHoc_ChuongTrinh.Text != "" || cbKhoa_ChuongTrinh.SelectedIndex != -1 || cbGiaoVien_ChuongTrinh.SelectedIndex != -1)
             {
-                turnOffEditModeChuongTrinh();
-            }
-            else if (btnEditMode_ChuongTrinh.Text == "OFF")
+                if (btnEditMode_ChuongTrinh.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModeChuongTrinh();
+                    }
+                }
+                else if (btnEditMode_ChuongTrinh.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnONEditModeChuongTrinh();
+                    }
+                }
+            } else
             {
-                turnONEditModeChuongTrinh();
+                if (btnEditMode_ChuongTrinh.Text == "ON")
+                {
+                    turnOffEditModeChuongTrinh();
+                }
+                else if (btnEditMode_ChuongTrinh.Text == "OFF")
+                {
+                    turnONEditModeChuongTrinh();
+                }
             }
         }
 
@@ -1076,7 +1134,7 @@ namespace MainForm
                     if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin chương trình đào tạo này không ?", "Thông báo", MessageBoxButtons.YesNo))
                     {
                         var ct = listchuongtrinh.Where(c => c.MaChuongTrinh == mact).FirstOrDefault();
-                        if (ct.ChuongTrinhMonHocs.Any())
+                        if (ct.ChuongTrinhMonHocs.Any() || ct.DamNhiemMons.Any() || ct.KhoaHocs.Any())
                         {
                             MessageBox.Show("Không thể xóa chương trình đào tạo này, vì ảnh hưởng đến các bản ghi có liên quan", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataChuongTrinh();
@@ -1297,13 +1355,32 @@ namespace MainForm
 
         private void btnEditMode_MonHoc_Click_1(object sender, EventArgs e)
         {
-            if (btnEditMode_MonHoc.Text == "ON")
+            if (txtID_MonHoc.Text != "" || txtTenMonHoc_MonHoc.Text != "" || numSoTinChi_MonHoc.Value != 1 || cbKhoa_MonHoc.SelectedIndex != -1)
             {
-                turnOffEditModeMonHoc();
-            }
-            else if (btnEditMode_MonHoc.Text == "OFF")
+                if (btnEditMode_MonHoc.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModeMonHoc();    
+                    }
+                }
+                else if (btnEditMode_MonHoc.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnONEditModeMonHoc();
+                    }
+                }
+            } else
             {
-                turnONEditModeMonHoc();
+                if (btnEditMode_MonHoc.Text == "ON")
+                {
+                    turnOffEditModeMonHoc();
+                }
+                else if (btnEditMode_MonHoc.Text == "OFF")
+                {
+                    turnONEditModeMonHoc();
+                }
             }
         }
 
@@ -1446,7 +1523,7 @@ namespace MainForm
                     if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin môn học này không ?", "Thông báo", MessageBoxButtons.YesNo))
                     {
                         var mh = listmonhoc.Where(m => m.MaMonHoc == mamh).FirstOrDefault();
-                        if (mh.ChuongTrinhMonHocs.Any())
+                        if (mh.ChuongTrinhMonHocs.Any() || mh.DamNhiemMons.Any() || mh.KhoaHocMons.Any())
                         {
                             MessageBox.Show("Không thể xóa môn học này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             resetDataMonHoc();
@@ -1648,14 +1725,36 @@ namespace MainForm
 
         private void btnEditMode_ChuongTrinhMonHoc_Click(object sender, EventArgs e)
         {
-            if (btnEditMode_ChuongTrinhMonHoc.Text == "ON")
+            if (numHocKy_CTMH.Value != 1 || cbMH_CTMH.SelectedIndex != -1 || cbCTDT_CTMH.SelectedIndex != -1)
             {
-                turnOffEditModeCTMH();
+                if (btnEditMode_ChuongTrinhMonHoc.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModeCTMH();
+                    }
+                }
+                else if (btnEditMode_ChuongTrinhMonHoc.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnONEditModeCTMH();
+                    }
+                }
             }
-            else if (btnEditMode_ChuongTrinhMonHoc.Text == "OFF")
+            else
             {
-                turnONEditModeCTMH();
+                if (btnEditMode_ChuongTrinhMonHoc.Text == "ON")
+                {
+                    turnOffEditModeCTMH();
+                }
+                else if (btnEditMode_ChuongTrinhMonHoc.Text == "OFF")
+                {
+                    turnONEditModeCTMH();
+                }
             }
+
+           
         }
 
         public void LoadDataComboboxCTDT_CTMH()
@@ -1980,13 +2079,33 @@ namespace MainForm
 
         private void btnEditMode_PhuTrachMonHoc_Click(object sender, EventArgs e)
         {
-            if (btnEditMode_PTMH.Text == "ON")
+
+            if (cbCTDT_PTMH.SelectedIndex != -1 || cbGV_PTMH.SelectedIndex != -1 || cbMH_PTMH.SelectedIndex != -1)
             {
-                turnOffEditModePTMH();
-            }
-            else if (btnEditMode_PTMH.Text == "OFF")
+                if (btnEditMode_PTMH.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModePTMH();
+                    }
+                }
+                else if (btnEditMode_PTMH.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnONEditModePTMH();
+                    }
+                }
+            } else
             {
-                turnONEditModePTMH();
+                if (btnEditMode_PTMH.Text == "ON")
+                {
+                    turnOffEditModePTMH();
+                }
+                else if (btnEditMode_PTMH.Text == "OFF")
+                {
+                    turnONEditModePTMH();
+                }
             }
         }
 
@@ -2412,13 +2531,34 @@ namespace MainForm
 
         private void btnEditMode_KhoaHoc_Click(object sender, EventArgs e)
         {
-            if (btnEditMode_KhoaHoc.Text == "ON")
+            if (txtID_KhoaHoc.Text != "" || txtTenKhoaHoc_KhoaHoc.Text != "" || numNamBatDau.Value != 2020 || numNamKetThuc.Value != 2024 || cbCTDT_KhoaHoc.SelectedIndex != -1)
             {
-                turnOffEditModeKH();
-            }
-            else if (btnEditMode_KhoaHoc.Text == "OFF")
+                if (btnEditMode_KhoaHoc.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModeKH();
+                    }
+                }
+                else if (btnEditMode_KhoaHoc.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                       turnONEditModeKH();
+                    }
+                }
+
+            } else
             {
-                turnONEditModeKH();
+                if (btnEditMode_KhoaHoc.Text == "ON")
+                {
+                    turnOffEditModeKH();
+                }
+                else if (btnEditMode_KhoaHoc.Text == "OFF")
+                {
+                    turnONEditModeKH();
+                }
+
             }
         }
 
@@ -2807,13 +2947,32 @@ namespace MainForm
 
         private void btnEditMode_ChiTietKhoaHoc_Click(object sender, EventArgs e)
         {
-            if (btnEditMode_ChiTietKhoaHoc.Text == "ON")
+            if (cbKhoaHoc_CTKH.SelectedIndex != -1 || cbMH_CTKH.SelectedIndex != -1 || cbGV_CTKH.SelectedIndex != -1 || txtMaPhong.Text != "" || cbThoiGian.SelectedIndex != -1)
             {
-                turnOffEditModeCTKH();
-            }
-            else if (btnEditMode_ChiTietKhoaHoc.Text == "OFF")
+                if (btnEditMode_ChiTietKhoaHoc.Text == "ON")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ chỉnh sửa, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnOffEditModeCTKH();
+                    }
+                }
+                else if (btnEditMode_ChiTietKhoaHoc.Text == "OFF")
+                {
+                    if (DialogResult.No == MessageBox.Show("Bạn đang ở chế độ thêm, bạn có muốn tiếp tục thực hiện tác vụ này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                    {
+                        turnONEditModeCTKH();
+                    }
+                }
+            } else
             {
-                turnONEditModeCTKH();
+                if (btnEditMode_ChiTietKhoaHoc.Text == "ON")
+                {
+                    turnOffEditModeCTKH();
+                }
+                else if (btnEditMode_ChiTietKhoaHoc.Text == "OFF")
+                {
+                    turnONEditModeCTKH();
+                }
             }
         }
 
