@@ -2247,12 +2247,19 @@ namespace MainForm
 
                 var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv).SingleOrDefault();
                 var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).GroupBy(d => d.MaMonHoc).ToList().Count();
+                var mhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaMonHoc == mamh && d.CoLaDamNhiemChinh == 1 && d.MaGiaoVien == magv).ToList().Count();
+                //var mhNonExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaMonHoc == mamh && d.CoLaDamNhiemChinh == 0).ToList().Count();
+
+                MessageBox.Show(dncGV.ToString());
+                MessageBox.Show(mhExist.ToString());
+
+
 
                 if (ptmhExist != null)
                 {
                     MessageBox.Show("Phụ trách môn học này đã được đăng ký, hãy thử đăng ký lại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (!(dncGV >= 5 && dnc == true))
+                else if (!(dncGV >= 5 && dnc == true && mhExist < 1))
                 {
                     int value = Convert.ToInt32(dnc);
 
@@ -2317,7 +2324,7 @@ namespace MainForm
                 {
                     if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin phụ trách môn học này không ?", "Thông báo", MessageBoxButtons.YesNo))
                     {
-                        var ctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaGiaoVien_day == magv && c.MaMonHoc == mamh).FirstOrDefault();
+                        var ctkh = ctkhBLL.getListChiTietKhoaHoc().Where(c => c.MaGiaoVien_day == magv && c.MaMonHoc == mamh && c.KhoaHoc.ChuongTrinh.MaChuongTrinh == mactdt).FirstOrDefault();
                         if (ctkh != null)
                         {
                             MessageBox.Show("Không thể xóa phụ trách môn học này này, vì đã được phân công trong chi tiết khóa học !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -2380,11 +2387,11 @@ namespace MainForm
             var mactdtText = cbCTDT_PTMH.Text;
             var mamhText = cbMH_PTMH.Text;
             var magvText = cbGV_PTMH.Text;
-            bool dnc = ckDamNhiemChinh.Checked;
 
             string mactdt;
             string mamh;
             string magv; 
+            bool dnc = ckDamNhiemChinh.Checked;
 
             if (checkDataEditPTMH(mamhText))
             {
@@ -2392,15 +2399,20 @@ namespace MainForm
                 mactdt = cbCTDT_PTMH.SelectedValue.ToString().Trim();
                 mamh = cbMH_PTMH.SelectedValue.ToString().Trim();
                 magv = cbGV_PTMH.SelectedValue.ToString().Trim();
+                dnc = ckDamNhiemChinh.Checked;
+                MessageBox.Show(dnc.ToString());
 
-                var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).ToList().Count();
-                //MessageBox.Show(dncGV.ToString());
+                var dncGV = dnmBLL.getListDamNhiemMon().Where(d => d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == 1).GroupBy(d => d.MaMonHoc).ToList().Count();
                 var ptmhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaChuongTrinh == mactdt && d.MaMonHoc == mamh && d.MaGiaoVien == magv && d.CoLaDamNhiemChinh == value).SingleOrDefault();
+                var mhExist = dnmBLL.getListDamNhiemMon().Where(d => d.MaMonHoc == mamh && d.CoLaDamNhiemChinh == 1 && d.MaGiaoVien == magv).ToList().Count();
+
+                MessageBox.Show(dncGV.ToString());
+                MessageBox.Show(mhExist.ToString());
                 if (ptmhExist != null)
                 {
                     MessageBox.Show("Thông tin chưa chỉnh sữa, hãy thực hiện chỉnh sửa trước khi lưu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (!(dncGV >= 5 && dnc == true))
+                else if (!(dncGV >= 5 && dnc == true && mhExist < 1))
                 {
                     if (DialogResult.Yes == MessageBox.Show("Bạn có muốn chỉnh sửa thông tin phụ trách môn học này không", "Thông báo", MessageBoxButtons.YesNo))
                     {
@@ -2415,8 +2427,7 @@ namespace MainForm
                             MessageBox.Show("Lưu không thành công ! Hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                }
-                else
+                } else
                 {
                     MessageBox.Show("Giáo viên này đã làm đảm nhiệm chính trên 5 môn học khác nhau, hãy đổi giáo viên khác làm đảm nhiệm chính hoặc không cho làm đảm nhiệm chính !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
