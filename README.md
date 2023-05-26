@@ -15,7 +15,7 @@ Chương trình này hỗ trợ quản lý các thực thể khác nhau như kho
 Clone the project
 
 ```bash
-  git clone https://github.com/Bang1710/CurriculumManagementApplication.git
+  git clone https://github.com/Bang1710/CurriculumManageApp.git
 ```
 
 Go to the project directory
