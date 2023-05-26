@@ -43,13 +43,13 @@ Run project
  
 ## Tech Stack
 
-**Server:** C#, Windows Form, Entity Framework Core, LINQ, SQL Server
+C#, Windows Form, Entity Framework Core, LINQ, SQL Server
 
 
 ## Account demo
 
-- Email: toanhocolympic@gmail.com
-- Ps: 17102002
+- UserName: bangnguyen1710
+- Ps: 01234567890123456789
 
 
 ## Demo
